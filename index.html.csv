@@ -1,0 +1,1118 @@
+School,Year,Paper Number,Question Number,Topic,Subtopic,"Difficulty 
+1 - Normal
+2 - Slightly Challenging
+3 - Challenging",Difficulty
+ACS (Barker),2024,1,1,Equation and Inequality,,,
+ACS (Barker),2024,1,2,Exponential and Log,,1,Normal
+ACS (Barker),2024,1,3,Exponential and Log,,1,Normal
+ACS (Barker),2024,1,4,Proof of Plane Geometry,,,
+ACS (Barker),2024,1,5,Coordinate Geometry,,1,Normal
+ACS (Barker),2024,1,6,Integration,Integrate with Partial Fraction,1,Normal
+ACS (Barker),2024,1,7,Binomial Expansion,,1,Normal
+ACS (Barker),2024,1,8,,,,
+ACS (Barker),2024,1,9,Integration,Differentiate then Integrate,1,Normal
+ACS (Barker),2024,1,10,Trigonometry,Proving Trigo Functions,1,Normal
+ACS (Barker),2024,1,11,Differentiation,Increasing / Decreasing Functions,2,Challenging
+ACS (Barker),2024,1,12,Trigonometry,Drawing Trigo Graphs,2,Challenging
+ACS (Barker),2024,2,1,Differentiation,Rate of Change,1,Normal
+ACS (Barker),2024,2,2,Exponential and Log,,1,Normal
+ACS (Barker),2024,2,3,Equation and Inequality,,1,Normal
+ACS (Barker),2024,2,4,Coordinate Geometry (Circle),,1,Normal
+ACS (Barker),2024,2,5,Trigonometry,"Special Angles, Proving Trigo Functions",2,Challenging
+ACS (Barker),2024,2,6,Polynomials,,2,Challenging
+ACS (Barker),2024,2,7,Linear Law,,1,Normal
+ACS (Barker),2024,2,8,Differentiation,Stationary Points,1,Normal
+ACS (Barker),2024,2,9,Kinematics,,,
+ACS (Barker),2024,2,10,Trigonometry,R-Formula,,
+ACS (Barker),2024,2,11,Integration - Area under curve,Tangent / Normal,,
+Canberra,2024,1,1,Partial Fractions,,1,Normal
+Canberra,2024,1,2,Trigonometry,Drawing Trigo Graphs,1,Normal
+Canberra,2024,1,3,Binomial Expansion,,1,Normal
+Canberra,2024,1,4,,,,
+Canberra,2024,1,5,Linear Law,,2,Challenging
+Canberra,2024,1,6,Equation and Inequality,,1,Normal
+Canberra,2024,1,7,Equation and Inequality,,1,Normal
+Canberra,2024,1,8,Integration,"Area under curve, Stationary Points, Tangent / Normal",,
+Canberra,2024,1,9,Proof of Plane Geometry,,,
+Canberra,2024,1,10,Differentiation,Increasing / Decreasing Functions,1,Normal
+Canberra,2024,1,11,Integration,"Integrating exponential equations, Tangent / Normal",1,Normal
+Canberra,2024,1,12,Kinematics,,,
+Canberra,2024,2,1,Integration,Differentiate then Integrate,1,Normal
+Canberra,2024,2,2,Trigonometry,Special Angles,1,Normal
+Canberra,2024,2,3,Trigonometry,"Proving Trigo Functions, Solving Trigo Functions",1,Normal
+Canberra,2024,2,4,Exponential and Log,,1,Normal
+Canberra,2024,2,5,Exponential and Log,,1,Normal
+Canberra,2024,2,6,Polynomials,,2,Challenging
+Canberra,2024,2,7,Trigonometry,R-Formula,1,Normal
+Canberra,2024,2,8,Differentiation,Stationary Points,1,Normal
+Canberra,2024,2,9,Coordinate Geometry (Circle),,2,Challenging
+Canberra,2024,2,10,Integration - Area under curve,,,
+Cedar Girls,2024,1,1,Surds,,1,Normal
+Cedar Girls,2024,1,2,Equation and Inequality,,1,Normal
+Cedar Girls,2024,1,3,Exponential and Log,,1,Normal
+Cedar Girls,2024,1,4,Exponential and Log,,1,Normal
+Cedar Girls,2024,1,5,Differentiation,Increasing / Decreasing Functions,2,Challenging
+Cedar Girls,2024,1,6,Trigonometry,Drawing Trigo Graphs,2,Challenging
+Cedar Girls,2024,1,7,Differentiation,Stationary Points,2,Challenging
+Cedar Girls,2024,1,8,Differentiation,Stationary Points,1,Normal
+Cedar Girls,2024,1,9,Differentiation,Rate of Change,2,Challenging
+Cedar Girls,2024,1,10,Trigonometry,R-Formula,1,Normal
+Cedar Girls,2024,1,11,Linear Law,,,
+Cedar Girls,2024,1,12,Integration,Differentiate then Integrate,,
+Cedar Girls,2024,1,13,Proof of Plane Geometry,,,
+Cedar Girls,2024,2,1,Equation and Inequality,,2,Challenging
+Cedar Girls,2024,2,2,Integration,Integrate with Partial Fraction,1,Normal
+Cedar Girls,2024,2,3,Trigonometry,"Proving Trigo Functions, Special Angles",1,Normal
+Cedar Girls,2024,2,4,Binomial Expansion,,2,Challenging
+Cedar Girls,2024,2,5,Coordinate Geometry,,1,Normal
+Cedar Girls,2024,2,6,Differentiation,Stationary Points,1,Normal
+Cedar Girls,2024,2,"7a, b",Polynomials,,1,Normal
+Cedar Girls,2024,2,"7c, d",Integration - Area under curve,,,
+Cedar Girls,2024,2,8,Coordinate Geometry (Circle),,1,Normal
+Cedar Girls,2024,2,9,Kinematics,,,
+Fairfield Methodist,2024,1,1,Equation and Inequality,,1,Normal
+Fairfield Methodist,2024,1,2,Surds,,1,Normal
+Fairfield Methodist,2024,1,3,Proof of Plane Geometry,,,
+Fairfield Methodist,2024,1,4,Trigonometry,Drawing Trigo Graphs,2,Challenging
+Fairfield Methodist,2024,1,5,Differentiation,Stationary Points,1,Normal
+Fairfield Methodist,2024,1,6,Integration,Integrate with Partial Fraction,1,Normal
+Fairfield Methodist,2024,1,7,Polynomials,,1,Normal
+Fairfield Methodist,2024,1,8,Exponential and Log,,1,Normal
+Fairfield Methodist,2024,1,9a,Differentiation,Rate of Change,2,Challenging
+Fairfield Methodist,2024,1,9b,Exponential and Log,,1,Normal
+Fairfield Methodist,2024,1,10,Trigonometry,Proving Trigo Functions,1,Normal
+Fairfield Methodist,2024,1,11,Integration - Area under curve,,,
+Fairfield Methodist,2024,1,12,Coordinate Geometry,,2,Challenging
+Fairfield Methodist,2024,2,1,Exponential and Log,,1,Normal
+Fairfield Methodist,2024,2,2,Differentiation,Tangent / Normal,1,Normal
+Fairfield Methodist,2024,2,3,Integration,Differentiate then Integrate,1,Normal
+Fairfield Methodist,2024,2,4,Equation and Inequality,,1,Normal
+Fairfield Methodist,2024,2,5,Trigonometry,Solving Trigo Functions,2,Challenging
+Fairfield Methodist,2024,2,6,Differentiation,Stationary Points,,
+Fairfield Methodist,2024,2,7,Binomial Expansion,,1,Normal
+Fairfield Methodist,2024,2,8,Linear Law,,,
+Fairfield Methodist,2024,2,9,Trigonometry,R-Formula,1,Normal
+Fairfield Methodist,2024,2,10,Kinematics,,,
+Fairfield Methodist,2024,2,11,Coordinate Geometry (Circle),,2,Challenging
+Gan Eng Seng,2024,1,1,Equation and Inequality,,1,Normal
+Gan Eng Seng,2024,1,2,Surds,,1,Normal
+Gan Eng Seng,2024,1,3,Polynomials,,1,Normal
+Gan Eng Seng,2024,1,4,Differentiation,Stationary Points,1,Normal
+Gan Eng Seng,2024,1,5,Binomial Expansion,,1,Normal
+Gan Eng Seng,2024,1,6,Integration,Tangent / Normal,1,Normal
+Gan Eng Seng,2024,1,7,Differentiation,Tangent / Normal,2,Challenging
+Gan Eng Seng,2024,1,8,Proof of Plane Geometry,,,
+Gan Eng Seng,2024,1,9,Coordinate Geometry,,1,Normal
+Gan Eng Seng,2024,1,10,Trigonometry,Drawing Trigo Graphs,1,Normal
+Gan Eng Seng,2024,1,11,Surds,,2,Challenging
+Gan Eng Seng,2024,1,12,Kinematics,,,
+Gan Eng Seng,2024,1,13,Exponential and Log,,1,Normal
+Gan Eng Seng,2024,1,14,Linear Law,,,
+Gan Eng Seng,2024,2,1,Polynomials,,1,Normal
+Gan Eng Seng,2024,2,2,Exponential and Log,Drawing Log / Exponential Graphs,1,Normal
+Gan Eng Seng,2024,2,3,Coordinate Geometry (Circle),,2,Challenging
+Gan Eng Seng,2024,2,4,Trigonometry,Solving Trigo Functions,,
+Gan Eng Seng,2024,2,5,Exponential and Log,,1,Normal
+Gan Eng Seng,2024,2,6,Trigonometry,R-Formula,1,Normal
+Gan Eng Seng,2024,2,7,Trigonometry,Proving Trigo Functions,2,Challenging
+Gan Eng Seng,2024,2,8,Differentiation,"Rate of Change, Stationary Points",1,Normal
+Gan Eng Seng,2024,2,9,Differentiation,Stationary Points,2,Challenging
+Gan Eng Seng,2024,2,10,Integration - Area under curve,,,
+Gan Eng Seng,2024,2,11,Integration,Differentiate then Integrate,1,Normal
+Geylang Methodist,2024,1,1,Equation and Inequality,,1,Normal
+Geylang Methodist,2024,1,2,Differentiation,,1,Normal
+Geylang Methodist,2024,1,3,Trigonometry,Drawing Trigo Graphs,1,Normal
+Geylang Methodist,2024,1,4,Integration,Tangent / Normal,1,Normal
+Geylang Methodist,2024,1,5,Surds,,1,Normal
+Geylang Methodist,2024,1,6,Differentiation,"Increasing / Decreasing Functions, Rate of Change",1,Normal
+Geylang Methodist,2024,1,7,Binomial Expansion,,1,Normal
+Geylang Methodist,2024,1,8,Differentiation,Stationary Points,2,Challenging
+Geylang Methodist,2024,1,9,Proof of Plane Geometry,,,
+Geylang Methodist,2024,1,10,Exponential and Log,,1,Normal
+Geylang Methodist,2024,1,11,Equation and Inequality,,2,Challenging
+Geylang Methodist,2024,1,12,Trigonometry,Proving Trigo Functions,,
+Geylang Methodist,2024,1,13,Linear Law,,,
+Geylang Methodist,2024,2,1,Trigonometry,Solving Trigo Functions,1,Normal
+Geylang Methodist,2024,2,2,Exponential and Log,,1,Normal
+Geylang Methodist,2024,2,3,Differentiation,Stationary Points,1,Normal
+Geylang Methodist,2024,2,4,Coordinate Geometry,,3,Very Challenging
+Geylang Methodist,2024,2,5,Coordinate Geometry (Circle),,1,Normal
+Geylang Methodist,2024,2,6,Trigonometry,R-Formula,1,Normal
+Geylang Methodist,2024,2,7,Polynomials,,1,Normal
+Geylang Methodist,2024,2,8,Kinematics,,,
+Geylang Methodist,2024,2,9,Integration - Area under curve,,,
+Geylang Methodist,2024,2,"10a, b",Integration,Integrate with Partial Fraction,1,Normal
+Geylang Methodist,2024,2,"10c, d",Integration,Differentiate then Integrate,1,Normal
+Hua Yi,2024,1,1,Surds,,1,Normal
+Hua Yi,2024,1,2,Equation and Inequality,,1,Normal
+Hua Yi,2024,1,3,Equation and Inequality,,1,Normal
+Hua Yi,2024,1,4,Integration,,1,Normal
+Hua Yi,2024,1,5,Partial Fractions,,1,Normal
+Hua Yi,2024,1,6,Polynomials,,2,Challenging
+Hua Yi,2024,1,7,Trigonometry,Drawing Trigo Graphs,1,Normal
+Hua Yi,2024,1,8,Differentiation,Rate of Change,1,Normal
+Hua Yi,2024,1,9,Differentiation,Stationary Points,1,Normal
+Hua Yi,2024,1,10,"Proof of Plane Geometry, Coordinate Geometry",,2,Challenging
+Hua Yi,2024,1,11,Trigonometry,"Proving Trigo Functions, Solving Trigo Functions",1,Normal
+Hua Yi,2024,1,12,Exponential and Log,,1,Normal
+Hua Yi,2024,1,13,Integration - Area under curve,,,
+Hua Yi,2024,1,14,Proof of Plane Geometry,,,
+Hua Yi,2024,2,1,Polynomials,,1,Normal
+Hua Yi,2024,2,2,Binomial Expansion,,1,Normal
+Hua Yi,2024,2,3,Integration,Differentiate then Integrate,1,Normal
+Hua Yi,2024,2,4,Exponential and Log,,1,Normal
+Hua Yi,2024,2,5,Equation and Inequality,,1,Normal
+Hua Yi,2024,2,6,Linear Law,,,
+Hua Yi,2024,2,7,Kinematics,,,
+Hua Yi,2024,2,8,Trigonometry,R-Formula,1,Normal
+Hua Yi,2024,2,9,Integration - Area under curve,,,
+Hua Yi,2024,2,10,Differentiation,Tangent / Normal,2,Challenging
+Juying,2024,1,1a,Differentiation,Increasing / Decreasing Functions,1,Normal
+Juying,2024,1,1b,Differentiation,Tangent / Normal,2,Challenging
+Juying,2024,1,2,Surds,,2,Challenging
+Juying,2024,1,3,Proof of Plane Geometry,,,
+Juying,2024,1,4,Polynomials,,1,Normal
+Juying,2024,1,5,Exponential and Log,,1,Normal
+Juying,2024,1,6,Trigonometry,,1,Normal
+Juying,2024,1,7,Trigonometry,,2,Challenging
+Juying,2024,1,8,Linear Law,,,
+Juying,2024,1,9,Integration,Integrate with Partial Fraction,2,Challenging
+Juying,2024,1,10,Equation and Inequality,,1,Normal
+Juying,2024,1,11,Trigonometry,"Proving Trigo Functions, Solving Trigo Functions",1,Normal
+Juying,2024,1,12,Differentiation,,1,Normal
+Juying,2024,1,13,Differentiation,Stationary Points,1,Normal
+Juying,2024,1,14,Integration,,,
+Juying,2024,2,1,Equation and Inequality,,1,Normal
+Juying,2024,2,2,Binomial Expansion,,2,Challenging
+Juying,2024,2,3,Exponential and Log,,2,Challenging
+Juying,2024,2,4,Coordinate Geometry,,2,Challenging
+Juying,2024,2,5,Trigonometry,R-Formula,1,Normal
+Juying,2024,2,6,Differentiation,Rate of Change,1,Normal
+Juying,2024,2,7,Equation and Inequality,,1,Normal
+Juying,2024,2,8,Integration,,1,Normal
+Juying,2024,2,9,Kinematics,,,
+Juying,2024,2,10,Integration - Area under curve,,,
+Juying,2024,2,11,Trigonometry,Drawing Trigo Graphs,1,Normal
+Juying,2024,2,12,Integration,,2,Challenging
+Juying,2024,2,13,Trigonometry,Special Angles,1,Normal
+Kent Ridge,2024,1,1,Trigonometry,Proving Trigo Functions,2,Challenging
+Kent Ridge,2024,1,2,Coordinate Geometry,,1,Normal
+Kent Ridge,2024,1,3,Trigonometry,Drawing Trigo Graphs,1,Normal
+Kent Ridge,2024,1,4,Binomial Expansion,,1,Normal
+Kent Ridge,2024,1,5a,Differentiation,Increasing / Decreasing Functions,1,Normal
+Kent Ridge,2024,1,5b,Integration,Integrate with Partial Fraction,1,Normal
+Kent Ridge,2024,1,6,Exponential and Log,,1,Normal
+Kent Ridge,2024,1,7,Differentiation,,1,Normal
+Kent Ridge,2024,1,8,Equation and Inequality,,2,Challenging
+Kent Ridge,2024,1,9,Differentiation,Rate of Change,1,Normal
+Kent Ridge,2024,1,10,Proof of Plane Geometry,,,
+Kent Ridge,2024,1,11a,Polynomials,,1,Normal
+Kent Ridge,2024,1,11b,Differentiation,Stationary Points,1,Normal
+Kent Ridge,2024,1,12a,Trigonometry,Proving Trigo Functions,1,Normal
+Kent Ridge,2024,1,12b,Trigonometry,Special Angles,1,Normal
+Kent Ridge,2024,2,1,Partial Fractions,,1,Normal
+Kent Ridge,2024,2,2,Linear Law,,,
+Kent Ridge,2024,2,3,Integration - Area under curve,,,
+Kent Ridge,2024,2,4,Equation and Inequality,,1,Normal
+Kent Ridge,2024,2,5,Differentiation,,1,Normal
+Kent Ridge,2024,2,6,Integration,Differentiate then Integrate,,
+Kent Ridge,2024,2,7,Proof of Plane Geometry,,,
+Kent Ridge,2024,2,8,Exponential and Log,,1,Normal
+Kent Ridge,2024,2,9,Coordinate Geometry (Circle),,2,Challenging
+Kent Ridge,2024,2,10,Kinematics,,,
+Mayflower,2024,1,1,Equation and Inequality,,1,Normal
+Mayflower,2024,1,2,Exponential and Log,,1,Normal
+Mayflower,2024,1,3,Trigonometry,,2,Challenging
+Mayflower,2024,1,4,Polynomials,,1,Normal
+Mayflower,2024,1,5,Trigonometry,Proving Trigo Functions,2,Challenging
+Mayflower,2024,1,6,Binomial Expansion,,1,Normal
+Mayflower,2024,1,7,Proof of Plane Geometry,,,
+Mayflower,2024,1,8,Differentiation,Rate of Change,2,Challenging
+Mayflower,2024,1,9,Differentiation,,2,Challenging
+Mayflower,2024,1,10,Equation and Inequality,,1,Normal
+Mayflower,2024,1,11,Partial Fractions,,1,Normal
+Mayflower,2024,2,1,Polynomials,,1,Normal
+Mayflower,2024,2,2,Surds,,1,Normal
+Mayflower,2024,2,3,Binomial Expansion,,1,Normal
+Mayflower,2024,2,4,Trigonometry,Principal Values,2,Challenging
+Mayflower,2024,2,5a,Differentiation,Tangent / Normal,1,Normal
+Mayflower,2024,2,5b,Differentiation,Increasing / Decreasing Functions,1,Normal
+Mayflower,2024,2,6,Coordinate Geometry,,1,Normal
+Mayflower,2024,2,7,Equation and Inequality,,2,Challenging
+Mayflower,2024,2,8a,Differentiation,Stationary Points,2,Challenging
+Mayflower,2024,2,8b,Integration,,2,Challenging
+Mayflower,2024,2,9,Differentiation,Stationary Points,1,Normal
+Mayflower,2024,2,10a,Trigonometry,Principal Values,2,Challenging
+Mayflower,2024,2,10b,Trigonometry,Drawing Trigo Graphs,2,Challenging
+Mayflower,2024,2,11,Coordinate Geometry (Circle),,2,Challenging
+Mayflower,2024,2,12,Kinematics,,,
+Methodist Girl,2024,1,1,Equation and Inequality,,2,Challenging
+Methodist Girl,2024,1,2,Equation and Inequality,,1,Normal
+Methodist Girl,2024,1,3,Equation and Inequality,,1,Normal
+Methodist Girl,2024,1,4,Trigonometry,Solving Trigo Functions,1,Normal
+Methodist Girl,2024,1,5,Differentiation,Increasing / Decreasing Functions,1,Normal
+Methodist Girl,2024,1,6,Equation and Inequality,,1,Normal
+Methodist Girl,2024,1,7,Integration,Tangent / Normal,1,Normal
+Methodist Girl,2024,1,8,Exponential and Log,,1,Normal
+Methodist Girl,2024,1,9,Polynomials,,1,Normal
+Methodist Girl,2024,1,"10a, b",Differentiation,Rate of Change,1,Normal
+Methodist Girl,2024,1,10c,Integration,Differentiate then Integrate,1,Normal
+Methodist Girl,2024,1,11,Linear Law,,,
+Methodist Girl,2024,1,12,Kinematics,,,
+Methodist Girl,2024,1,13,Trigonometry,R-Formula,1,Normal
+Methodist Girl,2024,1,14,Differentiation,Stationary Points,1,Normal
+Methodist Girl,2024,2,1,Surds,,1,Normal
+Methodist Girl,2024,2,2,Proof of Plane Geometry,,,
+Methodist Girl,2024,2,3,Exponential and Log,,1,Normal
+Methodist Girl,2024,2,4,Trigonometry,Solving Trigo Functions,1,Normal
+Methodist Girl,2024,2,5,Binomial Expansion,,1,Normal
+Methodist Girl,2024,2,6,Coordinate Geometry (Circle),,1,Normal
+Methodist Girl,2024,2,7,Integration,Integrate with Partial Fraction,1,Normal
+Methodist Girl,2024,2,8,Integration - Area under curve,,,
+Methodist Girl,2024,2,9,Trigonometry,Drawing Trigo Graphs,1,Normal
+Methodist Girl,2024,2,10,Coordinate Geometry,,2,Challenging
+Nan Chiau,2024,1,1,Equation and Inequality,,1,Normal
+Nan Chiau,2024,1,2,Equation and Inequality,,2,Challenging
+Nan Chiau,2024,1,3,Differentiation,Increasing / Decreasing Functions,2,Challenging
+Nan Chiau,2024,1,4,Trigonometry,Proving Trigo Functions,1,Normal
+Nan Chiau,2024,1,5,Partial Fractions,,1,Normal
+Nan Chiau,2024,1,6a,Trigonometry,Proving Trigo Functions,1,Normal
+Nan Chiau,2024,1,6b,Trigonometry,Solving Trigo Functions,2,Challenging
+Nan Chiau,2024,1,7,Integration,Differentiate then Integrate,2,Challenging
+Nan Chiau,2024,1,8,Equation and Inequality,,1,Normal
+Nan Chiau,2024,1,9,Exponential and Log,,1,Normal
+Nan Chiau,2024,1,"10a, b",Differentiation,Stationary Points,1,Normal
+Nan Chiau,2024,1,10c,Differentiation,Rate of Change,2,Challenging
+Nan Chiau,2024,1,11,Coordinate Geometry (Circle),,2,Challenging
+Nan Chiau,2024,1,12,Coordinate Geometry,,2,Challenging
+Nan Chiau,2024,1,13,Differentiation,Rate of Change,2,Challenging
+Nan Chiau,2024,2,1,Binomial Expansion,,2,Challenging
+Nan Chiau,2024,2,2,Integration,,2,Challenging
+Nan Chiau,2024,2,3,Trigonometry,Solving Trigo Functions,2,Challenging
+Nan Chiau,2024,2,4,Linear Law,,3,Very Challenging
+Nan Chiau,2024,2,5,Differentiation,Stationary Points,1,Normal
+Nan Chiau,2024,2,6,Integration - Area under curve,,,
+Nan Chiau,2024,2,7,Polynomials,,1,Normal
+Nan Chiau,2024,2,8a,Trigonometry,Drawing Trigo Graphs,1,Normal
+Nan Chiau,2024,2,8b,Kinematics,,,
+Nan Chiau,2024,2,9,Trigonometry,R-Formula,,
+Nan Chiau,2024,2,10,Proof of Plane Geometry,,,
+Northland,2024,1,1,Equation and Inequality,,1,Normal
+Northland,2024,1,2,Exponential and Log,,1,Normal
+Northland,2024,1,3,Surds,,1,Normal
+Northland,2024,1,4,Integration,,1,Normal
+Northland,2024,1,5,Trigonometry,Principal Values,2,Challenging
+Northland,2024,1,6,Coordinate Geometry,,2,Challenging
+Northland,2024,1,7,Differentiation,Rate of Change,1,Normal
+Northland,2024,1,8,Differentiation,Stationary Points,1,Normal
+Northland,2024,1,9,Polynomials,,2,Challenging
+Northland,2024,1,10,Binomial Expansion,,1,Normal
+Northland,2024,1,11,Integration - Area under curve,,,
+Northland,2024,1,12,Linear Law,,,
+Northland,2024,2,1,Partial Fractions,,1,Normal
+Northland,2024,2,2,Equation and Inequality,,1,Normal
+Northland,2024,2,3a,Trigonometry,Proving Trigo Functions,1,Normal
+Northland,2024,2,"3b, c",Trigonometry,Solving Trigo Functions,1,Normal
+Northland,2024,2,4a,Exponential and Log,,1,Normal
+Northland,2024,2,4b,Exponential and Log,Drawing Log / Exponential Graphs,1,Normal
+Northland,2024,2,5a,Differentiation,Increasing / Decreasing Functions,1,Normal
+Northland,2024,2,5b,Differentiation,Stationary Points,1,Normal
+Northland,2024,2,6,Coordinate Geometry,,2,Challenging
+Northland,2024,2,7,Kinematics,,,
+Northland,2024,2,8,Trigonometry,R-Formula,1,Normal
+Northland,2024,2,9a,Integration,Integrate with Partial Fraction,1,Normal
+Northland,2024,2,"9b, c",Integration,Differentiate then Integrate,2,Challenging
+Orchird Park,2024,1,1,Equation and Inequality,,1,Normal
+Orchird Park,2024,1,2,Partial Fractions,,1,Normal
+Orchird Park,2024,1,3,Trigonometry,Proving Trigo Functions,1,Normal
+Orchird Park,2024,1,4,Integration,Differentiate then Integrate,1,Normal
+Orchird Park,2024,1,5,Trigonometry,Solving Trigo Functions,1,Normal
+Orchird Park,2024,1,6,Differentiation,,2,Challenging
+Orchird Park,2024,1,7,Equation and Inequality,,1,Normal
+Orchird Park,2024,1,8,Equation and Inequality,,1,Normal
+Orchird Park,2024,1,9,Differentiation,Stationary Points,1,Normal
+Orchird Park,2024,1,10,Coordinate Geometry (Circle),,1,Normal
+Orchird Park,2024,1,"11a, b",Differentiation,,1,Normal
+Orchird Park,2024,1,11c,Integration,,1,Normal
+Orchird Park,2024,1,11d,Differentiation,Rate of Change,1,Normal
+Orchird Park,2024,1,12,Equation and Inequality,,2,Challenging
+Orchird Park,2024,1,13,Coordinate Geometry,,2,Challenging
+Orchird Park,2024,2,1,Binomial Expansion,,3,Very Challenging
+Orchird Park,2024,2,2,Proof of Plane Geometry,,,
+Orchird Park,2024,2,3,Exponential and Log,,1,Normal
+Orchird Park,2024,2,3d,Exponential and Log,Drawing Log / Exponential Graphs,1,Normal
+Orchird Park,2024,2,4,Trigonometry,Drawing Trigo Graphs,1,Normal
+Orchird Park,2024,2,4b,Trigonometry,Proving Trigo Functions,2,Challenging
+Orchird Park,2024,2,5,Kinematics,,,
+Orchird Park,2024,2,6,Polynomials,,1,Normal
+Orchird Park,2024,2,7,Exponential and Log,,2,Challenging
+Orchird Park,2024,2,8,Trigonometry,R-Formula,1,Normal
+Orchird Park,2024,2,9,Integration - Area under curve,,,
+Orchird Park,2024,2,10,Linear Law,,,
+Presbyerian,2024,1,1,Partial Fractions,,1,Normal
+Presbyerian,2024,1,2,Trigonometry,Principal Values,1,Normal
+Presbyerian,2024,1,3,Equation and Inequality,,1,Normal
+Presbyerian,2024,1,4,Equation and Inequality,,1,Normal
+Presbyerian,2024,1,5,Differentiation,Rate of Change,1,Normal
+Presbyerian,2024,1,6,Differentiation,Stationary Points,1,Normal
+Presbyerian,2024,1,7,Differentiation,Tangent / Normal,2,Challenging
+Presbyerian,2024,1,8,Integration - Area under curve,,,
+Presbyerian,2024,1,"9a, b",Partial Fractions,,1,Normal
+Presbyerian,2024,1,"9c, d",Integration,Differentiate then Integrate,1,Normal
+Presbyerian,2024,1,10,Coordinate Geometry (Circle),,2,Challenging
+Presbyerian,2024,1,11a,Exponential and Log,Drawing Log / Exponential Graphs,1,Normal
+Presbyerian,2024,1,11b,Integration,,,
+Presbyerian,2024,1,12,Integration,,2,Challenging
+Presbyerian,2024,2,1,Binomial Expansion,,1,Normal
+Presbyerian,2024,2,2,Differentiation,Stationary Points,1,Normal
+Presbyerian,2024,2,3,Proof of Plane Geometry,,,
+Presbyerian,2024,2,4,Exponential and Log,,1,Normal
+Presbyerian,2024,2,5,Polynomials,,1,Normal
+Presbyerian,2024,2,6,Trigonometry,Proving Trigo Functions,2,Challenging
+Presbyerian,2024,2,7,Differentiation,,1,Normal
+Presbyerian,2024,2,"8a, b",Differentiation,Stationary Points,2,Challenging
+Presbyerian,2024,2,"8c, d",Trigonometry,R-Formula,1,Normal
+Presbyerian,2024,2,9,Kinematics,,,
+Presbyerian,2024,2,10,Linear Law,,,
+Queensway,2024,1,1,Polynomials,,2,Challenging
+Queensway,2024,1,2a,Differentiation,Rate of Change,1,Normal
+Queensway,2024,1,2b,Differentiation,Increasing / Decreasing Functions,,
+Queensway,2024,1,3,Integration,Integrate with Partial Fraction,1,Normal
+Queensway,2024,1,4,Coordinate Geometry,,1,Normal
+Queensway,2024,1,5,Trigonometry,R-Formula,1,Normal
+Queensway,2024,1,6,Kinematics,,,
+Queensway,2024,1,7,Trigonometry,Proving Trigo Functions,2,Challenging
+Queensway,2024,1,8,Differentiation,Stationary Points,1,Normal
+Queensway,2024,1,9,Integration,,2,Challenging
+Queensway,2024,1,10,Integration - Area under curve,,,
+Queensway,2024,1,11,Linear Law,,,
+Queensway,2024,2,1,Exponential and Log,,1,Normal
+Queensway,2024,2,2,Exponential and Log,,1,Normal
+Queensway,2024,2,3,Equation and Inequality,,1,Normal
+Queensway,2024,2,4,Binomial Expansion,,2,Challenging
+Queensway,2024,2,5a,Trigonometry,Drawing Trigo Graphs,1,Normal
+Queensway,2024,2,5b,Trigonometry,Principal Values,,
+Queensway,2024,2,6,Coordinate Geometry (Circle),,1,Normal
+Queensway,2024,2,7a,Differentiation,Increasing / Decreasing Functions,1,Normal
+Queensway,2024,2,"7b, c",Differentiation,,1,Normal
+Queensway,2024,2,8,Differentiation,Stationary Points,2,Challenging
+Queensway,2024,2,9,Differentiation,Stationary Points,2,Challenging
+Queensway,2024,2,10,Trigonometry,Special Angles,2,Challenging
+Queensway,2024,2,11,Proof of Plane Geometry,,,
+Swiss Cottage,2024,1,1,Differentiation,Increasing / Decreasing Functions,1,Normal
+Swiss Cottage,2024,1,2,Surds,,1,Normal
+Swiss Cottage,2024,1,3,Equation and Inequality,,1,Normal
+Swiss Cottage,2024,1,4,Proof of Plane Geometry,,,
+Swiss Cottage,2024,1,5a,Exponential and Log,,1,Normal
+Swiss Cottage,2024,1,5b,Exponential and Log,Drawing Log / Exponential Graphs,1,Normal
+Swiss Cottage,2024,1,6,Trigonometry,Drawing Trigo Graphs,1,Normal
+Swiss Cottage,2024,1,7,Integration,Tangent / Normal,1,Normal
+Swiss Cottage,2024,1,8,Binomial Expansion,,2,Challenging
+Swiss Cottage,2024,1,9,Integration,Integrate with Partial Fraction,1,Normal
+Swiss Cottage,2024,1,10,Kinematics,,,
+Swiss Cottage,2024,1,11,Linear Law,,,
+Swiss Cottage,2024,1,12,Coordinate Geometry,,2,Challenging
+Swiss Cottage,2024,1,13a,Differentiation,Stationary Points,1,Normal
+Swiss Cottage,2024,1,13b,Differentiation,Tangent / Normal,2,Challenging
+Swiss Cottage,2024,2,1,Exponential and Log,,1,Normal
+Swiss Cottage,2024,2,2,Trigonometry,Special Angles,1,Normal
+Swiss Cottage,2024,2,3,Integration,,1,Normal
+Swiss Cottage,2024,2,4,Differentiation,Tangent / Normal,1,Normal
+Swiss Cottage,2024,2,5a,Trigonometry,Proving Trigo Functions,1,Normal
+Swiss Cottage,2024,2,5b,Trigonometry,Solving Trigo Functions,1,Normal
+Swiss Cottage,2024,2,6,Trigonometry,R-Formula,1,Normal
+Swiss Cottage,2024,2,7,Polynomials,,2,Challenging
+Swiss Cottage,2024,2,"8a, b",Differentiation,Rate of Change,1,Normal
+Swiss Cottage,2024,2,8c,Integration,Differentiate then Integrate,1,Normal
+Swiss Cottage,2024,2,9,Differentiation,Stationary Points,1,Normal
+Swiss Cottage,2024,2,10,Coordinate Geometry (Circle),,2,Challenging
+Swiss Cottage,2024,2,11,Integration - Area under curve,,,
+Tampines Sec,2024,1,1,Differentiation,Increasing / Decreasing Functions,1,Normal
+Tampines Sec,2024,1,2,Equation and Inequality,,2,Challenging
+Tampines Sec,2024,1,3,Surds,,1,Normal
+Tampines Sec,2024,1,4,Binomial Expansion,,1,Normal
+Tampines Sec,2024,1,5,Integration,,2,Challenging
+Tampines Sec,2024,1,6,Coordinate Geometry,,1,Normal
+Tampines Sec,2024,1,7,Linear Law,,,
+Tampines Sec,2024,1,8,Proof of Plane Geometry,,,
+Tampines Sec,2024,1,9,Trigonometry,Drawing Trigo Graphs,2,Challenging
+Tampines Sec,2024,1,10,Kinematics,,,
+Tampines Sec,2024,1,11,Coordinate Geometry,,1,Normal
+Tampines Sec,2024,1,12a,Differentiation,Stationary Points,1,Normal
+Tampines Sec,2024,1,"12b, c",Differentiation,Tangent / Normal,1,Normal
+Tampines Sec,2024,2,1,Polynomials,,1,Normal
+Tampines Sec,2024,2,2,Exponential and Log,,1,Normal
+Tampines Sec,2024,2,3a,Trigonometry,Special Angles,1,Normal
+Tampines Sec,2024,2,3b,Trigonometry,Proving Trigo Functions,2,Challenging
+Tampines Sec,2024,2,4,Differentiation,Stationary Points,1,Normal
+Tampines Sec,2024,2,5,Exponential and Log,,1,Normal
+Tampines Sec,2024,2,6,Trigonometry,R-Formula,1,Normal
+Tampines Sec,2024,2,7,Integration,Differentiate then Integrate,1,Normal
+Tampines Sec,2024,2,8,Differentiation,Rate of Change,1,Normal
+Tampines Sec,2024,2,9,Coordinate Geometry (Circle),,2,Challenging
+Tampines Sec,2024,2,10,Integration - Area under curve,,,
+Xinmin,2024,1,1,Surds,,1,Normal
+Xinmin,2024,1,2,Equation and Inequality,,1,Normal
+Xinmin,2024,1,3,Differentiation,Increasing / Decreasing Functions,1,Normal
+Xinmin,2024,1,4,Equation and Inequality,,1,Normal
+Xinmin,2024,1,5,Equation and Inequality,,1,Normal
+Xinmin,2024,1,6,Integration,Tangent / Normal,1,Normal
+Xinmin,2024,1,7,Equation and Inequality,,1,Normal
+Xinmin,2024,1,8,Partial Fractions,,1,Normal
+Xinmin,2024,1,9,Linear Law,,,
+Xinmin,2024,1,10,Binomial Expansion,,1,Normal
+Xinmin,2024,1,11,Coordinate Geometry,,1,Normal
+Xinmin,2024,1,12,Trigonometry,Drawing Trigo Graphs,2,Challenging
+Xinmin,2024,1,13,Proof of Plane Geometry,,,
+Xinmin,2024,1,14,Kinematics,,,
+Xinmin,2024,2,1,Exponential and Log,,1,Normal
+Xinmin,2024,2,2,Integration,Differentiate then Integrate,1,Normal
+Xinmin,2024,2,3,Polynomials,,1,Normal
+Xinmin,2024,2,4,Trigonometry,R-Formula,1,Normal
+Xinmin,2024,2,5,Exponential and Log,,1,Normal
+Xinmin,2024,2,6,Trigonometry,Drawing Trigo Graphs,2,Challenging
+Xinmin,2024,2,7,Integration - Area under curve,,,
+Xinmin,2024,2,8,Integration - Area under curve,,,
+Xinmin,2024,2,9,Differentiation,Stationary Points,1,Normal
+Xinmin,2024,2,10,Coordinate Geometry (Circle),,1,Normal
+Xinmin,2024,2,11a,Trigonometry,Proving Trigo Functions,2,Challenging
+Xinmin,2024,2,11b,Trigonometry,Solving Trigo Functions,1,Normal
+Xinmin,2024,2,12,Differentiation,Rate of Change,2,Challenging
+Zhong Hua,2024,1,1,Equation and Inequality,,1,Normal
+Zhong Hua,2024,1,2,Equation and Inequality,,2,Challenging
+Zhong Hua,2024,1,3,Trigonometry,Principal Values,1,Normal
+Zhong Hua,2024,1,4,Partial Fractions,,2,Challenging
+Zhong Hua,2024,1,"5a, b",Differentiation,Increasing / Decreasing Functions,1,Normal
+Zhong Hua,2024,1,5c,Integration,Tangent / Normal,1,Normal
+Zhong Hua,2024,1,6a,Trigonometry,Proving Trigo Functions,2,Challenging
+Zhong Hua,2024,1,"6b, c",Trigonometry,Solving Trigo Functions,1,Normal
+Zhong Hua,2024,1,7,Exponential and Log,Drawing Log / Exponential Graphs,2,Challenging
+Zhong Hua,2024,1,8,Coordinate Geometry (Circle),,2,Challenging
+Zhong Hua,2024,1,9,Integration,,2,Challenging
+Zhong Hua,2024,1,10,Differentiation,Rate of Change,1,Normal
+Zhong Hua,2024,1,11,Integration,Differentiate then Integrate,1,Normal
+Zhong Hua,2024,1,12,Coordinate Geometry,,2,Challenging
+Zhong Hua,2024,2,1,Exponential and Log,,1,Normal
+Zhong Hua,2024,2,2,Binomial Expansion,,1,Normal
+Zhong Hua,2024,2,3,Proof of Plane Geometry,,,
+Zhong Hua,2024,2,4a,Trigonometry,Principal Values,,
+Zhong Hua,2024,2,4b,Trigonometry,Drawing Trigo Graphs,2,Challenging
+Zhong Hua,2024,2,5a,Trigonometry,Special Angles,1,Normal
+Zhong Hua,2024,2,5b,Differentiation,Tangent / Normal,1,Normal
+Zhong Hua,2024,2,6a,Polynomials,,1,Normal
+Zhong Hua,2024,2,6b,Exponential and Log,,1,Normal
+Zhong Hua,2024,2,7,Kinematics,,,
+Zhong Hua,2024,2,8,Trigonometry,R-Formula,1,Normal
+Zhong Hua,2024,2,9,Differentiation,Stationary Points,2,Challenging
+Zhong Hua,2024,2,10,Linear Law,,,
+Ahmad Ibrahim,2025,1,1,Trigonometry,,3,Very Challenging
+Ahmad Ibrahim,2025,1,2,Differentiation,Rate of Change,2,Challenging
+Ahmad Ibrahim,2025,1,3a,Equation and Inequality,,1,Normal
+Ahmad Ibrahim,2025,1,3b,Equation and Inequality,,2,Challenging
+Ahmad Ibrahim,2025,1,4,Integration,Differentiate then Integrate,1,Normal
+Ahmad Ibrahim,2025,1,5,Binomial Expansion,,1,Normal
+Ahmad Ibrahim,2025,1,6,Proof of Plane Geometry,,,
+Ahmad Ibrahim,2025,1,"7a,b,d",Coordinate Geometry,,1,Normal
+Ahmad Ibrahim,2025,1,7c,Coordinate Geometry,Finding Coordinate with Ratio,2,Challenging
+Ahmad Ibrahim,2025,1,8,Differentiation,Stationary Points,1,Normal
+Ahmad Ibrahim,2025,1,9,Trigonometry,Drawing Trigo Graphs,1,Normal
+Ahmad Ibrahim,2025,1,10,Integration,Integrate with Partial Fraction,1,Normal
+Ahmad Ibrahim,2025,1,11,Trigonometry,Drawing Trigo Graphs,3,Very Challenging
+Ahmad Ibrahim,2025,1,12,Integration - Area under curve,,1,Normal
+Ahmad Ibrahim,2025,2,1,Differentiation,Tangent / Normal,2,Challenging
+Ahmad Ibrahim,2025,2,2,Polynomials,,2,Challenging
+Ahmad Ibrahim,2025,2,3,Trigonometry,R-Formula,1,Normal
+Ahmad Ibrahim,2025,2,4,Coordinate Geometry (Circle),,1,Normal
+Ahmad Ibrahim,2025,2,5,Trigonometry,Prove then Solve,2,Challenging
+Ahmad Ibrahim,2025,2,6,Equation and Inequality,Quadratic Inequality,3,Very Challenging
+Ahmad Ibrahim,2025,2,7,Kinematics,,1,Normal
+Ahmad Ibrahim,2025,2,"8a,b",Differentiation,Increasing / Decreasing Functions,1,Normal
+Ahmad Ibrahim,2025,2,8c,Linear Law,,1,Normal
+Ahmad Ibrahim,2025,2,9a,Surds,,1,Normal
+Ahmad Ibrahim,2025,2,"9b,c",Exponential and Log,,1,Normal
+Ahmad Ibrahim,2025,2,"10a,bi,bii",Linear Law,,1,Normal
+Ahmad Ibrahim,2025,2,10biii,Linear Law,,3,Very Challenging
+Bedok South,2025,1,13a,Differentiation,Increasing / Decreasing Functions,1,Normal
+Bedok South,2025,1,13b,Differentiation,Stationary Points,3,Very Challenging
+Bedok South,2025,2,9,Linear Law,,3,Very Challenging
+Bedok South,2025,,,,,,
+Chung Cheng High (Yishun),2025,1,4,Trigonometry,,1,Normal
+Chung Cheng High (Yishun),2025,1,7,Differentiation,Stationary Points,1,Normal
+Chung Cheng High (Yishun),2025,1,9,Trigonometry,Drawing Trigo Graphs,2,Challenging
+Chung Cheng High (Yishun),2025,1,10,Trigonometry,R-Formula,3,Very Challenging
+Chung Cheng High (Yishun),2025,2,5,Trigonometry,Proving Trigo Functions,3,Very Challenging
+ACS (Barker),2024,1,12,Trigonometry,Drawing Trigo Graphs,2,Challenging
+ACS (Barker),2024,2,5,Trigonometry,Proving Trigo Functions,2,Challenging
+ACS (Barker),2024,2,7,Linear Law,,1,Normal
+Anglo-Chinese School (ACS),2023,1,1,Surds,,1,Normal
+Anglo-Chinese School (ACS),2023,1,2,Polynomials,,3,Very Challenging
+Anglo-Chinese School (ACS),2023,1,3,Exponential and Log,,1,Normal
+Anglo-Chinese School (ACS),2023,1,4,Integration,Tangent / Normal,1,Normal
+Anglo-Chinese School (ACS),2023,1,"5a, b",Differentiation,Increasing / Decreasing Functions,1,Normal
+Anglo-Chinese School (ACS),2023,1,5c,Differentiation,Tangent / Normal,,
+Anglo-Chinese School (ACS),2023,1,6,Trigonometry,Special Angles,2,Challenging
+Anglo-Chinese School (ACS),2023,1,7,Integration,Differentiate then Integrate,1,Normal
+Anglo-Chinese School (ACS),2023,1,8,,,1,Normal
+Anglo-Chinese School (ACS),2023,1,9,Trigonometry,Drawing Trigo Graphs,1,Normal
+Anglo-Chinese School (ACS),2023,1,10a,Exponential and Log,,2,Challenging
+Anglo-Chinese School (ACS),2023,1,10b,Equation and Inequality,,1,Normal
+Anglo-Chinese School (ACS),2023,1,11,Trigonometry,R-Formula,1,Normal
+Anglo-Chinese School (ACS),2023,1,12,Coordinate Geometry (Circle),,2,Challenging
+Anglo-Chinese School (ACS),2023,1,13,Integration,Integrate with Partial Fraction,1,Normal
+Anglo-Chinese School (ACS),2023,2,1,Equation and Inequality,,1,Normal
+Anglo-Chinese School (ACS),2023,2,2,Polynomials,,1,Normal
+Anglo-Chinese School (ACS),2023,1,3a,Trigonometry,Proving Trigo Functions,1,Normal
+Anglo-Chinese School (ACS),2023,1,3b,Trigonometry,Solving Trigo Functions,,
+Anglo-Chinese School (ACS),2023,2,4,Differentiation,Rate of Change,1,Normal
+Anglo-Chinese School (ACS),2023,2,5,Coordinate Geometry,,2,Challenging
+Anglo-Chinese School (ACS),2023,2,6,Proof of Plane Geometry,,,
+Anglo-Chinese School (ACS),2023,2,7,Linear Law,,,
+Anglo-Chinese School (ACS),2023,2,8,Exponential and Log,,2,Challenging
+Anglo-Chinese School (ACS),2023,2,9,Differentiation,Stationary Points,1,Normal
+Anglo-Chinese School (ACS),2023,2,10,Integration - Area under curve,,,
+Anglo-Chinese School (ACS),2023,2,11,Kinematics,,2,Challenging
+Ahmad Ibrahim,2023,1,1,Linear Law,,2,Challenging
+Ahmad Ibrahim,2023,1,2,Exponential and Log,,2,Challenging
+Ahmad Ibrahim,2023,1,3,Differentiation,Rate of Change,2,Challenging
+Ahmad Ibrahim,2023,1,4,Exponential and Log,,1,Normal
+Ahmad Ibrahim,2023,1,5a,Trigonometry,Proving Trigo Functions,2,Challenging
+Ahmad Ibrahim,2023,1,"5b, c",Trigonometry,Solving Trigo Functions,,
+Ahmad Ibrahim,2023,1,6,Differentiation,Tangent / Normal,1,Normal
+Ahmad Ibrahim,2023,1,7,Proof of Plane Geometry,,,
+Ahmad Ibrahim,2023,1,8,Binomial Expansion,,3,Very Challenging
+Ahmad Ibrahim,2023,1,9,Coordinate Geometry,,3,Very Challenging
+Ahmad Ibrahim,2023,1,10a and 10b,Trigonometry,Drawing Trigo Graphs,1,Normal
+Ahmad Ibrahim,2023,1,10c,Differentiation,Increasing / Decreasing Functions,1,Normal
+Ahmad Ibrahim,2023,1,11a,Partial Fractions,,1,Normal
+Ahmad Ibrahim,2023,1,11b and 11c,Integration,Tangent / Normal,2,Challenging
+Ahmad Ibrahim,2023,2,1,Equation and Inequality,,1,Normal
+Ahmad Ibrahim,2023,2,2,Equation and Inequality,,1,Normal
+Ahmad Ibrahim,2023,2,3,Polynomials,,2,Challenging
+Ahmad Ibrahim,2023,2,4,Exponential and Log,,2,Challenging
+Ahmad Ibrahim,2023,2,5,Integration - Area under curve,,2,Challenging
+Ahmad Ibrahim,2023,2,5a,Trigonometry,Special Angles,2,Challenging
+Ahmad Ibrahim,2023,2,5b,Integration,,,
+Ahmad Ibrahim,2023,2,6,Polynomials,,,
+Ahmad Ibrahim,2023,2,7,Trigonometry,R-Formula,2,Challenging
+Ahmad Ibrahim,2023,2,8,Differentiation,Stationary Points,2,Challenging
+Ahmad Ibrahim,2023,2,9,Kinematics,,2,Challenging
+Ahmad Ibrahim,2023,2,10,Coordinate Geometry (Circle),,2,Challenging
+Anglican High,2023,1,1,Partial Fractions,,1,Normal
+Anglican High,2023,1,2,Polynomials,,1,Normal
+Anglican High,2023,1,3,Surds,,1,Normal
+Anglican High,2023,1,4,Polynomials,,2,Challenging
+Anglican High,2023,1,5,Equation and Inequality,,1,Normal
+Anglican High,2023,1,6,Polynomials,,2,Challenging
+Anglican High,2023,1,7,Differentiation,R-Formula,1,Normal
+Anglican High,2023,1,8,Differentiation,Increasing / Decreasing Functions,1,Normal
+Anglican High,2023,1,9,Differentiation,Tangent / Normal,1,Normal
+Anglican High,2023,1,10,Differentiation,,2,Challenging
+Anglican High,2023,1,11,Differentiation,Stationary Points,1,Normal
+Anglican High,2023,1,12,Binomial Expansion,,1,Normal
+Anglican High,2023,1,13,Exponential and Log,,1,Normal
+Anglican High,2023,1,14,Trigonometry,R-Formula,2,Challenging
+Anglican High,2023,1,15,Linear Law,,2,Challenging
+Anglican High,2023,1,16,Proof of Plane Geometry,,,
+Bedok View,2023,1,1,Equation and Inequality,,1,Normal
+Bedok View,2023,1,2,Partial Fractions,,2,Challenging
+Bedok View,2023,1,3,Trigonometry,Drawing Trigo Graphs,2,Challenging
+Bedok View,2023,1,4,Binomial Expansion,,2,Challenging
+Bedok View,2023,1,5,Kinematics,,2,Challenging
+Bedok View,2023,1,6,Proof of Plane Geometry,,,
+Bedok View,2023,1,7,Coordinate Geometry,,1,Normal
+Bedok View,2023,1,8,Equation and Inequality,,1,Normal
+Bedok View,2023,1,9,Integration,Tangent / Normal,2,Challenging
+Bedok View,2023,1,10,Coordinate Geometry,,2,Challenging
+Bedok View,2023,1,11,Equation and Inequality,,1,Normal
+Bedok View,2023,1,12,Linear Law,,1,Normal
+Bedok View,2023,2,1,Exponential and Log,,1,Normal
+Bedok View,2023,2,2,Differentiation,Tangent / Normal,1,Normal
+Bedok View,2023,2,3,Polynomials,,3,Very Challenging
+Bedok View,2023,2,4a,Trigonometry,Proving Trigo Functions,1,Normal
+Bedok View,2023,2,4b,Trigonometry,Solving Trigo Functions,,
+Bedok View,2023,2,5,Exponential and Log,,1,Normal
+Bedok View,2023,2,6,Trigonometry,Special Angles,2,Challenging
+Bedok View,2023,2,7,Trigonometry,R-Formula,1,Normal
+Bedok View,2023,2,8,Coordinate Geometry (Circle),,1,Normal
+Bedok View,2023,2,"9a, 9b",Integration,Differentiate then Integrate,1,Normal
+Bedok View,2023,2,"9c, 9d",Integration - Area under curve,,2,Challenging
+Bedok View,2023,2,10,Differentiation,Stationary Points,2,Challenging
+Cedar Girls,2023,1,1,Partial Fractions,,1,Normal
+Cedar Girls,2023,1,2,Coordinate Geometry,,1,Normal
+Cedar Girls,2023,1,3,Differentiation,Increasing / Decreasing Functions,2,Challenging
+Cedar Girls,2023,1,4,Binomial Expansion,,1,Normal
+Cedar Girls,2023,1,5,Equation and Inequality,,2,Challenging
+Cedar Girls,2023,1,6,Equation and Inequality,,2,Challenging
+Cedar Girls,2023,1,7,Linear Law,,1,Normal
+Cedar Girls,2023,1,8,Proof of Plane Geometry,,,
+Cedar Girls,2023,1,9,Integration,,1,Normal
+Cedar Girls,2023,1,10,Differentiation,Tangent / Normal,1,Normal
+Cedar Girls,2023,1,11,Trigonometry,Drawing Trigo Graphs,1,Normal
+Cedar Girls,2023,1,12,Kinematics,,2,Challenging
+Cedar Girls,2023,2,1,Exponential and Log,,1,Normal
+Cedar Girls,2023,2,2a,Trigonometry,Proving Trigo Functions,1,Normal
+Cedar Girls,2023,2,2b,Trigonometry,Solving Trigo Functions,,
+Cedar Girls,2023,2,3,Polynomials,,1,Normal
+Cedar Girls,2023,2,4,Integration,Differentiate then Integrate,2,Challenging
+Cedar Girls,2023,2,5,Trigonometry,Special Angles,2,Challenging
+Cedar Girls,2023,2,6,Differentiation,Stationary Points,1,Normal
+Cedar Girls,2023,2,7,Exponential and Log,,1,Normal
+Cedar Girls,2023,2,8,Coordinate Geometry,,1,Normal
+Cedar Girls,2023,2,9,Trigonometry,R-Formula,1,Normal
+Cedar Girls,2023,2,10,Integration - Area under curve,,2,Challenging
+Cedar Girls,2023,2,11,Integration,,2,Challenging
+Chung Cheng High,2023,1,1,Surds,,1,Normal
+Chung Cheng High,2023,1,2,Trigonometry,Principal Values,2,Challenging
+Chung Cheng High,2023,1,3,Partial Fractions,,1,Normal
+Chung Cheng High,2023,1,4,Polynomials,,2,Challenging
+Chung Cheng High,2023,1,5,Differentiation,Stationary Points,1,Normal
+Chung Cheng High,2023,1,6,Equation and Inequality,,2,Challenging
+Chung Cheng High,2023,1,7,Exponential and Log,,2,Challenging
+Chung Cheng High,2023,1,8,Differentiation,Increasing / Decreasing Functions,1,Normal
+Chung Cheng High,2023,1,9,Trigonometry,Proving Trigo Functions,2,Challenging
+Chung Cheng High,2023,1,10,Coordinate Geometry (Circle),,2,Challenging
+Chung Cheng High,2023,1,11,Linear Law,,2,Challenging
+Chung Cheng High,2023,1,12,Kinematics,,2,Challenging
+Chung Cheng High,2023,2,1,Equation and Inequality,,2,Challenging
+Chung Cheng High,2023,2,2,Binomial Expansion,,1,Normal
+Chung Cheng High,2023,2,3,Trigonometry,R-Formula,1,Normal
+Chung Cheng High,2023,2,4,Proof of Plane Geometry,,,
+Chung Cheng High,2023,2,5,Exponential and Log,,2,Challenging
+Chung Cheng High,2023,2,6,Differentiation,Rate of Change,2,Challenging
+Chung Cheng High,2023,2,"7a, b",Trigonometry,Proving Trigo Functions,2,Challenging
+Chung Cheng High,2023,2,7c,Integration - Area under curve,,,
+Chung Cheng High,2023,2,8,Coordinate Geometry,,2,Challenging
+Chung Cheng High,2023,2,9,Differentiation,,2,Challenging
+Chung Cheng High,2023,2,10,Differentiation,Stationary Points,1,Normal
+Crescent Girls,2023,1,1,Surds,,1,Normal
+Crescent Girls,2023,1,2,Equation and Inequality,,1,Normal
+Crescent Girls,2023,1,3,Equation and Inequality,,1,Normal
+Crescent Girls,2023,1,4,Integration,,1,Normal
+Crescent Girls,2023,1,5,Partial Fractions,,1,Normal
+Crescent Girls,2023,1,6,Polynomials,,1,Normal
+Crescent Girls,2023,1,7,Trigonometry,Drawing Trigo Graphs,2,Challenging
+Crescent Girls,2023,1,8,Differentiation,Stationary Points,2,Challenging
+Crescent Girls,2023,1,9,Coordinate Geometry,,2,Challenging
+Crescent Girls,2023,1,10,Trigonometry,Proving Trigo Functions,2,Challenging
+Crescent Girls,2023,1,11,Proof of Plane Geometry,,,
+Crescent Girls,2023,1,12,Exponential and Log,,1,Normal
+Crescent Girls,2023,1,13,Integration - Area under curve,,2,Challenging
+Crescent Girls,2023,1,14,Differentiation,Rate of Change,1,Normal
+Crescent Girls,2023,2,1,Differentiation,Tangent / Normal,1,Normal
+Crescent Girls,2023,2,2,Exponential and Log,,1,Normal
+Crescent Girls,2023,2,3,Coordinate Geometry (Circle),,2,Challenging
+Crescent Girls,2023,2,4a,Differentiation,,2,Challenging
+Crescent Girls,2023,2,4b,Trigonometry,Special Angles,,
+Crescent Girls,2023,2,5,Integration,Differentiate then Integrate,1,Normal
+Crescent Girls,2023,2,6,Trigonometry,R-Formula,1,Normal
+Crescent Girls,2023,2,7,Binomial Expansion,,1,Normal
+Crescent Girls,2023,2,8,Integration - Area under curve,,2,Challenging
+Crescent Girls,2023,2,9,Kinematics,,3,Very Challenging
+Crescent Girls,2023,2,10,Coordinate Geometry (Circle),,3,Very Challenging
+Crescent Girls,2023,2,11,Linear Law,,2,Challenging
+Fairfield Methodist,2023,1,1,Trigonometry,Special Angles,1,Normal
+Fairfield Methodist,2023,1,2,Equation and Inequality,,1,Normal
+Fairfield Methodist,2023,1,3,Differentiation,,1,Normal
+Fairfield Methodist,2023,1,4,Differentiation,Rate of Change,1,Normal
+Fairfield Methodist,2023,1,5,Exponential and Log,,1,Normal
+Fairfield Methodist,2023,1,6,Proof of Plane Geometry,,,
+Fairfield Methodist,2023,1,7,Binomial Expansion,,1,Normal
+Fairfield Methodist,2023,1,8,Equation and Inequality,,2,Challenging
+Fairfield Methodist,2023,1,9,Differentiation,Stationary Points,1,Normal
+Fairfield Methodist,2023,1,10,Coordinate Geometry,,2,Challenging
+Fairfield Methodist,2023,1,11,Surds,,2,Challenging
+Fairfield Methodist,2023,1,12,Kinematics,,2,Challenging
+Fairfield Methodist,2023,1,13,Trigonometry,Drawing Trigo Graphs,2,Challenging
+Fairfield Methodist,2023,2,1,Partial Fractions,,1,Normal
+Fairfield Methodist,2023,2,2,Integration,Differentiate then Integrate,1,Normal
+Fairfield Methodist,2023,2,3,Exponential and Log,Drawing Log / Exponential Graphs,2,Challenging
+Fairfield Methodist,2023,2,4,Exponential and Log,,2,Challenging
+Fairfield Methodist,2023,2,5,Differentiation,,2,Challenging
+Fairfield Methodist,2023,2,6,Coordinate Geometry (Circle),,2,Challenging
+Fairfield Methodist,2023,2,7,Trigonometry,Proving Trigo Functions,2,Challenging
+Fairfield Methodist,2023,2,8,Trigonometry,R-Formula,1,Normal
+Fairfield Methodist,2023,2,9,Integration - Area under curve,,2,Challenging
+Fairfield Methodist,2023,2,10,Polynomials,,2,Challenging
+Fairfield Methodist,2023,2,11,Linear Law,,2,Challenging
+Greendale,2023,1,1,Surds,,1,Normal
+Greendale,2023,1,2,Equation and Inequality,,1,Normal
+Greendale,2023,1,3,Equation and Inequality,,1,Normal
+Greendale,2023,1,4,Integration,,2,Challenging
+Greendale,2023,1,5,Partial Fractions,,2,Challenging
+Greendale,2023,1,6,Polynomials,,3,Very Challenging
+Greendale,2023,1,7,Trigonometry,Drawing Trigo Graphs,2,Challenging
+Greendale,2023,1,"8a, bi",Differentiation,,2,Challenging
+Greendale,2023,1,8bii,Integration,,,
+Greendale,2023,1,9,Coordinate Geometry,,1,Normal
+Greendale,2023,1,10,Trigonometry,Proving Trigo Functions,1,Normal
+Greendale,2023,1,11,Proof of Plane Geometry,,,
+Greendale,2023,1,12,Exponential and Log,,2,Challenging
+Greendale,2023,1,13,Differentiation,Rate of Change,2,Challenging
+Greendale,2023,1,14,Integration - Area under curve,,2,Challenging
+Greendale,2023,2,1,Exponential and Log,,1,Normal
+Greendale,2023,2,2,Polynomials,,3,Very Challenging
+Greendale,2023,2,3,Kinematics,,2,Challenging
+Greendale,2023,2,4,Trigonometry,R-Formula,1,Normal
+Greendale,2023,2,5,Equation and Inequality,,3,Very Challenging
+Greendale,2023,2,6,Binomial Expansion,,3,Very Challenging
+Greendale,2023,2,7,Linear Law,,3,Very Challenging
+Greendale,2023,2,8,Differentiation,Stationary Points,2,Challenging
+Greendale,2023,2,9,Coordinate Geometry (Circle),,1,Normal
+Greendale,2023,2,10,Integration - Area under curve,,3,Very Challenging
+Hillgrove,2023,1,1,Equation and Inequality,,1,Normal
+Hillgrove,2023,1,2,Surds,,2,Challenging
+Hillgrove,2023,1,3,Exponential and Log,,1,Normal
+Hillgrove,2023,1,4,Equation and Inequality,,2,Challenging
+Hillgrove,2023,1,5,Equation and Inequality,,2,Challenging
+Hillgrove,2023,1,6,Polynomials,,2,Challenging
+Hillgrove,2023,1,7,Integration,Integrate with Partial Fraction,1,Normal
+Hillgrove,2023,1,8,Coordinate Geometry,,1,Normal
+Hillgrove,2023,1,9,Binomial Expansion,,3,Very Challenging
+Hillgrove,2023,1,10,Integration,Tangent / Normal,1,Normal
+Hillgrove,2023,1,11,Trigonometry,Drawing Trigo Graphs,1,Normal
+Hillgrove,2023,1,12,Differentiation,Rate of Change,1,Normal
+Hillgrove,2023,1,13a,Trigonometry,Proving Trigo Functions,1,Normal
+Hillgrove,2023,1,13b,Trigonometry,Solving Trigo Functions,,
+Hillgrove,2023,1,14,Proof of Plane Geometry,,,
+Hillgrove,2023,2,1,Trigonometry,Special Angles,1,Normal
+Hillgrove,2023,2,2,Integration,Differentiate then Integrate,1,Normal
+Hillgrove,2023,2,3,Exponential and Log,,1,Normal
+Hillgrove,2023,2,4,Kinematics,,2,Challenging
+Hillgrove,2023,2,5,Equation and Inequality,,2,Challenging
+Hillgrove,2023,2,6,Integration - Area under curve,,2,Challenging
+Hillgrove,2023,2,7,Linear Law,,2,Challenging
+Hillgrove,2023,2,8,Trigonometry,R-Formula,1,Normal
+Hillgrove,2023,2,9,Coordinate Geometry,,2,Challenging
+Hillgrove,2023,2,10,Differentiation,Stationary Points,1,Normal
+Hua Yi,2023,1,1,Equation and Inequality,,3,Very Challenging
+Hua Yi,2023,1,2,Binomial Expansion,,1,Normal
+Hua Yi,2023,1,3,Trigonometry,Drawing Trigo Graphs,3,Very Challenging
+Hua Yi,2023,1,4,Integration,,1,Normal
+Hua Yi,2023,1,5,Exponential and Log,,1,Normal
+Hua Yi,2023,1,6a,Differentiation,Increasing / Decreasing Functions,1,Normal
+Hua Yi,2023,1,6b,Differentiation,Rate of Change,,
+Hua Yi,2023,1,7,Coordinate Geometry,,1,Normal
+Hua Yi,2023,1,"8a, b",Trigonometry,Proving Trigo Functions,2,Challenging
+Hua Yi,2023,1,8c,Integration,,,
+Hua Yi,2023,1,9,Differentiation,Stationary Points,2,Challenging
+Hua Yi,2023,1,10,Polynomials,,2,Challenging
+Hua Yi,2023,1,11,Proof of Plane Geometry,,,
+Hua Yi,2023,1,12a,Trigonometry,Proving Trigo Functions,1,Normal
+Hua Yi,2023,1,12b,Trigonometry,Solving Trigo Functions,,
+Hua Yi,2023,1,13,Kinematics,,2,Challenging
+Hua Yi,2023,2,1,Polynomials,,1,Normal
+Hua Yi,2023,2,2,Integration - Area under curve,,2,Challenging
+Hua Yi,2023,2,3,Differentiation,Differentiate then Integrate,1,Normal
+Hua Yi,2023,2,4,Trigonometry,R-Formula,1,Normal
+Hua Yi,2023,2,5,Differentiation,Stationary Points,1,Normal
+Hua Yi,2023,2,6,Coordinate Geometry (Circle),,2,Challenging
+Hua Yi,2023,2,7,Exponential and Log,,1,Normal
+Hua Yi,2023,2,8,Equation and Inequality,,2,Challenging
+Hua Yi,2023,2,9a,Surds,,1,Normal
+Hua Yi,2023,2,9b,Equation and Inequality,,1,Normal
+Hua Yi,2023,2,10,Linear Law,,2,Challenging
+Jun Yuan,2023,1,1,Differentiation,Rate of Change,1,Normal
+Jun Yuan,2023,1,2,Exponential and Log,,1,Normal
+Jun Yuan,2023,1,3,Exponential and Log,,2,Challenging
+Jun Yuan,2023,1,4,Binomial Expansion,,1,Normal
+Jun Yuan,2023,1,5,Differentiation,Stationary Points,2,Challenging
+Jun Yuan,2023,1,6,Trigonometry,Principal Values,2,Challenging
+Jun Yuan,2023,1,7,Trigonometry,Drawing Trigo Graphs,1,Normal
+Jun Yuan,2023,1,8,Equation and Inequality,,2,Challenging
+Jun Yuan,2023,1,9,Proof of Plane Geometry,,,
+Jun Yuan,2023,1,10,Coordinate Geometry (Circle),,1,Normal
+Jun Yuan,2023,1,11,Polynomials,,1,Normal
+Jun Yuan,2023,1,12,Coordinate Geometry,,2,Challenging
+Jun Yuan,2023,2,1,Differentiation,Tangent / Normal,1,Normal
+Jun Yuan,2023,2,2a,Trigonometry,Proving Trigo Functions,1,Normal
+Jun Yuan,2023,2,2b,Trigonometry,Solving Trigo Functions,1,Normal
+Jun Yuan,2023,2,3,Surds,,2,Challenging
+Jun Yuan,2023,2,4,Linear Law,,1,Normal
+Jun Yuan,2023,2,5,Exponential and Log,,2,Challenging
+Jun Yuan,2023,2,6,Integration - Area under curve,,2,Challenging
+Jun Yuan,2023,2,7,Trigonometry,R-Formula,1,Normal
+Jun Yuan,2023,2,8,Kinematics,,2,Challenging
+Jun Yuan,2023,2,9,Differentiation,Stationary Points,1,Normal
+Jun Yuan,2023,2,10,Integration,Integrate with Partial Fraction,1,Normal
+Jun Yuan,2023,2,11a,Differentiation,Increasing / Decreasing Functions,1,Normal
+Jun Yuan,2023,2,11b,Integration,,2,Challenging
+Jurong,2023,1,1,Equation and Inequality,,1,Normal
+Jurong,2023,1,2,Partial Fractions,,2,Challenging
+Jurong,2023,1,3,Differentiation,Stationary Points,1,Normal
+Jurong,2023,1,4,Proof of Plane Geometry,,,
+Jurong,2023,1,5,Differentiation,Increasing / Decreasing Functions,3,Very Challenging
+Jurong,2023,1,6,Integration,Tangent / Normal,2,Challenging
+Jurong,2023,1,7,Differentiation,Tangent / Normal,2,Challenging
+Jurong,2023,1,8,Trigonometry,Drawing Trigo Graphs,2,Challenging
+Jurong,2023,1,9,Linear Law,,1,Normal
+Jurong,2023,1,10,Polynomials,,2,Challenging
+Jurong,2023,1,11,Binomial Expansion,,1,Normal
+Jurong,2023,1,12,Kinematics,,2,Challenging
+Jurong,2023,2,1,Exponential and Log,,1,Normal
+Jurong,2023,2,2,Polynomials,,1,Normal
+Jurong,2023,2,3a,Trigonometry,Proving Trigo Functions,2,Challenging
+Jurong,2023,2,3b,Trigonometry,Solving Trigo Functions,1,Normal
+Jurong,2023,2,4,Differentiation,Stationary Points,1,Normal
+Jurong,2023,2,5,Trigonometry,Special Angles,1,Normal
+Jurong,2023,2,6,Exponential and Log,Drawing Log / Exponential Graphs,2,Challenging
+Jurong,2023,2,7,Trigonometry,R-Formula,1,Normal
+Jurong,2023,2,"8a, b",Differentiation,Rate of Change,2,Challenging
+Jurong,2023,2,8c,Integration,Differentiate then Integrate,2,Challenging
+Jurong,2023,2,9,Coordinate Geometry (Circle),,3,Very Challenging
+Jurong,2023,2,10,Integration - Area under curve,,2,Challenging
+Mayflower,2023,1,1,Equation and Inequality,,2,Challenging
+Mayflower,2023,1,2,Equation and Inequality,,1,Normal
+Mayflower,2023,1,3i,Trigonometry,Proving Trigo Functions,2,Challenging
+Mayflower,2023,1,3ii,Integration,,,
+Mayflower,2023,1,4,Partial Fractions,,2,Challenging
+Mayflower,2023,1,5i,Differentiation,Increasing / Decreasing Functions,1,Normal
+Mayflower,2023,1,5ii,Differentiation,Tangent / Normal,,
+Mayflower,2023,1,6,Trigonometry,Drawing Trigo Graphs,2,Challenging
+Mayflower,2023,1,7,Differentiation,Rate of Change,1,Normal
+Mayflower,2023,1,"8a, b",Differentiation,,1,Normal
+Mayflower,2023,1,8c,Integration,,,
+Mayflower,2023,1,9,Proof of Plane Geometry,,,
+Mayflower,2023,1,10,Trigonometry,Drawing Trigo Graphs,3,Very Challenging
+Mayflower,2023,1,11,Surds,,1,Normal
+Mayflower,2023,1,12,Differentiation,Stationary Points,1,Normal
+Mayflower,2023,1,13,Integration - Area under curve,,2,Challenging
+Mayflower,2023,2,1,Exponential and Log,,1,Normal
+Mayflower,2023,2,2,Equation and Inequality,,1,Normal
+Mayflower,2023,2,3,Integration,Differentiate then Integrate,2,Challenging
+Mayflower,2023,2,4,Kinematics,,2,Challenging
+Mayflower,2023,2,5,Binomial Expansion,,1,Normal
+Mayflower,2023,2,6,Polynomials,,1,Normal
+Mayflower,2023,2,7,Trigonometry,R-Formula,1,Normal
+Mayflower,2023,2,8,Integration,Tangent / Normal,2,Challenging
+Mayflower,2023,2,9,Linear Law,,2,Challenging
+Mayflower,2023,2,10,Coordinate Geometry (Circle),,3,Very Challenging
+Mayflower,2023,2,11,Differentiation,Stationary Points,1,Normal
+Methodist Girls,2023,1,1,Surds,,1,Normal
+Methodist Girls,2023,1,2i,Differentiation,Increasing / Decreasing Functions,1,Normal
+Methodist Girls,2023,1,2ii,Differentiation,Rate of Change,1,Normal
+Methodist Girls,2023,1,3,Polynomials,,1,Normal
+Methodist Girls,2023,1,4,Trigonometry,Drawing Trigo Graphs,1,Normal
+Methodist Girls,2023,1,5,Differentiation,Tangent / Normal,2,Challenging
+Methodist Girls,2023,1,6,Binomial Expansion,,3,Very Challenging
+Methodist Girls,2023,1,7,Exponential and Log,,2,Challenging
+Methodist Girls,2023,1,8,Differentiation,Stationary Points,2,Challenging
+Methodist Girls,2023,1,9,Differentiation,Stationary Points,2,Challenging
+Methodist Girls,2023,1,10,Trigonometry,Special Angles,2,Challenging
+Methodist Girls,2023,1,11,Proof of Plane Geometry,,,
+Methodist Girls,2023,1,12,Coordinate Geometry,,2,Challenging
+Methodist Girls,2023,2,1,Integration,Integrate with Partial Fraction,2,Challenging
+Methodist Girls,2023,2,2,Coordinate Geometry (Circle),,1,Normal
+Methodist Girls,2023,2,3,Integration,Differentiate then Integrate,1,Normal
+Methodist Girls,2023,2,4,Trigonometry,R-Formula,2,Challenging
+Methodist Girls,2023,2,5,Exponential and Log,,2,Challenging
+Methodist Girls,2023,2,6,Trigonometry,Proving Trigo Functions,3,Very Challenging
+Methodist Girls,2023,2,7,Equation and Inequality,,2,Challenging
+Methodist Girls,2023,2,8,Linear Law,,2,Challenging
+Methodist Girls,2023,2,9,Kinematics,,2,Challenging
+Methodist Girls,2023,2,10,Integration - Area under curve,,2,Challenging
+Montfort,2023,1,1,Exponential and Log,,2,Challenging
+Montfort,2023,1,2,Surds,,1,Normal
+Montfort,2023,1,3,Trigonometry,Principal Values,2,Challenging
+Montfort,2023,1,4,Partial Fractions,,1,Normal
+Montfort,2023,1,5,Linear Law,,2,Challenging
+Montfort,2023,1,6,Integration,Tangent / Normal,2,Challenging
+Montfort,2023,1,7,Kinematics,,2,Challenging
+Montfort,2023,1,8,Differentiation,Stationary Points,2,Challenging
+Montfort,2023,1,9a,Trigonometry,Proving Trigo Functions,1,Normal
+Montfort,2023,1,9b,Trigonometry,Solving Trigo Functions,,
+Montfort,2023,1,10,Polynomials,,1,Normal
+Montfort,2023,1,11,Coordinate Geometry (Circle),,2,Challenging
+Montfort,2023,1,12,Proof of Plane Geometry,,,
+Montfort,2023,1,13,Integration - Area under curve,,2,Challenging
+Montfort,2023,1,14,Kinematics,,2,Challenging
+Montfort,2023,2,1,Differentiation,,1,Normal
+Montfort,2023,2,2,Integration,Differentiate then Integrate,1,Normal
+Montfort,2023,2,3,Binomial Expansion,,3,Very Challenging
+Montfort,2023,2,4a,Differentiation,Increasing / Decreasing Functions,,
+Montfort,2023,2,4b,Differentiation,Tangent / Normal,,
+Montfort,2023,2,5,Exponential and Log,,1,Normal
+Montfort,2023,2,6,Equation and Inequality,,2,Challenging
+Montfort,2023,2,7,Exponential and Log,,2,Challenging
+Montfort,2023,2,8a,Differentiation,Rate of Change,1,Normal
+Montfort,2023,2,8b,Differentiation,Stationary Points,,
+Montfort,2023,2,9,Trigonometry,Drawing Trigo Graphs,1,Normal
+Montfort,2023,2,10,Trigonometry,R-Formula,1,Normal
+Montfort,2023,2,11,Coordinate Geometry,,3,Very Challenging
+Nan Chiau,2023,1,1,Surds,,1,Normal
+Nan Chiau,2023,1,2,Integration,Differentiate then Integrate,1,Normal
+Nan Chiau,2023,1,3,Equation and Inequality,,2,Challenging
+Nan Chiau,2023,1,4,Partial Fractions,,1,Normal
+Nan Chiau,2023,1,5,Exponential and Log,,1,Normal
+Nan Chiau,2023,1,6,Trigonometry,Special Angles,2,Challenging
+Nan Chiau,2023,1,7a,Trigonometry,Proving Trigo Functions,1,Normal
+Nan Chiau,2023,1,7b,Trigonometry,Solving Trigo Functions,,
+Nan Chiau,2023,1,8,Coordinate Geometry,,2,Challenging
+Nan Chiau,2023,1,9,Linear Law,,2,Challenging
+Nan Chiau,2023,1,10,Kinematics,,2,Challenging
+Nan Chiau,2023,1,11a,Differentiation,Increasing / Decreasing Functions,2,Challenging
+Nan Chiau,2023,1,"11c, d",Differentiation,Tangent / Normal,,
+Nan Chiau,2023,1,12,Proof of Plane Geometry,,,
+Nan Chiau,2023,2,1,Trigonometry,Drawing Trigo Graphs,2,Challenging
+Nan Chiau,2023,2,2,Integration,,2,Challenging
+Nan Chiau,2023,2,3,Differentiation,Rate of Change,1,Normal
+Nan Chiau,2023,2,4,Integration - Area under curve,,2,Challenging
+Nan Chiau,2023,2,5,Exponential and Log,,3,Very Challenging
+Nan Chiau,2023,2,6,Polynomials,,3,Very Challenging
+Nan Chiau,2023,2,7,Binomial Expansion,,3,Very Challenging
+Nan Chiau,2023,2,8,Trigonometry,R-Formula,2,Challenging
+Nan Chiau,2023,2,9,Coordinate Geometry,,3,Very Challenging
+Nan Chiau,2023,2,10,Differentiation,Stationary Points,2,Challenging
+Ngee Ann,2023,1,1,Equation and Inequality,,1,Normal
+Ngee Ann,2023,1,2,Surds,,1,Normal
+Ngee Ann,2023,1,3,Exponential and Log,,1,Normal
+Ngee Ann,2023,1,4,Trigonometry,Special Angles,1,Normal
+Ngee Ann,2023,1,5,Partial Fractions,,1,Normal
+Ngee Ann,2023,1,6,Equation and Inequality,,1,Normal
+Ngee Ann,2023,1,7,Trigonometry,Drawing Log / Exponential Graphs,1,Normal
+Ngee Ann,2023,1,8,Proof of Plane Geometry,,,
+Ngee Ann,2023,1,9,Integration,,1,Normal
+Ngee Ann,2023,1,10,Differentiation,Tangent / Normal,1,Normal
+Ngee Ann,2023,1,11,Differentiation,Rate of Change,1,Normal
+Ngee Ann,2023,1,12,Coordinate Geometry,,2,Challenging
+Ngee Ann,2023,1,13,Linear Law,,1,Normal
+Ngee Ann,2023,1,14,Kinematics,,2,Challenging
+Ngee Ann,2023,2,1,Trigonometry,Principal Values,1,Normal
+Ngee Ann,2023,2,2,Binomial Expansion,,1,Normal
+Ngee Ann,2023,2,3a,Trigonometry,Proving Trigo Functions,1,Normal
+Ngee Ann,2023,2,3b,Trigonometry,Solving Trigo Functions,,
+Ngee Ann,2023,2,4,Polynomials,,1,Normal
+Ngee Ann,2023,2,5a,Differentiation,Increasing / Decreasing Functions,1,Normal
+Ngee Ann,2023,2,5b,Differentiation,Stationary Points,,
+Ngee Ann,2023,2,6,Differentiation,Stationary Points,1,Normal
+Ngee Ann,2023,2,7,Trigonometry,R-Formula,2,Challenging
+Ngee Ann,2023,2,8,Coordinate Geometry (Circle),,2,Challenging
+Ngee Ann,2023,2,9ai,Exponential and Log,Drawing Log / Exponential Graphs,2,Challenging
+Ngee Ann,2023,2,"9aii, iii, b",Exponential and Log,,2,Challenging
+Ngee Ann,2023,2,10,Integration - Area under curve,,2,Challenging
+Pasir Ris,2023,1,1,Trigonometry,Principal Values,1,Normal
+Pasir Ris,2023,1,2,Equation and Inequality,,2,Challenging
+Pasir Ris,2023,1,3,Exponential and Log,,1,Normal
+Pasir Ris,2023,1,4,Differentiation,Increasing / Decreasing Functions,2,Challenging
+Pasir Ris,2023,1,5,Binomial Expansion,,1,Normal
+Pasir Ris,2023,1,6,Application of Differentiation,Stationary Points,2,Challenging
+Pasir Ris,2023,1,7,Integration,Integrate with Partial Fraction,1,Normal
+Pasir Ris,2023,1,8,Exponential and Log,,1,Normal
+Pasir Ris,2023,1,9,Coordinate Geometry (Circle),,2,Challenging
+Pasir Ris,2023,1,10,Surds,,1,Normal
+Pasir Ris,2023,1,11,Linear Law,,2,Challenging
+Pasir Ris,2023,1,12,Trigonometry,Special Angles,2,Challenging
+Pasir Ris,2023,1,13a,Trigonometry,Proving Trigo Functions,2,Challenging
+Pasir Ris,2023,1,13a,Integration,,2,Challenging
+Pasir Ris,2023,1,14,Proof of Plane Geometry,,,
+Pasir Ris,2023,2,1,Exponential and Log,Drawing Log / Exponential Graphs,1,Normal
+Pasir Ris,2023,2,2,Polynomials,,1,Normal
+Pasir Ris,2023,2,3,Trigonometry,Drawing Trigo Graphs,1,Normal
+Pasir Ris,2023,2,4,Integration - Area under curve,,2,Challenging
+Pasir Ris,2023,2,5,Differentiation,Stationary Points,2,Challenging
+Pasir Ris,2023,2,6,Trigonometry,Solving Trigo Functions,2,Challenging
+Pasir Ris,2023,2,7,Trigonometry,R-Formula,2,Challenging
+Pasir Ris,2023,2,8,Differentiation,Rate of Change,2,Challenging
+Pasir Ris,2023,2,9,Kinematics,,2,Challenging
+Pasir Ris,2023,2,10,Coordinate Geometry,,2,Challenging
+Pasir Ris,2023,2,11,Equation and Inequality,,3,Very Challenging
+Presbyterian High,2023,1,1,Equation and Inequality,,1,Normal
+Presbyterian High,2023,1,2,Integration,Tangent / Normal,1,Normal
+Presbyterian High,2023,1,3,Equation and Inequality,,1,Normal
+Presbyterian High,2023,1,4,Polynomials,,1,Normal
+Presbyterian High,2023,1,5,Partial Fractions,,2,Challenging
+Presbyterian High,2023,1,6,Binomial Expansion,,1,Normal
+Presbyterian High,2023,1,7,Proof of Plane Geometry,,,
+Presbyterian High,2023,1,8,Coordinate Geometry (Circle),,1,Normal
+Presbyterian High,2023,1,9,Linear Law,,2,Challenging
+Presbyterian High,2023,1,10,Trigonometry,Drawing Trigo Graphs,2,Challenging
+Presbyterian High,2023,1,11,Kinematics,,1,Normal
+Presbyterian High,2023,1,12,Differentiation,Increasing / Decreasing Functions,2,Challenging
+Presbyterian High,2023,1,13,Coordinate Geometry,,2,Challenging
+Presbyterian High,2023,2,1,Exponential and Log,,1,Normal
+Presbyterian High,2023,2,2,Trigonometry,Special Angles,1,Normal
+Presbyterian High,2023,2,3a,Trigonometry,Proving Trigo Functions,1,Normal
+Presbyterian High,2023,2,3b,Trigonometry,Solving Trigo Functions,1,Normal
+Presbyterian High,2023,2,4,Exponential and Log,,1,Normal
+Presbyterian High,2023,2,5,Trigonometry,R-Formula,1,Normal
+Presbyterian High,2023,2,6,Differentiation,Stationary Points,1,Normal
+Presbyterian High,2023,2,7,Integration,Differentiate then Integrate,1,Normal
+Presbyterian High,2023,2,8,Equation and Inequality,,2,Challenging
+Presbyterian High,2023,2,9,Coordinate Geometry (Circle),,1,Normal
+Presbyterian High,2023,2,10,Integration - Area under curve,,1,Normal
+Tanjong Katong Girls,2023,1,1,Surds,,1,Normal
+Tanjong Katong Girls,2023,1,2,Equation and Inequality,,1,Normal
+Tanjong Katong Girls,2023,1,3,Equation and Inequality,,1,Normal
+Tanjong Katong Girls,2023,1,4,Integration,,1,Normal
+Tanjong Katong Girls,2023,1,5,Partial Fractions,,2,Challenging
+Tanjong Katong Girls,2023,1,6,Polynomials,,1,Normal
+Tanjong Katong Girls,2023,1,7,Trigonometry,Drawing Trigo Graphs,2,Challenging
+Tanjong Katong Girls,2023,1,8,Differentiation,Stationary Points,1,Normal
+Tanjong Katong Girls,2023,1,9,Coordinate Geometry (Circle),,2,Challenging
+Tanjong Katong Girls,2023,1,10a,Trigonometry,Proving Trigo Functions,1,Normal
+Tanjong Katong Girls,2023,1,10b,Trigonometry,Solving Trigo Functions,1,Normal
+Tanjong Katong Girls,2023,1,11,Proof of Plane Geometry,,,
+Tanjong Katong Girls,2023,1,12,Exponential and Log,,1,Normal
+Tanjong Katong Girls,2023,1,13,Differentiation,Rate of Change,1,Normal
+Tanjong Katong Girls,2023,1,14,Integration - Area under curve,,2,Challenging
+Tanjong Katong Girls,2023,2,1,Exponential and Log,Drawing Log / Exponential Graphs,2,Challenging
+Tanjong Katong Girls,2023,2,2,Polynomials,,2,Challenging
+Tanjong Katong Girls,2023,2,3,Integration,Differentiate then Integrate,1,Normal
+Tanjong Katong Girls,2023,2,4,Trigonometry,R-Formula,1,Normal
+Tanjong Katong Girls,2023,2,5a,Equation and Inequality,,1,Normal
+Tanjong Katong Girls,2023,2,5b,Differentiation,Tangent / Normal,1,Normal
+Tanjong Katong Girls,2023,2,6,Binomial Expansion,,1,Normal
+Tanjong Katong Girls,2023,2,7,Linear Law,,1,Normal
+Tanjong Katong Girls,2023,2,8,Kinematics,,2,Challenging
+Tanjong Katong Girls,2023,2,9,Coordinate Geometry (Circle),,2,Challenging
+Tanjong Katong Girls,2023,2,10,Integration - Area under curve,,3,Very Challenging
+Woodgrove,2023,1,1,Surds,,1,Normal
+Woodgrove,2023,1,2,Exponential and Log,,1,Normal
+Woodgrove,2023,1,3,Polynomials,,2,Challenging
+Woodgrove,2023,1,4,Integration,,1,Normal
+Woodgrove,2023,1,5,Binomial Expansion,,1,Normal
+Woodgrove,2023,1,6,Differentiation,Rate of Change,2,Challenging
+Woodgrove,2023,1,7,Trigonometry,Principal Values,1,Normal
+Woodgrove,2023,1,8,Exponential and Log,Drawing Log / Exponential Graphs,1,Normal
+Woodgrove,2023,1,9,Equation and Inequality,,1,Normal
+Woodgrove,2023,1,10,Trigonometry,Drawing Trigo Graphs,2,Challenging
+Woodgrove,2023,1,11,Proof of Plane Geometry,,,
+Woodgrove,2023,1,12,Differentiation,Stationary Points,1,Normal
+Woodgrove,2023,1,13,Coordinate Geometry,,1,Normal
+Woodgrove,2023,1,14,Kinematics,,2,Challenging
+Woodgrove,2023,2,1,Integration,Differentiate then Integrate,1,Normal
+Woodgrove,2023,2,2a,Trigonometry,Proving Trigo Functions,1,Normal
+Woodgrove,2023,2,2b,Trigonometry,Solving Trigo Functions,1,Normal
+Woodgrove,2023,2,3,Partial Fractions,,1,Normal
+Woodgrove,2023,2,4,Integration,Tangent / Normal,1,Normal
+Woodgrove,2023,2,5,Coordinate Geometry (Circle),,2,Challenging
+Woodgrove,2023,2,6,Exponential and Log,,1,Normal
+Woodgrove,2023,2,7,Equation and Inequality,,2,Challenging
+Woodgrove,2023,2,8,Integration - Area under curve,,2,Challenging
+Woodgrove,2023,2,9,Trigonometry,R-Formula,1,Normal
+Woodgrove,2023,2,10,Linear Law,,1,Normal
+Zhenghua,2023,1,1,Polynomials,,2,Challenging
+Zhenghua,2023,1,2,Partial Fractions,,1,Normal
+Zhenghua,2023,1,3,Trigonometry,Drawing Trigo Graphs,1,Normal
+Zhenghua,2023,1,4,Coordinate Geometry,,1,Normal
+Zhenghua,2023,1,5,Linear Law,,1,Normal
+Zhenghua,2023,1,6,Surds,,2,Challenging
+Zhenghua,2023,1,7,Kinematics,,1,Normal
+Zhenghua,2023,1,8,Polynomials,,2,Challenging
+Zhenghua,2023,1,9,Integration,Area under curve,1,Normal
+Zhenghua,2023,1,10,Equation and Inequality,,1,Normal
+Zhenghua,2023,1,11,Proof of Plane Geometry,,,
+Zhenghua,2023,1,12,Binomial Expansion,,1,Normal
+Zhenghua,2023,1,13,Differentiation,Tangent / Normal,2,Challenging
+Zhenghua,2023,2,1,Trigonometry,Special Angles,1,Normal
+Zhenghua,2023,2,2,Exponential and Log,,1,Normal
+Zhenghua,2023,2,3,Exponential and Log,,1,Normal
+Zhenghua,2023,2,4,Polynomials,,1,Normal
+Zhenghua,2023,2,5,Integration,Differentiate then Integrate,1,Normal
+Zhenghua,2023,2,6a,Trigonometry,Proving Trigo Functions,2,Challenging
+Zhenghua,2023,2,6b,Trigonometry,Solving Trigo Functions,1,Normal
+Zhenghua,2023,2,7,Differentiation,Stationary Points,1,Normal
+Zhenghua,2023,2,8,Trigonometry,R-Formula,1,Normal
+Zhenghua,2023,2,"9a, b",Differentiation,Rate of Change,1,Normal
+Zhenghua,2023,2,9c,Integration,Differentiate then Integrate,1,Normal
+Zhenghua,2023,2,10,Integration - Area under curve,,2,Challenging
+Zhenghua,2023,2,11,Coordinate Geometry (Circle),,3,Very Challenging
