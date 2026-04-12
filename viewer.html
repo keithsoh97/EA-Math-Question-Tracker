@@ -133,6 +133,7 @@
 <header>
   <div class="header-left">
     <button class="back-btn" onclick="history.back()">← Back</button>
+    <button class="back-btn" id="btn-download" onclick="downloadPdf()" style="display:none;">↓ Download</button>
     <div>
       <div class="header-title" id="header-title">Question Viewer</div>
       <div class="header-meta" id="header-meta"></div>
@@ -174,10 +175,6 @@ let pdfDoc    = null;
 let currentPage = startPage;
 let scale     = 1.4;
 
-function getProxyUrl(id) {
-  return `https://drive.google.com/uc?export=download&id=${id}`;
-}
-
 if (label) {
   document.getElementById('header-title').textContent = `Question ${label}`;
 }
@@ -198,13 +195,12 @@ async function loadPdf(id) {
       cMapPacked: true,
     });
     pdfDoc = await loadingTask.promise;
+    document.getElementById('btn-download').style.display = 'inline-flex';
     renderPage(currentPage);
   } catch(e) {
     showError(
       'Could not load the PDF.',
-      'This usually means the file isn\'t set to <strong>"Anyone with the link"</strong> in Google Drive. ' +
-      'Open the PDF in Drive, click Share, and set access to Anyone with the link. ' +
-      '<br><br>If it\'s already shared, <a href="' + getProxyUrl(id) + '" target="_blank">try opening it directly</a>.'
+      'Make sure the file is accessible. If hosted on GitHub Pages, check that the file was uploaded correctly.'
     );
   }
 }
@@ -256,6 +252,14 @@ function changeZoom(delta) {
 function showError(title, detail) {
   document.getElementById('canvas-container').innerHTML =
     `<div class="error-state"><h3>${title}</h3><p>${detail}</p></div>`;
+}
+
+function downloadPdf() {
+  const a = document.createElement('a');
+  a.href = decodeURIComponent(fileId);
+  a.download = '';
+  a.target = '_blank';
+  a.click();
 }
 </script>
 </body>
