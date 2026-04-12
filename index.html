@@ -163,6 +163,12 @@ const SHEET_TAB = 'ALL';
 const DIFF_LABEL = { 'Normal': 'Normal', 'Challenging': 'Challenging', 'Very Challenging': 'Very Challenging' };
 const DIFF_CLASS = { 'Normal': 'n1', 'Challenging': 'n2', 'Very Challenging': 'n3' };
 
+ function makePdfLink(driveUrl, page) {
+  const m = driveUrl.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+  if (!m) return driveUrl;
+  return `https://drive.google.com/file/d/${m[1]}/preview#page=${page}`;
+}
+
 let allQuestions = [];
 let selectedTopic = null;
 let selectedSubtopic = null;
@@ -191,7 +197,9 @@ async function loadSheet() {
       question:   r[idx('question')]   || '',
       topic:      r[idx('topic')]      || '',
       subtopic:   r[idx('subtopic')]   || '',
-      difficulty: (r[idx('difficulty')] || '').trim()
+      difficulty: (r[idx('difficulty')] || '').trim(),
+      pdf_link:   r[idx('pdf_link')]   || '',
+      page:       r[idx('page')]       || ''
     })).filter(q => q.topic);
     updateStats();
     buildFilterUI();
@@ -312,13 +320,14 @@ function findQuestions() {
   el.innerHTML = `<div class="table-wrap">
     <div class="table-meta">${res.length} question${res.length!==1?'s':''} found</div>
     <table>
-      <thead><tr><th>School</th><th>Year</th><th>Paper</th><th>Question Number</th><th>Topic</th><th>Subtopic</th><th>Difficulty</th></tr></thead>
+      <thead><tr><th>School</th><th>Year</th><th>Paper</th><th>Question Number</th><th>Topic</th><th>Subtopic</th><th>Difficulty</th><th></th></tr></thead>
       <tbody>${res.map(q => `<tr>
         <td>${q.school||'—'}</td><td>${q.year||'—'}</td><td>${q.paper||'—'}</td>
         <td style="font-weight:500">${q.question||'—'}</td>
         <td>${q.topic||'—'}</td>
         <td style="color:var(--text2)">${q.subtopic||'—'}</td>
         <td><span class="badge ${DIFF_CLASS[q.difficulty]||'n1'}">${DIFF_LABEL[q.difficulty]||q.difficulty}</span></td>
+        <td>${q.pdf_link && q.page ? `<a href="${makePdfLink(q.pdf_link, q.page)}" target="_blank" style="font-size:12px;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap;">View ↗</a>` : '—'}</td>
       </tr>`).join('')}</tbody>
     </table>
   </div>`;
@@ -379,7 +388,7 @@ function renderPapers() {
       </div>
       <div class="paper-card-body" id="paper-${i}">
         <table>
-          <thead><tr><th>Question Number</th><th>Topic</th><th>Subtopic</th><th>Difficulty</th></tr></thead>
+          <thead><tr><th>Question Number</th><th>Topic</th><th>Subtopic</th><th>Difficulty</th><th></th></tr></thead>
           <tbody>${p.questions.sort((a,b) => {
             const n1 = parseFloat(a.question) || 0;
             const n2 = parseFloat(b.question) || 0;
@@ -389,6 +398,7 @@ function renderPapers() {
             <td>${q.topic||'—'}</td>
             <td style="color:var(--text2)">${q.subtopic||'—'}</td>
             <td><span class="badge ${DIFF_CLASS[q.difficulty]||'n1'}">${DIFF_LABEL[q.difficulty]||q.difficulty}</span></td>
+            <td>${q.pdf_link && q.page ? `<a href="${makePdfLink(q.pdf_link, q.page)}" target="_blank" style="font-size:12px;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap;">View ↗</a>` : '—'}</td>
           </tr>`).join('')}</tbody>
         </table>
       </div>
