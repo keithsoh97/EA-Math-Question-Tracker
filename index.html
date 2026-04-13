@@ -336,7 +336,7 @@ function buildFilterUI() {
     <div class="filter-section">
       <div class="filter-label">Topic</div>
       <div class="chip-wrap" id="topic-chips">
-        ${topics.map(t => `<button class="chip" data-topic="${t}" onclick="toggleTopic(this,'${t.replace(/'/g,"\\'")}'')">${t}</button>`).join('')}
+        ${topics.map(t => `<button class="chip" data-topic="${t}" onclick="toggleTopic(this,this.dataset.topic)">${t}</button>`).join('')}
       </div>
       <div class="subtopic-wrap" id="subtopic-wrap">
         <div class="filter-label" id="subtopic-label">Subtopic</div>
@@ -360,6 +360,7 @@ function buildFilterUI() {
 }
 
 function toggleTopic(el, topic) {
+  topic = el.dataset.topic;
   document.querySelectorAll('#topic-chips .chip').forEach(c => c.classList.remove('on'));
   if (selectedTopic === topic) {
     selectedTopic = null; selectedSubtopic = null;
@@ -379,12 +380,13 @@ function refreshSubtopics() {
   if (subs.length === 0) { wrap.classList.remove('visible'); return; }
   document.getElementById('subtopic-label').textContent = `Subtopic — ${selectedTopic}`;
   document.getElementById('subtopic-chips').innerHTML = subs.map(s =>
-    `<button class="chip" data-sub="${s}" onclick="toggleSub(this,'${s.replace(/'/g,"\\'")}'')">${s}</button>`
+    `<button class="chip" data-sub="${s}" onclick="toggleSub(this,this.dataset.sub)">${s}</button>`
   ).join('');
   wrap.classList.add('visible');
 }
 
 function toggleSub(el, sub) {
+  sub = el.dataset.sub;
   document.querySelectorAll('#subtopic-chips .chip').forEach(c => c.classList.remove('on'));
   if (selectedSubtopic === sub) { selectedSubtopic = null; }
   else { selectedSubtopic = sub; el.classList.add('on'); }
