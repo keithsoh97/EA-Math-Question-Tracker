@@ -452,8 +452,8 @@ function renderPapers() {
       });
       return `
         <div style="padding: 0 0 0 0;">
-          <div style="padding: 10px 20px 8px; font-size: 12px; font-weight: 500; color: var(--text2); background: var(--bg); border-top: 1px solid var(--border);">
-            Paper ${pNum} — ${qs.length} question${qs.length !== 1 ? 's' : ''}
+          <div style="padding: 12px 20px 10px; font-size: 15px; font-weight: 600; color: var(--text); background: var(--bg); border-top: 1px solid var(--border);">
+            Paper ${pNum}
           </div>
           <table>
             <thead><tr><th>Question</th><th>Topic</th><th>Subtopic</th><th>Difficulty</th><th></th></tr></thead>
@@ -473,15 +473,14 @@ function renderPapers() {
     }).join('');
 
     const downloadBtn = g.pdfLink
-      ? `<a href="${g.pdfLink}" target="_blank" style="font-size:12px;color:var(--accent);text-decoration:none;font-weight:500;border:1px solid var(--border);padding:4px 10px;border-radius:var(--radius);white-space:nowrap;">↓ Full PDF</a>`
+      ? `<a href="${g.pdfLink}" target="_blank" style="font-size:12px;color:var(--accent);text-decoration:none;font-weight:500;border:1px solid var(--border);padding:4px 10px;border-radius:var(--radius);white-space:nowrap;">↓ Download Paper</a>`
       : '';
 
     return `
     <div class="paper-card">
       <div class="paper-card-header" onclick="togglePaper('group-${i}')">
         <div>
-          <div class="paper-card-title">${g.school} — ${g.year}</div>
-          <div class="paper-card-meta">${totalQ} question${totalQ !== 1 ? 's' : ''} · ${paperNums.length} paper${paperNums.length !== 1 ? 's' : ''}</div>
+          <div class="paper-card-title" style="font-size:17px;font-weight:600;">${g.school} — ${g.year}</div>
         </div>
         <div style="display:flex;align-items:center;gap:10px;">
           ${downloadBtn}
