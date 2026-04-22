@@ -3,157 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Question Viewer — A-Math Question Bank</title>
+<title>Question Viewer — Maths Question Bank</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --bg: #F7F6F2;
-    --surface: #FFFFFF;
-    --border: #E2DDD5;
-    --border2: #CBC5BB;
-    --text: #1C1A17;
-    --text2: #6B6560;
-    --text3: #A09990;
-    --accent: #2D6A4F;
-    --accent-light: #D8EDDF;
-    --accent-text: #1B4332;
+    --bg: #F7F6F2; --surface: #FFFFFF; --border: #E2DDD5; --border2: #CBC5BB;
+    --text: #1C1A17; --text2: #6B6560; --text3: #A09990;
+    --accent: #2D6A4F; --accent-light: #D8EDDF; --accent-text: #1B4332;
     --font-display: 'DM Serif Display', Georgia, serif;
     --font-body: 'DM Sans', system-ui, sans-serif;
-    --radius: 8px;
-    --radius-lg: 14px;
+    --radius: 8px; --radius-lg: 14px;
   }
-  body {
-    background: var(--bg);
-    font-family: var(--font-body);
-    color: var(--text);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
+  body { background: var(--bg); font-family: var(--font-body); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; }
 
-  header {
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    padding: 14px 28px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    flex-shrink: 0;
-  }
-  .header-left { display: flex; align-items: center; gap: 16px; }
-  .back-btn {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-size: 13px; color: var(--text2); text-decoration: none;
-    padding: 6px 12px; border: 1px solid var(--border);
-    border-radius: var(--radius); background: none;
-    cursor: pointer; font-family: var(--font-body);
-    transition: all 0.12s;
-  }
-  .back-btn:hover { border-color: var(--border2); color: var(--text); }
+  header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 14px 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-shrink: 0; flex-wrap: wrap; }
+  .header-left { display: flex; align-items: center; gap: 10px; }
+  .header-info { display: flex; flex-direction: column; }
   .header-title { font-family: var(--font-display); font-size: 18px; font-weight: 400; }
   .header-meta { font-size: 12px; color: var(--text3); margin-top: 1px; }
 
+  .btn { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text2); padding: 6px 12px; border: 1px solid var(--border); border-radius: var(--radius); background: none; cursor: pointer; font-family: var(--font-body); transition: all 0.12s; white-space: nowrap; }
+  .btn:hover { border-color: var(--border2); color: var(--text); }
+  .btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+  .download-wrap { position: relative; }
+  .download-trigger { display: none; }
+  .download-menu { display: none; position: absolute; top: calc(100% + 6px); left: 0; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 4px 16px rgba(0,0,0,0.10); min-width: 200px; z-index: 100; overflow: hidden; }
+  .download-menu.open { display: block; }
+  .download-item { display: flex; flex-direction: column; padding: 10px 14px; cursor: pointer; transition: background 0.1s; border: none; background: none; width: 100%; text-align: left; font-family: var(--font-body); }
+  .download-item:hover { background: var(--bg); }
+  .download-item + .download-item { border-top: 1px solid var(--border); }
+  .download-item-label { font-size: 13px; color: var(--text); font-weight: 500; }
+  .download-item-sub { font-size: 11px; color: var(--text3); margin-top: 2px; }
+
+  .header-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .zoom-controls { display: flex; align-items: center; gap: 6px; padding: 6px 10px; border: 1px solid var(--border); border-radius: var(--radius); }
+  .zoom-btn { width: 26px; height: 26px; border: none; background: none; font-size: 16px; cursor: pointer; color: var(--text2); border-radius: 4px; display: flex; align-items: center; justify-content: center; transition: background 0.1s; }
+  .zoom-btn:hover { background: var(--bg); color: var(--text); }
+  .zoom-label { font-size: 12px; color: var(--text2); min-width: 38px; text-align: center; }
   .page-nav { display: flex; align-items: center; gap: 8px; }
-  .nav-btn {
-    padding: 6px 12px; border: 1px solid var(--border); border-radius: var(--radius);
-    background: var(--surface); font-size: 13px; color: var(--text2);
-    cursor: pointer; font-family: var(--font-body); transition: all 0.12s;
-  }
+  .nav-btn { padding: 6px 12px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); font-size: 13px; color: var(--text2); cursor: pointer; font-family: var(--font-body); transition: all 0.12s; }
   .nav-btn:hover:not(:disabled) { border-color: var(--border2); color: var(--text); }
   .nav-btn:disabled { opacity: 0.35; cursor: not-allowed; }
   .page-indicator { font-size: 13px; color: var(--text2); white-space: nowrap; min-width: 80px; text-align: center; }
 
-  .viewer-wrap {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 28px 20px;
-    overflow-y: auto;
-  }
-
-  .canvas-outer {
-    position: relative;
-    max-width: 860px;
-    width: 100%;
-  }
-
-  #canvas-container {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    width: 100%;
-  }
+  .viewer-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 28px 20px; }
+  .canvas-outer { position: relative; max-width: 860px; width: 100%; }
+  #canvas-container { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); width: 100%; }
   canvas { display: block; width: 100%; height: auto; }
 
-  /* Hover nav overlay */
-  .hover-nav {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: rgba(28, 26, 23, 0.82);
-    border-radius: 100px;
-    padding: 8px 16px;
-    opacity: 0;
-    transition: opacity 0.2s;
-    pointer-events: none;
-    white-space: nowrap;
-  }
+  .hover-nav { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 12px; background: rgba(28,26,23,0.82); border-radius: 100px; padding: 8px 16px; opacity: 0; transition: opacity 0.2s; pointer-events: none; white-space: nowrap; }
   .canvas-outer:hover .hover-nav { opacity: 1; pointer-events: all; }
-  .hover-nav-btn {
-    background: none; border: none; color: #fff;
-    font-size: 14px; font-family: var(--font-body);
-    cursor: pointer; padding: 2px 8px; border-radius: 6px;
-    transition: background 0.1s;
-  }
+  .hover-nav-btn { background: none; border: none; color: #fff; font-size: 14px; font-family: var(--font-body); cursor: pointer; padding: 2px 8px; border-radius: 6px; transition: background 0.1s; }
   .hover-nav-btn:hover:not(:disabled) { background: rgba(255,255,255,0.15); }
   .hover-nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
   .hover-nav-label { font-size: 13px; color: rgba(255,255,255,0.75); min-width: 90px; text-align: center; }
 
-  .loading-state {
-    display: flex; flex-direction: column; align-items: center;
-    justify-content: center; padding: 80px 40px; gap: 16px; color: var(--text3);
-  }
-  .spinner {
-    width: 28px; height: 28px; border: 2px solid var(--border);
-    border-top-color: var(--accent); border-radius: 50%;
-    animation: spin 0.7s linear infinite;
-  }
+  .loading-state { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 80px 40px; gap: 16px; color: var(--text3); }
+  .spinner { width: 28px; height: 28px; border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.7s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
   .loading-state p { font-size: 14px; }
-
-  .error-state {
-    text-align: center; padding: 80px 40px; color: var(--text2);
-    max-width: 480px; margin: 0 auto;
-  }
+  .error-state { text-align: center; padding: 80px 40px; color: var(--text2); max-width: 480px; margin: 0 auto; }
   .error-state h3 { font-family: var(--font-display); font-size: 22px; font-weight: 400; margin-bottom: 10px; color: var(--text); }
   .error-state p { font-size: 14px; line-height: 1.6; }
-  .error-state a { color: var(--accent); }
 
-  .zoom-controls {
-    display: flex; align-items: center; gap: 8px;
-    padding: 8px 12px; background: var(--surface);
-    border: 1px solid var(--border); border-radius: var(--radius);
-  }
-  .zoom-btn {
-    width: 28px; height: 28px; border: none; background: none;
-    font-size: 16px; cursor: pointer; color: var(--text2);
-    border-radius: 4px; display: flex; align-items: center; justify-content: center;
-    transition: background 0.1s;
-  }
-  .zoom-btn:hover { background: var(--bg); color: var(--text); }
-  .zoom-label { font-size: 12px; color: var(--text2); min-width: 38px; text-align: center; }
+  .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: rgba(28,26,23,0.88); color: #fff; font-size: 13px; padding: 8px 18px; border-radius: 100px; opacity: 0; transition: opacity 0.2s; pointer-events: none; white-space: nowrap; }
+  .toast.show { opacity: 1; }
 
   @media (max-width: 600px) {
-    header { padding: 12px 16px; flex-wrap: wrap; }
+    header { padding: 12px 16px; }
     .zoom-controls { display: none; }
     .viewer-wrap { padding: 16px 8px; }
     .hover-nav { display: none; }
@@ -164,18 +83,30 @@
 
 <header>
   <div class="header-left">
-    <button class="back-btn" onclick="history.back()">← Back</button>
-    <button class="back-btn" id="btn-download" onclick="downloadPdf()" style="display:none;">↓ Download</button>
-    <div>
+    <button class="btn" onclick="history.back()">← Back</button>
+    <div class="download-wrap" id="download-wrap" style="display:none;">
+      <button class="btn" onclick="toggleDownloadMenu()">↓ Download ▾</button>
+      <div class="download-menu" id="download-menu">
+        <button class="download-item" onclick="downloadFull()">
+          <span class="download-item-label">Full PDF</span>
+          <span class="download-item-sub">Entire question paper</span>
+        </button>
+        <button class="download-item" id="btn-two-pages" onclick="downloadPages(3)">
+          <span class="download-item-label">Download this page</span>
+          <span class="download-item-sub" id="label-two-pages">Current + next page as PDF</span>
+        </button>
+      </div>
+    </div>
+    <div class="header-info">
       <div class="header-title" id="header-title">Question Viewer</div>
       <div class="header-meta" id="header-meta"></div>
     </div>
   </div>
-  <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+  <div class="header-right">
     <div class="zoom-controls">
-      <button class="zoom-btn" onclick="changeZoom(-0.15)" title="Zoom out">−</button>
+      <button class="zoom-btn" onclick="changeZoom(-0.15)">−</button>
       <span class="zoom-label" id="zoom-label">100%</span>
-      <button class="zoom-btn" onclick="changeZoom(0.15)" title="Zoom in">+</button>
+      <button class="zoom-btn" onclick="changeZoom(0.15)">+</button>
     </div>
     <div class="page-nav">
       <button class="nav-btn" id="btn-prev" onclick="changePage(-1)" disabled>← Prev</button>
@@ -188,12 +119,12 @@
 <div class="viewer-wrap">
   <div class="canvas-outer">
     <div id="canvas-container">
-      <div class="loading-state" id="loading">
+      <div class="loading-state">
         <div class="spinner"></div>
         <p>Loading question paper…</p>
       </div>
     </div>
-    <div class="hover-nav" id="hover-nav">
+    <div class="hover-nav">
       <button class="hover-nav-btn" id="hover-prev" onclick="changePage(-1)" disabled>← Prev</button>
       <span class="hover-nav-label" id="hover-indicator">—</span>
       <button class="hover-nav-btn" id="hover-next" onclick="changePage(1)" disabled>Next →</button>
@@ -201,23 +132,23 @@
   </div>
 </div>
 
+<div class="toast" id="toast"></div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
 pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-const params = new URLSearchParams(window.location.search);
-const fileId  = params.get('id');
+const params    = new URLSearchParams(window.location.search);
+const fileId    = params.get('id');
 const startPage = parseInt(params.get('page') || '1', 10);
-const label   = params.get('label') || '';
+const label     = params.get('label') || '';
 
-let pdfDoc    = null;
+let pdfDoc      = null;
 let currentPage = startPage;
-let scale     = 1.4;
+let scale       = 1.4;
 
-if (label) {
-  document.getElementById('header-title').textContent = `Question ${label}`;
-}
-
+if (label) document.getElementById('header-title').textContent = `Question ${label}`;
 if (!fileId) {
   showError('No file specified.', 'Make sure the link includes a valid file URL.');
 } else {
@@ -234,49 +165,46 @@ async function loadPdf(id) {
       cMapPacked: true,
     });
     pdfDoc = await loadingTask.promise;
-    document.getElementById('btn-download').style.display = 'inline-flex';
+    document.getElementById('download-wrap').style.display = 'inline-flex';
     renderPage(currentPage);
   } catch(e) {
-    showError(
-      'Could not load the PDF.',
-      'Make sure the file is accessible. If hosted on GitHub Pages, check that the file was uploaded correctly.'
-    );
+    showError('Could not load the PDF.', 'Check that the file was uploaded correctly to GitHub Pages.');
   }
 }
 
 async function renderPage(num) {
   const container = document.getElementById('canvas-container');
-
-  const existingCanvas = container.querySelector('canvas');
-  if (!existingCanvas) {
-    container.innerHTML = '';
-  }
-
-  const page = await pdfDoc.getPage(num);
-  const viewport = page.getViewport({ scale });
+  const page      = await pdfDoc.getPage(num);
+  const viewport  = page.getViewport({ scale });
 
   let canvas = container.querySelector('canvas');
   if (!canvas) {
+    container.innerHTML = '';
     canvas = document.createElement('canvas');
     container.appendChild(canvas);
   }
-  const ctx = canvas.getContext('2d');
+  const ctx    = canvas.getContext('2d');
   canvas.width  = viewport.width;
   canvas.height = viewport.height;
-
   await page.render({ canvasContext: ctx, viewport }).promise;
 
   currentPage = num;
   const total = pdfDoc.numPages;
 
-  document.getElementById('page-indicator').textContent = `Page ${num} of ${total}`;
-  document.getElementById('header-meta').textContent = `Page ${num} of ${total}`;
-  document.getElementById('btn-prev').disabled = num <= 1;
-  document.getElementById('btn-next').disabled = num >= total;
-
+  document.getElementById('page-indicator').textContent  = `Page ${num} of ${total}`;
+  document.getElementById('header-meta').textContent     = `Page ${num} of ${total}`;
+  document.getElementById('btn-prev').disabled           = num <= 1;
+  document.getElementById('btn-next').disabled           = num >= total;
   document.getElementById('hover-indicator').textContent = `Page ${num} of ${total}`;
-  document.getElementById('hover-prev').disabled = num <= 1;
-  document.getElementById('hover-next').disabled = num >= total;
+  document.getElementById('hover-prev').disabled         = num <= 1;
+  document.getElementById('hover-next').disabled         = num >= total;
+
+  // Update download labels
+  const lastPage = Math.min(num + 2, total);
+  document.getElementById('label-two-pages').textContent = lastPage > num ? `Pages ${num}-${lastPage}` : `Page ${num}`;
+  document.getElementById('btn-two-pages').disabled        = false;
+  if (num >= total) document.getElementById('btn-two-pages').style.opacity = '0.5';
+  else document.getElementById('btn-two-pages').style.opacity = '1';
 }
 
 function changePage(delta) {
@@ -293,17 +221,81 @@ function changeZoom(delta) {
   if (pdfDoc) renderPage(currentPage);
 }
 
+function toggleDownloadMenu() {
+  document.getElementById('download-menu').classList.toggle('open');
+}
+
+document.addEventListener('click', e => {
+  if (!document.getElementById('download-wrap').contains(e.target)) {
+    document.getElementById('download-menu').classList.remove('open');
+  }
+});
+
+function downloadFull() {
+  document.getElementById('download-menu').classList.remove('open');
+  const a    = document.createElement('a');
+  a.href     = decodeURIComponent(fileId);
+  a.download = '';
+  a.target   = '_blank';
+  a.click();
+}
+
+async function downloadPages(count) {
+  document.getElementById('download-menu').classList.remove('open');
+  showToast('Preparing PDF…');
+
+  const { jsPDF } = window.jspdf;
+  const renderScale = 2.5;
+  const pagesToRender = [];
+
+  for (let i = 0; i < count; i++) {
+    const pageNum = currentPage + i;
+    if (pageNum > pdfDoc.numPages) break;
+    pagesToRender.push(pageNum);
+  }
+
+  const canvases = [];
+  for (const pageNum of pagesToRender) {
+    const page     = await pdfDoc.getPage(pageNum);
+    const viewport = page.getViewport({ scale: renderScale });
+    const canvas   = document.createElement('canvas');
+    canvas.width   = viewport.width;
+    canvas.height  = viewport.height;
+    await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
+    canvases.push({ canvas, viewport });
+  }
+
+  const firstVp  = canvases[0].viewport;
+  const isLandscape = firstVp.width > firstVp.height;
+  const pdf = new jsPDF({
+    orientation: isLandscape ? 'landscape' : 'portrait',
+    unit: 'px',
+    format: [firstVp.width, firstVp.height]
+  });
+
+  canvases.forEach(({ canvas, viewport }, idx) => {
+    if (idx > 0) pdf.addPage([viewport.width, viewport.height], viewport.width > viewport.height ? 'landscape' : 'portrait');
+    pdf.addImage(canvas.toDataURL('image/jpeg', 0.92), 'JPEG', 0, 0, viewport.width, viewport.height);
+  });
+
+  const filename = label
+    ? `Q${label}_p${currentPage}${count > 1 ? '-' + (currentPage + canvases.length - 1) : ''}.pdf`
+    : `page_${currentPage}${count > 1 ? '-' + (currentPage + canvases.length - 1) : ''}.pdf`;
+
+  pdf.save(filename);
+  showToast('Downloaded!');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
+}
+
 function showError(title, detail) {
   document.getElementById('canvas-container').innerHTML =
     `<div class="error-state"><h3>${title}</h3><p>${detail}</p></div>`;
-}
-
-function downloadPdf() {
-  const a = document.createElement('a');
-  a.href = decodeURIComponent(fileId);
-  a.download = '';
-  a.target = '_blank';
-  a.click();
 }
 </script>
 </body>
