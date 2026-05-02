@@ -389,7 +389,7 @@ function findQuestions() {
           ? `<span class="badge ${DIFF_CLASS[q.difficulty]||'n1'}">${DIFF_LABEL[q.difficulty]||q.difficulty}</span>`
           : '<span style="color:var(--text3);font-size:12px;">—</span>'}</td>
         <td>${q.pdf_link && q.page
-          ? `<a href="${makePdfLink(q.pdf_link, q.page, q.question)}" target="_blank" style="font-size:12px;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap;">View ↗</a>`
+          ? `<a href="${makePdfLink(q.pdf_link, q.page, `${q.year} ${q.school} Paper ${q.paper} Q${q.question}`)}" target="_blank" style="font-size:12px;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap;">View ↗</a>`
           : '—'}</td>
       </tr>`).join('')}</tbody>
     </table>
@@ -468,7 +468,7 @@ function renderPapers() {
                 ? `<span class="badge ${DIFF_CLASS[q.difficulty]||'n1'}">${DIFF_LABEL[q.difficulty]||q.difficulty}</span>`
                 : '<span style="color:var(--text3);font-size:12px;">—</span>'}</td>
               <td>${q.pdf_link && q.page
-                ? `<a href="${makePdfLink(q.pdf_link, q.page, q.question)}" target="_blank" style="font-size:12px;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap;">View ↗</a>`
+                ? `<a href="${makePdfLink(q.pdf_link, q.page, `${q.year} ${q.school} Paper ${q.paper} Q${q.question}`)}" target="_blank" style="font-size:12px;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap;">View ↗</a>`
                 : '—'}</td>
             </tr>`).join('')}</tbody>
           </table>
