@@ -20,40 +20,33 @@
     --radius: 8px; --radius-lg: 14px;
   }
   body { background: var(--bg); font-family: var(--font-body); color: var(--text); font-size: 15px; min-height: 100vh; }
-
   .layout { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
   .sidebar { background: var(--surface); border-right: 1px solid var(--border); position: sticky; top: 0; height: 100vh; overflow-y: auto; display: flex; flex-direction: column; }
   .sidebar-header { padding: 24px 24px 16px; border-bottom: 1px solid var(--border); }
   .sidebar-header h1 { font-family: var(--font-display); font-size: 20px; font-weight: 400; line-height: 1.2; }
   .sidebar-header p { font-size: 12px; color: var(--text3); margin-top: 4px; }
-
   .subject-switcher { padding: 12px 16px; border-bottom: 1px solid var(--border); }
   .switcher-inner { display: flex; background: var(--bg); border-radius: var(--radius); padding: 3px; gap: 3px; }
   .switcher-btn { flex: 1; padding: 7px 10px; border: none; border-radius: 6px; font-size: 13px; font-weight: 500; font-family: var(--font-body); cursor: pointer; transition: all 0.15s; color: var(--text2); background: none; }
   .switcher-btn.active-amath { background: var(--surface); color: var(--amath-accent); box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
   .switcher-btn.active-emath { background: var(--surface); color: var(--emath-accent); box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
-
   .nav { padding: 12px 0; }
   .nav-item { display: flex; align-items: center; gap: 10px; padding: 10px 24px; font-size: 14px; color: var(--text2); cursor: pointer; border: none; background: none; width: 100%; text-align: left; transition: all 0.12s; }
   .nav-item:hover { color: var(--text); background: var(--bg); }
   .nav-item.active { color: var(--accent); background: var(--accent-light); font-weight: 500; }
-
   .sidebar-stats { padding: 16px 24px; border-top: 1px solid var(--border); margin-top: auto; }
   .stats-subject-label { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text3); margin-bottom: 8px; }
   .stat-row { display: flex; justify-content: space-between; padding: 4px 0; }
   .stat-row .lbl { font-size: 12px; color: var(--text3); }
   .stat-row .val { font-size: 13px; font-weight: 500; color: var(--text2); }
-
-  .main { padding: 40px 48px; max-width: 900px; }
+  .main { padding: 40px 48px 120px; max-width: 900px; }
   .page { display: none; }
   .page.active { display: block; }
   h2 { font-family: var(--font-display); font-size: 28px; font-weight: 400; margin-bottom: 6px; }
   .page-desc { font-size: 14px; color: var(--text2); margin-bottom: 32px; }
-
   .subject-badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 10px; border-radius: 100px; margin-left: 10px; vertical-align: middle; position: relative; top: -3px; font-family: var(--font-body); }
   .subject-badge.amath { background: var(--amath-light); color: var(--amath-text); }
   .subject-badge.emath { background: var(--emath-light); color: var(--emath-text); }
-
   .filter-section { margin-bottom: 24px; }
   .filter-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text3); margin-bottom: 10px; }
   .chip-wrap { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -61,14 +54,11 @@
   .chip:hover { border-color: var(--border2); color: var(--text); }
   .chip.on { background: var(--accent); border-color: var(--accent); color: #fff; }
   .chip.all-chip.on { background: var(--accent); border-color: var(--accent); color: #fff; }
-
   .subtopic-wrap { margin-top: 10px; padding: 14px 16px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border); display: none; }
   .subtopic-wrap.visible { display: block; }
-
   .action-row { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
   .btn-ghost { padding: 8px 16px; background: none; color: var(--text2); border: 1px solid var(--border); border-radius: var(--radius); font-size: 13px; cursor: pointer; font-family: var(--font-body); transition: all 0.12s; }
   .btn-ghost:hover { border-color: var(--border2); color: var(--text); }
-
   .table-wrap { border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; background: var(--surface); }
   .table-meta { padding: 12px 20px; border-bottom: 1px solid var(--border); font-size: 13px; color: var(--text2); }
   table { width: 100%; border-collapse: collapse; }
@@ -76,38 +66,99 @@
   td { padding: 12px 16px; font-size: 13px; border-bottom: 1px solid var(--border); }
   tr:last-child td { border-bottom: none; }
   tr:hover td { background: var(--bg); }
-
   .badge { display: inline-flex; align-items: center; padding: 2px 9px; border-radius: 100px; font-size: 11px; font-weight: 500; }
   .badge.n1 { background: var(--accent-light); color: var(--accent-text); }
   .badge.n2 { background: var(--amber-light); color: var(--amber); }
   .badge.n3 { background: var(--red-light); color: var(--red); }
-
   .empty-state { padding: 48px; text-align: center; color: var(--text3); }
   .empty-state p { font-size: 14px; margin-top: 8px; }
   .loading { padding: 48px; text-align: center; color: var(--text3); font-size: 14px; }
   .loading .spinner { width: 24px; height: 24px; border: 2px solid var(--border); border-top-color: var(--text2); border-radius: 50%; animation: spin 0.7s linear infinite; margin: 0 auto 12px; }
   @keyframes spin { to { transform: rotate(360deg); } }
-
   .config-banner { background: var(--amber-light); border: 1px solid #FDE68A; border-radius: var(--radius); padding: 14px 18px; margin-bottom: 24px; font-size: 13px; color: var(--amber); display: none; }
   .config-banner.visible { display: block; }
-
   .paper-filters { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
   .paper-filters select { padding: 8px 12px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 13px; font-family: var(--font-body); color: var(--text); background: var(--surface); cursor: pointer; min-width: 160px; }
   .paper-filters select:focus { outline: none; border-color: var(--border2); }
-
   .paper-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); margin-bottom: 12px; overflow: hidden; }
   .paper-card-header { padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: background 0.12s; }
   .paper-card-header:hover { background: var(--bg); }
   .paper-card-title { font-size: 15px; font-weight: 500; }
-  .paper-card-meta { font-size: 12px; color: var(--text2); margin-top: 2px; }
   .paper-card-toggle { font-size: 12px; color: var(--text3); }
   .paper-card-body { display: none; border-top: 1px solid var(--border); }
   .paper-card-body.open { display: block; }
 
+  /* Add button */
+  .btn-add { font-size: 11px; font-weight: 500; padding: 3px 9px; border-radius: 100px; border: 1px solid var(--accent); color: var(--accent); background: none; cursor: pointer; font-family: var(--font-body); transition: all 0.12s; white-space: nowrap; }
+  .btn-add:hover { background: var(--accent); color: #fff; }
+  .btn-add.added { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+  /* Preview modal */
+  .preview-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 300; align-items: center; justify-content: center; }
+  .preview-overlay.open { display: flex; }
+  .preview-modal { background: var(--surface); border-radius: var(--radius-lg); width: 760px; max-width: 95vw; max-height: 92vh; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,0.2); }
+  .preview-modal-header { padding: 14px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; gap: 12px; flex-wrap: wrap; }
+  .preview-modal-title { font-size: 14px; font-weight: 500; color: var(--text); }
+  .preview-modal-close { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--text2); }
+  .preview-canvas-wrap { flex: 1; overflow-y: auto; padding: 16px; background: var(--bg); display: flex; justify-content: center; }
+  .preview-canvas-wrap canvas { max-width: 100%; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .preview-nav { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+  .preview-nav-btn { padding: 5px 10px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); font-size: 12px; color: var(--text2); cursor: pointer; font-family: var(--font-body); }
+  .preview-nav-btn:hover:not(:disabled) { border-color: var(--border2); color: var(--text); }
+  .preview-nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+  .preview-page-label { font-size: 12px; color: var(--text2); min-width: 70px; text-align: center; }
+  .preview-footer { padding: 14px 20px; border-top: 1px solid var(--border); flex-shrink: 0; }
+  .preview-footer-label { font-size: 12px; color: var(--text2); margin-bottom: 10px; }
+  .preview-page-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+  .preview-page-btn { padding: 8px 14px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); font-size: 13px; color: var(--text); cursor: pointer; font-family: var(--font-body); transition: all 0.12s; }
+  .preview-page-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .preview-page-btn.selected { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  /* Worksheet tray */
+  .tray { position: fixed; bottom: 0; left: 240px; right: 0; background: var(--text); color: #fff; padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; z-index: 200; transform: translateY(100%); transition: transform 0.25s ease; box-shadow: 0 -4px 20px rgba(0,0,0,0.15); }
+  .tray.visible { transform: translateY(0); }
+  .tray-count { font-size: 14px; font-weight: 500; }
+  .tray-sub { font-size: 12px; color: rgba(255,255,255,0.6); }
+  .tray-btn { padding: 8px 18px; border-radius: var(--radius); font-size: 13px; font-weight: 500; cursor: pointer; font-family: var(--font-body); transition: all 0.12s; border: none; }
+  .tray-btn.primary { background: #fff; color: var(--text); }
+  .tray-btn.primary:hover { opacity: 0.9; }
+  .tray-btn.ghost { background: rgba(255,255,255,0.12); color: #fff; margin-left: 8px; }
+  .tray-btn.ghost:hover { background: rgba(255,255,255,0.2); }
+
+  /* Worksheet panel */
+  .ws-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 400; }
+  .ws-overlay.open { display: block; }
+  .ws-panel { position: fixed; right: 0; top: 0; bottom: 0; width: 420px; background: var(--surface); box-shadow: -4px 0 24px rgba(0,0,0,0.12); display: flex; flex-direction: column; z-index: 401; transform: translateX(100%); transition: transform 0.25s ease; }
+  .ws-overlay.open .ws-panel { transform: translateX(0); }
+  .ws-header { padding: 20px 24px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+  .ws-header h3 { font-family: var(--font-display); font-size: 20px; font-weight: 400; }
+  .ws-close { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--text2); }
+  .ws-body { flex: 1; overflow-y: auto; padding: 16px 24px; }
+  .ws-empty { text-align: center; padding: 48px 0; color: var(--text3); font-size: 14px; line-height: 1.6; }
+  .ws-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .ws-item:last-child { border-bottom: none; }
+  .ws-item-info { flex: 1; }
+  .ws-item-title { font-size: 13px; font-weight: 500; }
+  .ws-item-sub { font-size: 12px; color: var(--text3); margin-top: 3px; }
+  .ws-item-remove { background: none; border: none; color: var(--text3); cursor: pointer; font-size: 18px; padding: 2px 6px; border-radius: 4px; transition: all 0.1s; }
+  .ws-item-remove:hover { background: var(--red-light); color: var(--red); }
+  .ws-footer { padding: 16px 24px; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 10px; }
+  .ws-export-btn { width: 100%; padding: 12px; background: var(--accent); color: #fff; border: none; border-radius: var(--radius); font-size: 14px; font-weight: 500; cursor: pointer; font-family: var(--font-body); transition: opacity 0.12s; }
+  .ws-export-btn:hover:not(:disabled) { opacity: 0.88; }
+  .ws-export-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .ws-clear-btn { width: 100%; padding: 10px; background: none; color: var(--text2); border: 1px solid var(--border); border-radius: var(--radius); font-size: 13px; cursor: pointer; font-family: var(--font-body); transition: all 0.12s; }
+  .ws-clear-btn:hover { color: var(--red); border-color: var(--red); }
+  .ws-note { font-size: 11px; color: var(--text3); text-align: center; }
+
+  .toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: rgba(28,26,23,0.88); color: #fff; font-size: 13px; padding: 8px 18px; border-radius: 100px; opacity: 0; transition: opacity 0.2s; pointer-events: none; white-space: nowrap; z-index: 500; }
+  .toast.show { opacity: 1; }
+
   @media (max-width: 700px) {
     .layout { grid-template-columns: 1fr; }
     .sidebar { position: static; height: auto; }
-    .main { padding: 24px 20px; }
+    .main { padding: 24px 20px 120px; }
+    .tray { left: 0; padding: 12px 16px; }
+    .ws-panel { width: 100%; }
   }
 </style>
 </head>
@@ -127,7 +178,7 @@
     <nav class="nav">
       <button class="nav-item active" onclick="showPage('filter')">Filter by Topic</button>
       <button class="nav-item" onclick="showPage('browse')">Browse Prelim Paper</button>
-    <a href="https://sites.google.com/view/mathematicsresource/home" target="_blank" class="nav-item" style="color:var(--accent);border-top:1px solid var(--border);margin-top:4px;text-decoration:none;">
+      <a href="YOUR_RESOURCE_LINK_HERE" target="_blank" class="nav-item" style="color:var(--accent);border-top:1px solid var(--border);margin-top:4px;text-decoration:none;">
         Click here to access Topical Videos & Guides
       </a>
     </nav>
@@ -140,48 +191,361 @@
   </aside>
 
   <main class="main">
-    <div class="config-banner" id="config-banner">
-      ⚠ Google Sheet not connected yet. Set your SHEET_ID and API_KEY in the script.
-    </div>
+    <div class="config-banner" id="config-banner">⚠ Google Sheet not connected yet. Set your SHEET_ID and API_KEY in the script.</div>
     <div class="page active" id="page-filter">
       <h2>Filter <span class="subject-badge amath" id="filter-badge">A-Math</span></h2>
       <p class="page-desc">Select a topic to instantly find matching questions, sorted by difficulty.</p>
-      <div id="filter-area">
-        <div class="loading"><div class="spinner"></div>Loading questions...</div>
-      </div>
+      <div id="filter-area"><div class="loading"><div class="spinner"></div>Loading questions...</div></div>
     </div>
     <div class="page" id="page-browse">
       <h2>Browse Prelim Paper <span class="subject-badge amath" id="browse-badge">A-Math</span></h2>
       <p class="page-desc">View all questions in a specific past year paper.</p>
-      <div id="browse-area">
-        <div class="loading"><div class="spinner"></div>Loading questions...</div>
-      </div>
+      <div id="browse-area"><div class="loading"><div class="spinner"></div>Loading questions...</div></div>
     </div>
   </main>
 </div>
 
+<!-- Preview modal -->
+<div class="preview-overlay" id="preview-overlay">
+  <div class="preview-modal">
+    <div class="preview-modal-header">
+      <div class="preview-modal-title" id="preview-title">Loading…</div>
+      <div class="preview-nav">
+        <button class="preview-nav-btn" id="prev-nav-btn" onclick="previewChangePage(-1)" disabled>← Prev</button>
+        <span class="preview-page-label" id="preview-page-label">—</span>
+        <button class="preview-nav-btn" id="next-nav-btn" onclick="previewChangePage(1)" disabled>Next →</button>
+      </div>
+      <button class="preview-modal-close" onclick="closePreview()">×</button>
+    </div>
+    <div class="preview-canvas-wrap" id="preview-canvas-wrap">
+      <div class="loading"><div class="spinner"></div>Loading PDF…</div>
+    </div>
+    <div class="preview-footer">
+      <div class="preview-footer-label">How many pages does this question cover?</div>
+      <div class="preview-page-btns" id="preview-page-btns"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Worksheet tray -->
+<div class="tray" id="tray">
+  <div>
+    <div class="tray-count" id="tray-count">0 questions</div>
+    <div class="tray-sub">in your worksheet</div>
+  </div>
+  <div>
+    <button class="tray-btn primary" onclick="openWorksheet()">View Worksheet</button>
+    <button class="tray-btn ghost" onclick="clearWorksheet()">Clear</button>
+  </div>
+</div>
+
+<!-- Worksheet panel -->
+<div class="ws-overlay" id="ws-overlay" onclick="closeWsOnBg(event)">
+  <div class="ws-panel">
+    <div class="ws-header">
+      <h3>My Worksheet</h3>
+      <button class="ws-close" onclick="closeWorksheet()">×</button>
+    </div>
+    <div class="ws-body" id="ws-body">
+      <div class="ws-empty">No questions added yet.<br>Click <strong>+ Add</strong> on any question to preview and add it.</div>
+    </div>
+    <div class="ws-footer">
+      <button class="ws-export-btn" id="ws-export-btn" onclick="exportWorksheet()" disabled>Export as PDF</button>
+      <button class="ws-clear-btn" onclick="clearWorksheet()">Clear all</button>
+      <div class="ws-note">Worksheet clears when you refresh the page.</div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
 // ============================================================
 const SHEET_ID = '1_ZWfd-DKyHf1YPhe7vTLRsGc5-GthYAfzZ3hE-D3EWU';
 const API_KEY  = 'AIzaSyCB6O5EIdEl4JCHkCcilrrufOHqR12LxmE';
 const TABS = { amath: 'ALL', emath: 'EMATH' };
 // ============================================================
 
-const DIFF_LABEL = { 'Normal': 'Normal', 'Challenging': 'Challenging', 'Very Challenging': 'Very Challenging' };
-const DIFF_CLASS = { 'Normal': 'n1', 'Challenging': 'n2', 'Very Challenging': 'n3' };
-const DIFF_ORDER = { 'Very Challenging': 0, 'Challenging': 1, 'Normal': 2 };
+const DIFF_LABEL = { 'Normal':'Normal','Challenging':'Challenging','Very Challenging':'Very Challenging' };
+const DIFF_CLASS = { 'Normal':'n1','Challenging':'n2','Very Challenging':'n3' };
+const DIFF_ORDER = { 'Very Challenging':0,'Challenging':1,'Normal':2 };
 
 const cache = { amath: null, emath: null };
 let currentSubject = 'amath';
-let allQuestions   = [];
-let selectedTopic    = null;
-let selectedSubtopic = null;
+let allQuestions = [], selectedTopic = null, selectedSubtopic = null;
 
-function makePdfLink(pdfUrl, page, label) {
-  const base = window.location.origin + window.location.pathname.replace('index.html', '');
-  return `${base}viewer.html?id=${encodeURIComponent(pdfUrl)}&page=${page}&label=${encodeURIComponent(label || '')}`;
+// Worksheet
+let worksheet = [];
+
+// Preview state
+let previewQ = null, previewPdfDoc = null, previewCurrentPage = 1, previewSelectedPages = 1;
+
+// ─── PDF PREVIEW ──────────────────────────────────────────────
+async function openPreview(encodedQ) {
+  previewQ = JSON.parse(decodeURIComponent(encodedQ));
+  previewPdfDoc = null;
+  previewCurrentPage = parseInt(previewQ.page) || 1;
+  previewSelectedPages = 1;
+
+  document.getElementById('preview-title').textContent = `${previewQ.year} ${previewQ.school} — Paper ${previewQ.paper} Q${previewQ.question}`;
+  document.getElementById('preview-canvas-wrap').innerHTML = '<div class="loading"><div class="spinner"></div>Loading PDF…</div>';
+  document.getElementById('preview-page-btns').innerHTML = '';
+  document.getElementById('preview-overlay').classList.add('open');
+
+  try {
+    previewPdfDoc = await pdfjsLib.getDocument({
+      url: decodeURIComponent(previewQ.pdf_link),
+      withCredentials: false,
+      cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/',
+      cMapPacked: true,
+    }).promise;
+    await renderPreviewPage(previewCurrentPage);
+    buildPageBtns();
+  } catch(e) {
+    document.getElementById('preview-canvas-wrap').innerHTML = '<div class="empty-state"><p>Could not load PDF.<br>Check the file is uploaded to GitHub Pages.</p></div>';
+  }
 }
 
+async function renderPreviewPage(num) {
+  const wrap = document.getElementById('preview-canvas-wrap');
+  const page = await previewPdfDoc.getPage(num);
+  const viewport = page.getViewport({ scale: 1.3 });
+  let canvas = wrap.querySelector('canvas');
+  if (!canvas) { wrap.innerHTML = ''; canvas = document.createElement('canvas'); wrap.appendChild(canvas); }
+  canvas.width = viewport.width; canvas.height = viewport.height;
+  await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
+  previewCurrentPage = num;
+  const total = previewPdfDoc.numPages;
+  document.getElementById('preview-page-label').textContent = `Page ${num} of ${total}`;
+  document.getElementById('prev-nav-btn').disabled = num <= 1;
+  document.getElementById('next-nav-btn').disabled = num >= total;
+}
+
+function previewChangePage(delta) {
+  if (!previewPdfDoc) return;
+  const next = previewCurrentPage + delta;
+  if (next < 1 || next > previewPdfDoc.numPages) return;
+  renderPreviewPage(next);
+}
+
+function buildPageBtns() {
+  const startPage = parseInt(previewQ.page) || 1;
+  const total = previewPdfDoc.numPages;
+  const max = Math.min(4, total - startPage + 1);
+  const labels = ['This page only', '+1 page (2 total)', '+2 pages (3 total)', '+3 pages (4 total)'];
+  let html = '';
+  for (let i = 1; i <= max; i++) {
+    const endPage = startPage + i - 1;
+    const tip = i === 1 ? `Page ${startPage}` : `Pages ${startPage}–${endPage}`;
+    html += `<button class="preview-page-btn ${i===1?'selected':''}" onclick="selectPageCount(this,${i})" title="${tip}">${labels[i-1]}</button>`;
+  }
+  document.getElementById('preview-page-btns').innerHTML = html +
+    `<button class="preview-page-btn" style="background:var(--accent);color:#fff;border-color:var(--accent);margin-left:auto;" onclick="confirmAdd()">Add to Worksheet</button>`;
+  previewSelectedPages = 1;
+}
+
+function selectPageCount(btn, count) {
+  document.querySelectorAll('.preview-page-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  previewSelectedPages = count;
+  // Navigate to show the last page of the range so they can verify
+  const endPage = Math.min((parseInt(previewQ.page) || 1) + count - 1, previewPdfDoc.numPages);
+  renderPreviewPage(endPage);
+}
+
+function confirmAdd() {
+  if (!previewQ) return;
+  const startPage = parseInt(previewQ.page) || 1;
+  const endPage   = startPage + previewSelectedPages - 1;
+  const q = { ...previewQ, end_page: endPage };
+  const id = wsId(q);
+  if (!worksheet.some(w => wsId(w) === id)) {
+    worksheet.push(q);
+    updateTray();
+    refreshWsPanel();
+    showToast(`Added Q${q.question} (${previewSelectedPages === 1 ? 'p.' + startPage : 'pp.' + startPage + '–' + endPage})`);
+    // Mark button as added
+    document.querySelectorAll('.btn-add').forEach(btn => {
+      if (btn.dataset.qid === id) { btn.textContent = '✓ Added'; btn.classList.add('added'); }
+    });
+  } else {
+    showToast('Already in worksheet');
+  }
+  closePreview();
+}
+
+function closePreview() {
+  document.getElementById('preview-overlay').classList.remove('open');
+  previewPdfDoc = null; previewQ = null;
+}
+
+// ─── WORKSHEET ────────────────────────────────────────────────
+function wsId(q) { return `${q.school}|${q.year}|${q.paper}|${q.question}`; }
+
+function updateTray() {
+  const n = worksheet.length;
+  document.getElementById('tray-count').textContent = `${n} question${n!==1?'s':''}`;
+  document.getElementById('tray').classList.toggle('visible', n > 0);
+  document.getElementById('ws-export-btn').disabled = n === 0;
+}
+
+function openWorksheet()  { document.getElementById('ws-overlay').classList.add('open'); }
+function closeWorksheet() { document.getElementById('ws-overlay').classList.remove('open'); }
+function closeWsOnBg(e)   { if (e.target === document.getElementById('ws-overlay')) closeWorksheet(); }
+
+function clearWorksheet() {
+  worksheet = [];
+  updateTray(); refreshWsPanel();
+  document.querySelectorAll('.btn-add').forEach(b => { b.textContent = '+ Add'; b.classList.remove('added'); });
+  showToast('Worksheet cleared');
+}
+
+function refreshWsPanel() {
+  const body = document.getElementById('ws-body');
+  if (worksheet.length === 0) {
+    body.innerHTML = '<div class="ws-empty">No questions added yet.<br>Click <strong>+ Add</strong> on any question to preview and add it.</div>';
+    return;
+  }
+  body.innerHTML = worksheet.map((q, i) => {
+    const startPage = parseInt(q.page) || 1;
+    const endPage   = q.end_page || startPage;
+    const pageStr   = startPage === endPage ? `Page ${startPage}` : `Pages ${startPage}–${endPage}`;
+    return `<div class="ws-item">
+      <div class="ws-item-info">
+        <div class="ws-item-title">${q.year} ${q.school} — Paper ${q.paper} Q${q.question}</div>
+        <div class="ws-item-sub">${q.topic}${q.subtopic?' · '+q.subtopic:''}</div>
+        <div class="ws-item-sub">${pageStr}${q.difficulty?' · '+q.difficulty:''}</div>
+      </div>
+      <button class="ws-item-remove" onclick="removeFromWs(${i})">×</button>
+    </div>`;
+  }).join('');
+}
+
+function removeFromWs(i) {
+  const q = worksheet[i];
+  worksheet.splice(i, 1);
+  updateTray(); refreshWsPanel();
+  const id = wsId(q);
+  document.querySelectorAll('.btn-add').forEach(b => {
+    if (b.dataset.qid === id) { b.textContent = '+ Add'; b.classList.remove('added'); }
+  });
+}
+
+async function exportWorksheet() {
+  const btn = document.getElementById('ws-export-btn');
+  btn.disabled = true; btn.textContent = 'Generating…';
+  const { jsPDF } = window.jspdf;
+  let pdf = null, pageCount = 0;
+
+  for (const q of worksheet) {
+    if (!q.pdf_link || !q.page) continue;
+    const startPage = parseInt(q.page);
+    const endPage   = q.end_page ? parseInt(q.end_page) : startPage;
+    const header    = `${q.year} ${q.school} — Paper ${q.paper} Q${q.question}`;
+    try {
+      const pdfDoc = await pdfjsLib.getDocument({
+        url: decodeURIComponent(q.pdf_link), withCredentials: false,
+        cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/', cMapPacked: true,
+      }).promise;
+
+      for (let p = startPage; p <= Math.min(endPage, pdfDoc.numPages); p++) {
+        const page     = await pdfDoc.getPage(p);
+        const viewport = page.getViewport({ scale: 2.0 });
+        const isLand   = viewport.width > viewport.height;
+
+        // Render page
+        const canvas = document.createElement('canvas');
+        canvas.width = viewport.width; canvas.height = viewport.height;
+        await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
+
+        // Add header text on first page of each question
+        const HEADER_H = p === startPage ? 48 : 0;
+        const totalH   = viewport.height + HEADER_H;
+
+        if (!pdf) {
+          pdf = new jsPDF({ orientation: isLand?'landscape':'portrait', unit:'px', format:[viewport.width, totalH] });
+        } else {
+          pdf.addPage([viewport.width, totalH], isLand?'landscape':'portrait');
+        }
+
+        // Draw header on first page
+        if (p === startPage) {
+          pdf.setFillColor(245, 245, 242);
+          pdf.rect(0, 0, viewport.width, HEADER_H, 'F');
+          pdf.setFontSize(14);
+          pdf.setFont('helvetica', 'bold');
+          pdf.setTextColor(28, 26, 23);
+          pdf.text(header, 20, 30);
+          pdf.setDrawColor(226, 221, 213);
+          pdf.line(0, HEADER_H, viewport.width, HEADER_H);
+        }
+
+        pdf.addImage(canvas.toDataURL('image/jpeg', 0.90), 'JPEG', 0, HEADER_H, viewport.width, viewport.height);
+        pageCount++;
+      }
+    } catch(e) { console.warn('Failed:', q.school, q.year, q.question); }
+  }
+
+  if (pdf && pageCount > 0) {
+    pdf.save(`worksheet_${worksheet.length}q.pdf`);
+    showToast(`Downloaded! ${pageCount} page${pageCount!==1?'s':''}`);
+  } else {
+    showToast('No pages found — check pdf_link and page columns');
+  }
+  btn.disabled = false; btn.textContent = 'Export as PDF';
+}
+
+// ─── HELPERS ──────────────────────────────────────────────────
+function makePdfLink(pdfUrl, page, label) {
+  const base = window.location.origin + window.location.pathname.replace('index.html','');
+  return `${base}viewer.html?id=${encodeURIComponent(pdfUrl)}&page=${page}&label=${encodeURIComponent(label||'')}`;
+}
+
+function makeAddBtn(q) {
+  const id = wsId(q);
+  const isAdded = worksheet.some(w => wsId(w) === id);
+  const enc = encodeURIComponent(JSON.stringify(q));
+  return `<button class="btn-add ${isAdded?'added':''}" data-qid="${id}" onclick="openPreview('${enc}')">${isAdded?'✓ Added':'+ Add'}</button>`;
+}
+
+function qRow(q) {
+  const label = `${q.year} ${q.school} Paper ${q.paper} Question ${q.question}`;
+  const view  = q.pdf_link && q.page ? `<a href="${makePdfLink(q.pdf_link,q.page,label)}" target="_blank" style="font-size:12px;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap;">View ↗</a>` : '—';
+  return `<tr>
+    <td>${q.school||'—'}</td><td>${q.year||'—'}</td><td>${q.paper||'—'}</td>
+    <td style="font-weight:500">${q.question||'—'}</td>
+    <td>${q.topic||'—'}</td>
+    <td style="color:var(--text2)">${q.subtopic||'—'}</td>
+    <td>${q.difficulty?`<span class="badge ${DIFF_CLASS[q.difficulty]||'n1'}">${DIFF_LABEL[q.difficulty]||q.difficulty}</span>`:'<span style="color:var(--text3);font-size:12px;">—</span>'}</td>
+    <td style="white-space:nowrap">${view}</td>
+    <td>${makeAddBtn(q)}</td>
+  </tr>`;
+}
+
+function qRowBrowse(q) {
+  const label = `${q.year} ${q.school} Paper ${q.paper} Question ${q.question}`;
+  const view  = q.pdf_link && q.page ? `<a href="${makePdfLink(q.pdf_link,q.page,label)}" target="_blank" style="font-size:12px;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap;">View ↗</a>` : '—';
+  return `<tr>
+    <td style="font-weight:500">${q.question||'—'}</td>
+    <td>${q.topic||'—'}</td>
+    <td style="color:var(--text2)">${q.subtopic||'—'}</td>
+    <td>${q.difficulty?`<span class="badge ${DIFF_CLASS[q.difficulty]||'n1'}">${DIFF_LABEL[q.difficulty]||q.difficulty}</span>`:'<span style="color:var(--text3);font-size:12px;">—</span>'}</td>
+    <td style="white-space:nowrap">${view}</td>
+    <td>${makeAddBtn(q)}</td>
+  </tr>`;
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+// ─── DATA ─────────────────────────────────────────────────────
 async function loadSheet(subject) {
   if (cache[subject]) return cache[subject];
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${TABS[subject]}?key=${API_KEY}`;
@@ -210,66 +574,50 @@ async function loadSheet(subject) {
 async function switchSubject(subject) {
   if (subject === currentSubject) return;
   currentSubject = subject;
-
-  document.getElementById('btn-amath').className = 'switcher-btn' + (subject === 'amath' ? ' active-amath' : '');
-  document.getElementById('btn-emath').className = 'switcher-btn' + (subject === 'emath' ? ' active-emath' : '');
-
-  const accent      = subject === 'amath' ? '#2D6A4F' : '#1D4ED8';
-  const accentLight = subject === 'amath' ? '#D8EDDF' : '#DBEAFE';
-  const accentText  = subject === 'amath' ? '#1B4332' : '#1E3A8A';
+  document.getElementById('btn-amath').className = 'switcher-btn'+(subject==='amath'?' active-amath':'');
+  document.getElementById('btn-emath').className = 'switcher-btn'+(subject==='emath'?' active-emath':'');
+  const accent      = subject==='amath'?'#2D6A4F':'#1D4ED8';
+  const accentLight = subject==='amath'?'#D8EDDF':'#DBEAFE';
+  const accentText  = subject==='amath'?'#1B4332':'#1E3A8A';
   document.documentElement.style.setProperty('--accent', accent);
   document.documentElement.style.setProperty('--accent-light', accentLight);
   document.documentElement.style.setProperty('--accent-text', accentText);
-
-  const badgeClass = subject === 'amath' ? 'amath' : 'emath';
-  const badgeLabel = subject === 'amath' ? 'A-Math' : 'E-Math';
-  ['filter-badge', 'browse-badge'].forEach(id => {
+  const badgeClass = subject==='amath'?'amath':'emath';
+  const badgeLabel = subject==='amath'?'A-Math':'E-Math';
+  ['filter-badge','browse-badge'].forEach(id => {
     const el = document.getElementById(id);
-    el.className = `subject-badge ${badgeClass}`;
-    el.textContent = badgeLabel;
+    el.className = `subject-badge ${badgeClass}`; el.textContent = badgeLabel;
   });
   document.getElementById('stats-label').textContent = badgeLabel;
-
   selectedTopic = null; selectedSubtopic = null;
   document.getElementById('filter-area').innerHTML = '<div class="loading"><div class="spinner"></div>Loading questions...</div>';
   document.getElementById('browse-area').innerHTML  = '<div class="loading"><div class="spinner"></div>Loading questions...</div>';
-
   try {
     allQuestions = await loadSheet(subject);
-    updateStats();
-    buildFilterUI();
-    buildBrowseUI();
+    updateStats(); buildFilterUI(); buildBrowseUI();
   } catch(e) {
     showError(`Could not load ${badgeLabel} questions. Check the sheet tab is named "${TABS[subject]}" and is publicly shared.`);
   }
 }
 
 async function init() {
-  if (SHEET_ID === 'YOUR_SHEET_ID_HERE' || API_KEY === 'YOUR_API_KEY_HERE') {
-    document.getElementById('config-banner').classList.add('visible');
-    document.getElementById('filter-area').innerHTML = '';
-    document.getElementById('browse-area').innerHTML = '';
-    return;
-  }
   try {
     allQuestions = await loadSheet('amath');
-    updateStats();
-    buildFilterUI();
-    buildBrowseUI();
+    updateStats(); buildFilterUI(); buildBrowseUI();
   } catch(e) {
     showError('Could not load questions. Check your Sheet ID, API key, and that the sheet is publicly shared.');
   }
 }
 
 function updateStats() {
-  document.getElementById('s-total').textContent   = allQuestions.length;
-  document.getElementById('s-topics').textContent  = new Set(allQuestions.map(q => q.topic)).size;
-  document.getElementById('s-papers').textContent  = new Set(allQuestions.map(q => `${q.school}_${q.year}_${q.paper}`).filter(x => x !== '__')).size;
+  document.getElementById('s-total').textContent  = allQuestions.length;
+  document.getElementById('s-topics').textContent = new Set(allQuestions.map(q=>q.topic)).size;
+  document.getElementById('s-papers').textContent = new Set(allQuestions.map(q=>`${q.school}_${q.year}_${q.paper}`).filter(x=>x!=='__')).size;
 }
 
 function showPage(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
   document.getElementById(`page-${id}`).classList.add('active');
   document.querySelector(`.nav-item[onclick="showPage('${id}')"]`).classList.add('active');
 }
@@ -290,7 +638,7 @@ function buildFilterUI() {
     <div class="filter-section">
       <div class="filter-label">Topic</div>
       <div class="chip-wrap" id="topic-chips">
-        ${topics.map(t => `<button class="chip" data-topic="${t}" onclick="toggleTopic(this,this.dataset.topic)">${t}</button>`).join('')}
+        ${topics.map(t=>`<button class="chip" data-topic="${t}" onclick="toggleTopic(this,this.dataset.topic)">${t}</button>`).join('')}
       </div>
       <div class="subtopic-wrap" id="subtopic-wrap">
         <div class="filter-label" id="subtopic-label">Subtopic</div>
@@ -300,13 +648,12 @@ function buildFilterUI() {
     <div class="action-row" id="clear-row" style="display:none;">
       <button class="btn-ghost" onclick="clearFilters()">Clear filters</button>
     </div>
-    <div id="results"></div>
-  `;
+    <div id="results"></div>`;
 }
 
 function toggleTopic(el, topic) {
   topic = el.dataset.topic;
-  document.querySelectorAll('#topic-chips .chip').forEach(c => c.classList.remove('on'));
+  document.querySelectorAll('#topic-chips .chip').forEach(c=>c.classList.remove('on'));
   if (selectedTopic === topic) {
     selectedTopic = null; selectedSubtopic = null;
     document.getElementById('subtopic-wrap').classList.remove('visible');
@@ -328,15 +675,15 @@ function refreshSubtopics() {
   const wrap = document.getElementById('subtopic-wrap');
   if (subs.length === 0) { wrap.classList.remove('visible'); return; }
   document.getElementById('subtopic-label').textContent = `Subtopic — ${selectedTopic}`;
-  const allChip  = `<button class="chip all-chip on" data-sub="" onclick="toggleSub(this,this.dataset.sub)">All</button>`;
-  const subChips = subs.map(s => `<button class="chip" data-sub="${s}" onclick="toggleSub(this,this.dataset.sub)">${s}</button>`).join('');
-  document.getElementById('subtopic-chips').innerHTML = allChip + subChips;
+  document.getElementById('subtopic-chips').innerHTML =
+    `<button class="chip all-chip on" data-sub="" onclick="toggleSub(this,this.dataset.sub)">All</button>` +
+    subs.map(s=>`<button class="chip" data-sub="${s}" onclick="toggleSub(this,this.dataset.sub)">${s}</button>`).join('');
   wrap.classList.add('visible');
 }
 
 function toggleSub(el, sub) {
   sub = el.dataset.sub;
-  document.querySelectorAll('#subtopic-chips .chip').forEach(c => c.classList.remove('on'));
+  document.querySelectorAll('#subtopic-chips .chip').forEach(c=>c.classList.remove('on'));
   el.classList.add('on');
   selectedSubtopic = sub === '' ? null : sub;
   findQuestions();
@@ -344,74 +691,49 @@ function toggleSub(el, sub) {
 
 function clearFilters() {
   selectedTopic = null; selectedSubtopic = null;
-  document.querySelectorAll('.chip').forEach(c => c.classList.remove('on'));
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
   const sw = document.getElementById('subtopic-wrap');
   if (sw) sw.classList.remove('visible');
   document.getElementById('results').innerHTML = '';
   document.getElementById('clear-row').style.display = 'none';
 }
 
-function sortByDifficulty(questions) {
-  return [...questions].sort((a, b) => {
-    const da = DIFF_ORDER[a.difficulty] !== undefined ? DIFF_ORDER[a.difficulty] : 3;
-    const db = DIFF_ORDER[b.difficulty] !== undefined ? DIFF_ORDER[b.difficulty] : 3;
+function sortByDifficulty(qs) {
+  return [...qs].sort((a,b) => {
+    const da = DIFF_ORDER[a.difficulty]!==undefined?DIFF_ORDER[a.difficulty]:3;
+    const db = DIFF_ORDER[b.difficulty]!==undefined?DIFF_ORDER[b.difficulty]:3;
     return da - db;
   });
 }
 
 function findQuestions() {
   let res = allQuestions;
-  if (selectedTopic)    res = res.filter(q => q.topic === selectedTopic);
-  if (selectedSubtopic) res = res.filter(q => q.subtopic === selectedSubtopic);
+  if (selectedTopic)    res = res.filter(q=>q.topic===selectedTopic);
+  if (selectedSubtopic) res = res.filter(q=>q.subtopic===selectedSubtopic);
   res = sortByDifficulty(res);
-
   const el = document.getElementById('results');
-  if (res.length === 0) {
-    el.innerHTML = `<div class="empty-state"><p>No questions found for this topic.</p></div>`;
-    return;
-  }
-
+  if (res.length === 0) { el.innerHTML = `<div class="empty-state"><p>No questions found for this topic.</p></div>`; return; }
   el.innerHTML = `<div class="table-wrap">
-    <div class="table-meta">${res.length} question${res.length !== 1 ? 's' : ''} found</div>
-    <table>
-      <thead><tr>
-        <th>School</th><th>Year</th><th>Paper</th><th>Question</th>
-        <th>Topic</th><th>Subtopic</th><th>Difficulty</th><th></th>
-      </tr></thead>
-      <tbody>${res.map(q => `<tr>
-        <td>${q.school||'—'}</td>
-        <td>${q.year||'—'}</td>
-        <td>${q.paper||'—'}</td>
-        <td style="font-weight:500">${q.question||'—'}</td>
-        <td>${q.topic||'—'}</td>
-        <td style="color:var(--text2)">${q.subtopic||'—'}</td>
-        <td>${q.difficulty
-          ? `<span class="badge ${DIFF_CLASS[q.difficulty]||'n1'}">${DIFF_LABEL[q.difficulty]||q.difficulty}</span>`
-          : '<span style="color:var(--text3);font-size:12px;">—</span>'}</td>
-        <td>${q.pdf_link && q.page
-          ? `<a href="${makePdfLink(q.pdf_link, q.page, `${q.year} ${q.school} Paper ${q.paper} Question ${q.question}`)}" target="_blank" style="font-size:12px;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap;">View ↗</a>`
-          : '—'}</td>
-      </tr>`).join('')}</tbody>
-    </table>
-  </div>`;
+    <div class="table-meta">${res.length} question${res.length!==1?'s':''} found</div>
+    <table><thead><tr><th>School</th><th>Year</th><th>Paper</th><th>Question</th><th>Topic</th><th>Subtopic</th><th>Difficulty</th><th></th><th></th></tr></thead>
+    <tbody>${res.map(q=>qRow(q)).join('')}</tbody></table></div>`;
 }
 
 function buildBrowseUI() {
-  const schools = [...new Set(allQuestions.map(q => q.school))].filter(Boolean).sort();
-  const years   = [...new Set(allQuestions.map(q => q.year))].filter(Boolean).sort((a, b) => b - a);
+  const schools = [...new Set(allQuestions.map(q=>q.school))].filter(Boolean).sort();
+  const years   = [...new Set(allQuestions.map(q=>q.year))].filter(Boolean).sort((a,b)=>b-a);
   document.getElementById('browse-area').innerHTML = `
     <div class="paper-filters">
       <select id="filter-school" onchange="renderPapers()">
         <option value="">All schools</option>
-        ${schools.map(s => `<option value="${s}">${s}</option>`).join('')}
+        ${schools.map(s=>`<option value="${s}">${s}</option>`).join('')}
       </select>
       <select id="filter-year" onchange="renderPapers()">
         <option value="">All years</option>
-        ${years.map(y => `<option value="${y}">${y}</option>`).join('')}
+        ${years.map(y=>`<option value="${y}">${y}</option>`).join('')}
       </select>
     </div>
-    <div id="papers-list"></div>
-  `;
+    <div id="papers-list"></div>`;
   renderPapers();
 }
 
@@ -419,95 +741,68 @@ function renderPapers() {
   const school = document.getElementById('filter-school').value;
   const year   = document.getElementById('filter-year').value;
   let filtered = allQuestions;
-  if (school) filtered = filtered.filter(q => q.school === school);
-  if (year)   filtered = filtered.filter(q => q.year === year);
+  if (school) filtered = filtered.filter(q=>q.school===school);
+  if (year)   filtered = filtered.filter(q=>q.year===year);
 
-  // Group by school + year
   const groupMap = {};
   filtered.forEach(q => {
     const key = `${q.school}__${q.year}`;
-    if (!groupMap[key]) groupMap[key] = { school: q.school, year: q.year, papers: {}, pdfLink: '' };
+    if (!groupMap[key]) groupMap[key] = { school:q.school, year:q.year, papers:{}, pdfLink:'' };
     if (!groupMap[key].pdfLink && q.pdf_link) groupMap[key].pdfLink = q.pdf_link;
     const pKey = q.paper || '1';
     if (!groupMap[key].papers[pKey]) groupMap[key].papers[pKey] = [];
     groupMap[key].papers[pKey].push(q);
   });
 
-  const groups = Object.values(groupMap).sort((a, b) => {
-    if (a.school !== b.school) return a.school.localeCompare(b.school);
+  const groups = Object.values(groupMap).sort((a,b) => {
+    if (a.school!==b.school) return a.school.localeCompare(b.school);
     return b.year - a.year;
   });
 
   const el = document.getElementById('papers-list');
-  if (groups.length === 0) {
-    el.innerHTML = `<div class="empty-state"><p>No papers found for the selected filters.</p></div>`;
-    return;
-  }
+  if (groups.length === 0) { el.innerHTML = `<div class="empty-state"><p>No papers found.</p></div>`; return; }
 
-  el.innerHTML = groups.map((g, i) => {
-    const totalQ   = Object.values(g.papers).reduce((sum, qs) => sum + qs.length, 0);
-    const paperNums = Object.keys(g.papers).sort();
+  el.innerHTML = groups.map((g,i) => {
+    const paperNums  = Object.keys(g.papers).sort();
     const papersHtml = paperNums.map(pNum => {
-      const qs = g.papers[pNum].slice().sort((a, b) => {
-        const n1 = parseFloat(a.question) || 0;
-        const n2 = parseFloat(b.question) || 0;
-        return n1 !== n2 ? n1 - n2 : a.question.localeCompare(b.question);
+      const qs = g.papers[pNum].slice().sort((a,b) => {
+        const n1=parseFloat(a.question)||0, n2=parseFloat(b.question)||0;
+        return n1!==n2?n1-n2:a.question.localeCompare(b.question);
       });
-      return `
-        <div style="padding: 0 0 0 0;">
-          <div style="padding: 12px 20px 10px; font-size: 15px; font-weight: 600; color: var(--text); background: var(--bg); border-top: 1px solid var(--border);">
-            Paper ${pNum}
-          </div>
-          <table>
-            <thead><tr><th>Question</th><th>Topic</th><th>Subtopic</th><th>Difficulty</th><th></th></tr></thead>
-            <tbody>${qs.map(q => `<tr>
-              <td style="font-weight:500">${q.question||'—'}</td>
-              <td>${q.topic||'—'}</td>
-              <td style="color:var(--text2)">${q.subtopic||'—'}</td>
-              <td>${q.difficulty
-                ? `<span class="badge ${DIFF_CLASS[q.difficulty]||'n1'}">${DIFF_LABEL[q.difficulty]||q.difficulty}</span>`
-                : '<span style="color:var(--text3);font-size:12px;">—</span>'}</td>
-              <td>${q.pdf_link && q.page
-                ? `<a href="${makePdfLink(q.pdf_link, q.page, `${q.year} ${q.school} Paper ${q.paper} Question ${q.question}`)}" target="_blank" style="font-size:12px;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap;">View ↗</a>`
-                : '—'}</td>
-            </tr>`).join('')}</tbody>
-          </table>
-        </div>`;
+      return `<div>
+        <div style="padding:12px 20px 10px;font-size:15px;font-weight:600;color:var(--text);background:var(--bg);border-top:1px solid var(--border);">Paper ${pNum}</div>
+        <table><thead><tr><th>Question</th><th>Topic</th><th>Subtopic</th><th>Difficulty</th><th></th><th></th></tr></thead>
+        <tbody>${qs.map(q=>qRowBrowse(q)).join('')}</tbody></table>
+      </div>`;
     }).join('');
 
-    const downloadBtn = g.pdfLink
-      ? `<a href="${g.pdfLink}" target="_blank" style="font-size:12px;color:var(--accent);text-decoration:none;font-weight:500;border:1px solid var(--border);padding:4px 10px;border-radius:var(--radius);white-space:nowrap;">↓ Download Paper</a>`
+    const dlBtn = g.pdfLink
+      ? `<a href="${g.pdfLink}" target="_blank" onclick="event.stopPropagation()" style="font-size:12px;color:var(--accent);text-decoration:none;font-weight:500;border:1px solid var(--border);padding:4px 10px;border-radius:var(--radius);white-space:nowrap;">↓ Download Paper</a>`
       : '';
 
-    return `
-    <div class="paper-card">
+    return `<div class="paper-card">
       <div class="paper-card-header" onclick="togglePaper('group-${i}')">
-        <div>
-          <div class="paper-card-title">${g.school} — ${g.year}</div>
-        </div>
+        <div><div class="paper-card-title">${g.school} — ${g.year}</div></div>
         <div style="display:flex;align-items:center;gap:10px;">
-          ${downloadBtn}
+          ${dlBtn}
           <span class="paper-card-toggle" id="toggle-group-${i}">Show ▾</span>
         </div>
       </div>
-      <div class="paper-card-body" id="group-${i}">
-        ${papersHtml}
-      </div>
+      <div class="paper-card-body" id="group-${i}">${papersHtml}</div>
     </div>`;
   }).join('');
 }
 
 function togglePaper(id) {
-  const body   = document.getElementById(id);
-  const toggle = document.getElementById('toggle-' + id);
-  const isOpen = body.classList.contains('open');
-  body.classList.toggle('open', !isOpen);
-  toggle.textContent = isOpen ? 'Show ▾' : 'Hide ▴';
+  const body=document.getElementById(id), toggle=document.getElementById('toggle-'+id);
+  const isOpen=body.classList.contains('open');
+  body.classList.toggle('open',!isOpen);
+  toggle.textContent=isOpen?'Show ▾':'Hide ▴';
 }
 
 function showError(msg) {
-  document.getElementById('filter-area').innerHTML = `<div class="empty-state"><p>${msg}</p></div>`;
-  document.getElementById('browse-area').innerHTML = '';
+  document.getElementById('filter-area').innerHTML=`<div class="empty-state"><p>${msg}</p></div>`;
+  document.getElementById('browse-area').innerHTML='';
 }
 
 init();
