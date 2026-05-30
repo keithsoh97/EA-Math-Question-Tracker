@@ -27,15 +27,10 @@
   .btn:hover { border-color: var(--border2); color: var(--text); }
   .btn:disabled { opacity: 0.35; cursor: not-allowed; }
 
-  .download-wrap { position: relative; }
-  .download-trigger { display: none; }
-  .download-menu { display: none; position: absolute; top: calc(100% + 6px); left: 0; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 4px 16px rgba(0,0,0,0.10); min-width: 200px; z-index: 100; overflow: hidden; }
-  .download-menu.open { display: block; }
-  .download-item { display: flex; flex-direction: column; padding: 10px 14px; cursor: pointer; transition: background 0.1s; border: none; background: none; width: 100%; text-align: left; font-family: var(--font-body); }
-  .download-item:hover { background: var(--bg); }
-  .download-item + .download-item { border-top: 1px solid var(--border); }
-  .download-item-label { font-size: 13px; color: var(--text); font-weight: 500; }
-  .download-item-sub { font-size: 11px; color: var(--text3); margin-top: 2px; }
+  .download-wrap { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .page-sel-btn { padding: 5px 10px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); font-size: 12px; color: var(--text2); cursor: pointer; font-family: var(--font-body); transition: all 0.12s; white-space: nowrap; }
+  .page-sel-btn:hover { border-color: var(--border2); color: var(--text); }
+  .page-sel-btn.on { background: var(--text); border-color: var(--text); color: #fff; }
 
   .header-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
   .zoom-controls { display: flex; align-items: center; gap: 6px; padding: 6px 10px; border: 1px solid var(--border); border-radius: var(--radius); }
@@ -85,16 +80,13 @@
   <div class="header-left">
     <button class="btn" onclick="history.back()">← Back</button>
     <div class="download-wrap" id="download-wrap" style="display:none;">
-      <button class="btn" onclick="toggleDownloadMenu()">↓ Download ▾</button>
-      <div class="download-menu" id="download-menu">
-        <button class="download-item" onclick="downloadFull()">
-          <span class="download-item-label">Full PDF</span>
-          <span class="download-item-sub">Entire question paper</span>
-        </button>
-        <button class="download-item" id="btn-two-pages" onclick="downloadPages(3)">
-          <span class="download-item-label">Download this page</span>
-          <span class="download-item-sub" id="label-two-pages">Current + next page as PDF</span>
-        </button>
+      <button class="btn" onclick="downloadFull()">↓ Full PDF</button>
+      <div style="display:flex;align-items:center;gap:6px;">
+        <span style="font-size:12px;color:var(--text2);">Save:</span>
+        <button class="page-sel-btn on" id="sel-1" onclick="setPageSel(this,1)">This page</button>
+        <button class="page-sel-btn" id="sel-2" onclick="setPageSel(this,2)">+1 page</button>
+        <button class="page-sel-btn" id="sel-3" onclick="setPageSel(this,3)">+2 pages</button>
+        <button class="btn" id="save-pdf-btn" onclick="downloadPages(selectedPageCount)" style="color:#fff;background:var(--accent);border-color:var(--accent);">↓ Save as PDF</button>
       </div>
     </div>
     <div class="header-info">
@@ -148,7 +140,7 @@ let pdfDoc      = null;
 let currentPage = startPage;
 let scale       = 1.4;
 
-if (label) document.getElementById('header-title').textContent = label;
+if (label) document.getElementById('header-title').textContent = `Question ${label}`;
 if (!fileId) {
   showError('No file specified.', 'Make sure the link includes a valid file URL.');
 } else {
@@ -198,13 +190,6 @@ async function renderPage(num) {
   document.getElementById('hover-indicator').textContent = `Page ${num} of ${total}`;
   document.getElementById('hover-prev').disabled         = num <= 1;
   document.getElementById('hover-next').disabled         = num >= total;
-
-  // Update download labels
-  const lastPage = Math.min(num + 2, total);
-  document.getElementById('label-two-pages').textContent = lastPage > num ? `Pages ${num}-${lastPage}` : `Page ${num}`;
-  document.getElementById('btn-two-pages').disabled        = false;
-  if (num >= total) document.getElementById('btn-two-pages').style.opacity = '0.5';
-  else document.getElementById('btn-two-pages').style.opacity = '1';
 }
 
 function changePage(delta) {
@@ -221,15 +206,13 @@ function changeZoom(delta) {
   if (pdfDoc) renderPage(currentPage);
 }
 
-function toggleDownloadMenu() {
-  document.getElementById('download-menu').classList.toggle('open');
-}
+let selectedPageCount = 1;
 
-document.addEventListener('click', e => {
-  if (!document.getElementById('download-wrap').contains(e.target)) {
-    document.getElementById('download-menu').classList.remove('open');
-  }
-});
+function setPageSel(btn, count) {
+  document.querySelectorAll('.page-sel-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  selectedPageCount = count;
+}
 
 function downloadFull() {
   document.getElementById('download-menu').classList.remove('open');
