@@ -18,7 +18,7 @@
   body { background: var(--bg); font-family: var(--font-body); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; }
 
   header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 14px 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-shrink: 0; flex-wrap: wrap; }
-  .header-left { display: flex; align-items: center; gap: 10px; }
+  .header-left { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
   .header-info { display: flex; flex-direction: column; }
   .header-title { font-family: var(--font-display); font-size: 18px; font-weight: 400; }
   .header-meta { font-size: 12px; color: var(--text3); margin-top: 1px; }
@@ -81,12 +81,12 @@
     <button class="btn" onclick="history.back()">← Back</button>
     <div class="download-wrap" id="download-wrap" style="display:none;">
       <button class="btn" onclick="downloadFull()">↓ Full PDF</button>
-      <div style="display:flex;align-items:center;gap:6px;">
+      <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
         <span style="font-size:12px;color:var(--text2);">Save:</span>
         <button class="page-sel-btn on" id="sel-1" onclick="setPageSel(this,1)">This page</button>
         <button class="page-sel-btn" id="sel-2" onclick="setPageSel(this,2)">+1 page</button>
         <button class="page-sel-btn" id="sel-3" onclick="setPageSel(this,3)">+2 pages</button>
-        <button class="btn" id="save-pdf-btn" onclick="downloadPages(selectedPageCount)" style="color:#fff;background:var(--accent);border-color:var(--accent);">↓ Save as PDF</button>
+        <button class="btn" onclick="downloadPages(selectedPageCount)" style="color:#fff;background:var(--accent);border-color:var(--accent);">↓ Save as PDF</button>
       </div>
     </div>
     <div class="header-info">
@@ -139,8 +139,10 @@ const label     = params.get('label') || '';
 let pdfDoc      = null;
 let currentPage = startPage;
 let scale       = 1.4;
+let rendering   = false;
+let selectedPageCount = 1;
 
-if (label) document.getElementById('header-title').textContent = `Question ${label}`;
+if (label) document.getElementById('header-title').textContent = label;
 if (!fileId) {
   showError('No file specified.', 'Make sure the link includes a valid file URL.');
 } else {
@@ -150,35 +152,35 @@ if (!fileId) {
 
 async function loadPdf(id) {
   try {
-    const loadingTask = pdfjsLib.getDocument({
+    pdfDoc = await pdfjsLib.getDocument({
       url: decodeURIComponent(id),
       withCredentials: false,
       cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/',
       cMapPacked: true,
-    });
-    pdfDoc = await loadingTask.promise;
+    }).promise;
     document.getElementById('download-wrap').style.display = 'inline-flex';
-    renderPage(currentPage);
+    await renderPage(currentPage);
   } catch(e) {
     showError('Could not load the PDF.', 'Check that the file was uploaded correctly to GitHub Pages.');
   }
 }
 
 async function renderPage(num) {
+  if (rendering) return;
+  rendering = true;
+
   const container = document.getElementById('canvas-container');
   const page      = await pdfDoc.getPage(num);
   const viewport  = page.getViewport({ scale });
 
-  let canvas = container.querySelector('canvas');
-  if (!canvas) {
-    container.innerHTML = '';
-    canvas = document.createElement('canvas');
-    container.appendChild(canvas);
-  }
-  const ctx    = canvas.getContext('2d');
+  // Always create a fresh canvas to avoid stale render issues
+  container.innerHTML = '';
+  const canvas  = document.createElement('canvas');
+  container.appendChild(canvas);
   canvas.width  = viewport.width;
   canvas.height = viewport.height;
-  await page.render({ canvasContext: ctx, viewport }).promise;
+
+  await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
 
   currentPage = num;
   const total = pdfDoc.numPages;
@@ -190,10 +192,12 @@ async function renderPage(num) {
   document.getElementById('hover-indicator').textContent = `Page ${num} of ${total}`;
   document.getElementById('hover-prev').disabled         = num <= 1;
   document.getElementById('hover-next').disabled         = num >= total;
+
+  rendering = false;
 }
 
 function changePage(delta) {
-  if (!pdfDoc) return;
+  if (!pdfDoc || rendering) return;
   const next = currentPage + delta;
   if (next < 1 || next > pdfDoc.numPages) return;
   renderPage(next);
@@ -206,8 +210,6 @@ function changeZoom(delta) {
   if (pdfDoc) renderPage(currentPage);
 }
 
-let selectedPageCount = 1;
-
 function setPageSel(btn, count) {
   document.querySelectorAll('.page-sel-btn').forEach(b => b.classList.remove('on'));
   btn.classList.add('on');
@@ -215,26 +217,27 @@ function setPageSel(btn, count) {
 }
 
 function downloadFull() {
-  const a    = document.createElement('a');
-  a.href     = decodeURIComponent(fileId);
+  const a = document.createElement('a');
+  a.href = decodeURIComponent(fileId);
   a.download = '';
-  a.target   = '_blank';
+  a.target = '_blank';
   a.click();
 }
 
 async function downloadPages(count) {
   showToast('Preparing PDF…');
-
   const { jsPDF } = window.jspdf;
   const renderScale = 2.5;
-  const pagesToRender = [];
+  const HEADER_H = 60;
 
+  const pagesToRender = [];
   for (let i = 0; i < count; i++) {
     const pageNum = currentPage + i;
     if (pageNum > pdfDoc.numPages) break;
     pagesToRender.push(pageNum);
   }
 
+  // Render all pages to canvases first
   const canvases = [];
   for (const pageNum of pagesToRender) {
     const page     = await pdfDoc.getPage(pageNum);
@@ -246,36 +249,41 @@ async function downloadPages(count) {
     canvases.push({ canvas, viewport });
   }
 
-  const firstVp  = canvases[0].viewport;
+  if (canvases.length === 0) { showToast('Nothing to download'); return; }
+
+  const firstVp    = canvases[0].viewport;
   const isLandscape = firstVp.width > firstVp.height;
-  const HEADER_H = 48;
+
+  // First page is taller due to header
   const pdf = new jsPDF({
     orientation: isLandscape ? 'landscape' : 'portrait',
     unit: 'px',
     format: [firstVp.width, firstVp.height + HEADER_H]
   });
 
-  const HEADER_H = 48;
   canvases.forEach(({ canvas, viewport }, idx) => {
-    const totalH = idx === 0 ? viewport.height + HEADER_H : viewport.height;
-    if (idx > 0) {
-      pdf.addPage([viewport.width, totalH], viewport.width > viewport.height ? 'landscape' : 'portrait');
-      pdf.addImage(canvas.toDataURL('image/jpeg', 0.92), 'JPEG', 0, 0, viewport.width, viewport.height);
-    } else {
-      pdf.setPage(1);
-      pdf.addImage(canvas.toDataURL('image/jpeg', 0.92), 'JPEG', 0, HEADER_H, viewport.width, viewport.height);
+    const isLand = viewport.width > viewport.height;
+
+    if (idx === 0) {
+      // Draw green header on first page
       pdf.setFillColor(45, 106, 79);
       pdf.rect(0, 0, viewport.width, HEADER_H, 'F');
       pdf.setFontSize(22);
       pdf.setFont('helvetica', 'bold');
       pdf.setTextColor(255, 255, 255);
-      pdf.text(label || 'Question', 20, 34);
+      pdf.text(label || 'Question', 20, 40);
+      // Draw page image below header
+      pdf.addImage(canvas.toDataURL('image/jpeg', 0.92), 'JPEG', 0, HEADER_H, viewport.width, viewport.height);
+    } else {
+      // Subsequent pages — no header, normal size
+      pdf.addPage([viewport.width, viewport.height], isLand ? 'landscape' : 'portrait');
+      pdf.addImage(canvas.toDataURL('image/jpeg', 0.92), 'JPEG', 0, 0, viewport.width, viewport.height);
     }
   });
 
   const filename = label
-    ? `Q${label}_p${currentPage}${count > 1 ? '-' + (currentPage + canvases.length - 1) : ''}.pdf`
-    : `page_${currentPage}${count > 1 ? '-' + (currentPage + canvases.length - 1) : ''}.pdf`;
+    ? `${label.replace(/[^a-z0-9]/gi, '_')}_p${currentPage}${canvases.length > 1 ? '-' + (currentPage + canvases.length - 1) : ''}.pdf`
+    : `page_${currentPage}.pdf`;
 
   pdf.save(filename);
   showToast('Downloaded!');
@@ -285,7 +293,7 @@ function showToast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg;
   t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2000);
+  setTimeout(() => t.classList.remove('show'), 2200);
 }
 
 function showError(title, detail) {
