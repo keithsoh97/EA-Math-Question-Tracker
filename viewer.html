@@ -215,7 +215,6 @@ function setPageSel(btn, count) {
 }
 
 function downloadFull() {
-  document.getElementById('download-menu').classList.remove('open');
   const a    = document.createElement('a');
   a.href     = decodeURIComponent(fileId);
   a.download = '';
@@ -224,7 +223,6 @@ function downloadFull() {
 }
 
 async function downloadPages(count) {
-  document.getElementById('download-menu').classList.remove('open');
   showToast('Preparing PDF…');
 
   const { jsPDF } = window.jspdf;
