@@ -248,15 +248,29 @@ async function downloadPages(count) {
 
   const firstVp  = canvases[0].viewport;
   const isLandscape = firstVp.width > firstVp.height;
+  const HEADER_H = 48;
   const pdf = new jsPDF({
     orientation: isLandscape ? 'landscape' : 'portrait',
     unit: 'px',
-    format: [firstVp.width, firstVp.height]
+    format: [firstVp.width, firstVp.height + HEADER_H]
   });
 
+  const HEADER_H = 48;
   canvases.forEach(({ canvas, viewport }, idx) => {
-    if (idx > 0) pdf.addPage([viewport.width, viewport.height], viewport.width > viewport.height ? 'landscape' : 'portrait');
-    pdf.addImage(canvas.toDataURL('image/jpeg', 0.92), 'JPEG', 0, 0, viewport.width, viewport.height);
+    const totalH = idx === 0 ? viewport.height + HEADER_H : viewport.height;
+    if (idx > 0) {
+      pdf.addPage([viewport.width, totalH], viewport.width > viewport.height ? 'landscape' : 'portrait');
+      pdf.addImage(canvas.toDataURL('image/jpeg', 0.92), 'JPEG', 0, 0, viewport.width, viewport.height);
+    } else {
+      pdf.setPage(1);
+      pdf.addImage(canvas.toDataURL('image/jpeg', 0.92), 'JPEG', 0, HEADER_H, viewport.width, viewport.height);
+      pdf.setFillColor(45, 106, 79);
+      pdf.rect(0, 0, viewport.width, HEADER_H, 'F');
+      pdf.setFontSize(22);
+      pdf.setFont('helvetica', 'bold');
+      pdf.setTextColor(255, 255, 255);
+      pdf.text(label || 'Question', 20, 34);
+    }
   });
 
   const filename = label
