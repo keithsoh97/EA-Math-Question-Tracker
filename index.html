@@ -12,6 +12,7 @@
     --text: #1C1A17; --text2: #6B6560; --text3: #A09990;
     --amath-accent: #2D6A4F; --amath-light: #D8EDDF; --amath-text: #1B4332;
     --emath-accent: #1D4ED8; --emath-light: #DBEAFE; --emath-text: #1E3A8A;
+    --nemath-accent: #7C3AED; --nemath-light: #EDE9FE; --nemath-text: #4C1D95;
     --accent: #2D6A4F; --accent-light: #D8EDDF; --accent-text: #1B4332;
     --amber: #B45309; --amber-light: #FEF3C7;
     --red: #991B1B; --red-light: #FEE2E2;
@@ -30,6 +31,12 @@
   .switcher-btn { flex: 1; padding: 7px 10px; border: none; border-radius: 6px; font-size: 13px; font-weight: 500; font-family: var(--font-body); cursor: pointer; transition: all 0.15s; color: var(--text2); background: none; }
   .switcher-btn.active-amath { background: var(--surface); color: var(--amath-accent); box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
   .switcher-btn.active-emath { background: var(--surface); color: var(--emath-accent); box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .switcher-btn.active-nemath { background: var(--surface); color: var(--nemath-accent); box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .level-switcher { padding: 8px 16px 10px; border-bottom: 1px solid var(--border); display: none; }
+  .level-switcher.visible { display: block; }
+  .level-inner { display: flex; background: var(--bg); border-radius: var(--radius); padding: 3px; gap: 3px; }
+  .level-btn { flex: 1; padding: 5px 10px; border: none; border-radius: 6px; font-size: 12px; font-weight: 500; font-family: var(--font-body); cursor: pointer; transition: all 0.15s; color: var(--text2); background: none; }
+  .level-btn.active { background: var(--surface); color: var(--accent); box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
   .nav { padding: 12px 0; }
   .nav-item { display: flex; align-items: center; gap: 10px; padding: 10px 24px; font-size: 14px; color: var(--text2); cursor: pointer; border: none; background: none; width: 100%; text-align: left; transition: all 0.12s; }
   .nav-item:hover { color: var(--text); background: var(--bg); }
@@ -47,6 +54,7 @@
   .subject-badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 10px; border-radius: 100px; margin-left: 10px; vertical-align: middle; position: relative; top: -3px; font-family: var(--font-body); }
   .subject-badge.amath { background: var(--amath-light); color: var(--amath-text); }
   .subject-badge.emath { background: var(--emath-light); color: var(--emath-text); }
+  .subject-badge.nemath { background: var(--nemath-light); color: var(--nemath-text); }
   .filter-section { margin-bottom: 24px; }
   .filter-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text3); margin-bottom: 10px; }
   .chip-wrap { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -175,6 +183,12 @@
         <button class="switcher-btn" id="btn-emath" onclick="switchSubject('emath')">E-Math</button>
       </div>
     </div>
+    <div class="level-switcher" id="level-switcher">
+      <div class="level-inner">
+        <button class="level-btn active" id="btn-olevel" onclick="switchLevel('olevel')">O Level</button>
+        <button class="level-btn" id="btn-nlevel" onclick="switchLevel('nlevel')">N Level</button>
+      </div>
+    </div>
     <nav class="nav">
       <button class="nav-item active" onclick="showPage('filter')">Filter by Topic</button>
       <button class="nav-item" onclick="showPage('browse')">Browse Prelim Paper</button>
@@ -267,7 +281,7 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs
 // ============================================================
 const SHEET_ID = '1_ZWfd-DKyHf1YPhe7vTLRsGc5-GthYAfzZ3hE-D3EWU';
 const API_KEY  = 'AIzaSyCB6O5EIdEl4JCHkCcilrrufOHqR12LxmE';
-const TABS = { amath: 'ALL', emath: 'EMATH' };
+const TABS = { amath: 'ALL', emath: 'EMATH', nemath: 'NEMATH' };
 // ============================================================
 
 const DIFF_LABEL = { 'Normal':'Normal','Challenging':'Challenging','Very Challenging':'Very Challenging' };
@@ -276,6 +290,7 @@ const DIFF_ORDER = { 'Very Challenging':0,'Challenging':1,'Normal':2 };
 
 const cache = { amath: null, emath: null };
 let currentSubject = 'amath';
+let currentLevel   = 'olevel'; // only relevant when subject is emath
 let allQuestions = [], selectedTopic = null, selectedSubtopic = null;
 
 // Worksheet
@@ -473,14 +488,16 @@ async function exportWorksheet() {
         }
 
         // Draw header on first page
-      if (p === startPage) {
-        pdf.setFillColor(45, 106, 79);
-        pdf.rect(0, 0, viewport.width, HEADER_H, 'F');
-        pdf.setFontSize(22);
-        pdf.setFont('helvetica', 'bold');
-        pdf.setTextColor(255, 255, 255);
-        pdf.text(header, 20, 34);
-      }
+        if (p === startPage) {
+          pdf.setFillColor(245, 245, 242);
+          pdf.rect(0, 0, viewport.width, HEADER_H, 'F');
+          pdf.setFontSize(14);
+          pdf.setFont('helvetica', 'bold');
+          pdf.setTextColor(28, 26, 23);
+          pdf.text(header, 20, 30);
+          pdf.setDrawColor(226, 221, 213);
+          pdf.line(0, HEADER_H, viewport.width, HEADER_H);
+        }
 
         pdf.addImage(canvas.toDataURL('image/jpeg', 0.90), 'JPEG', 0, HEADER_H, viewport.width, viewport.height);
         pageCount++;
@@ -572,33 +589,64 @@ async function loadSheet(subject) {
 async function switchSubject(subject) {
   if (subject === currentSubject) return;
   currentSubject = subject;
+  currentLevel = 'olevel'; // reset to O Level when switching subject
+
   document.getElementById('btn-amath').className = 'switcher-btn'+(subject==='amath'?' active-amath':'');
   document.getElementById('btn-emath').className = 'switcher-btn'+(subject==='emath'?' active-emath':'');
-  const accent      = subject==='amath'?'#2D6A4F':'#1D4ED8';
-  const accentLight = subject==='amath'?'#D8EDDF':'#DBEAFE';
-  const accentText  = subject==='amath'?'#1B4332':'#1E3A8A';
-  document.documentElement.style.setProperty('--accent', accent);
-  document.documentElement.style.setProperty('--accent-light', accentLight);
-  document.documentElement.style.setProperty('--accent-text', accentText);
-  const badgeClass = subject==='amath'?'amath':'emath';
-  const badgeLabel = subject==='amath'?'A-Math':'E-Math';
+
+  // Show/hide level switcher
+  const levelSwitcher = document.getElementById('level-switcher');
+  levelSwitcher.classList.toggle('visible', subject === 'emath');
+  document.getElementById('btn-olevel').classList.toggle('active', true);
+  document.getElementById('btn-nlevel').classList.toggle('active', false);
+
+  applySubjectTheme(subject === 'amath' ? 'amath' : 'emath');
+  await loadSubject(subject === 'amath' ? 'amath' : 'emath');
+}
+
+async function switchLevel(level) {
+  if (level === currentLevel) return;
+  currentLevel = level;
+  document.getElementById('btn-olevel').classList.toggle('active', level === 'olevel');
+  document.getElementById('btn-nlevel').classList.toggle('active', level === 'nlevel');
+
+  const key = level === 'olevel' ? 'emath' : 'nemath';
+  applySubjectTheme(key);
+  await loadSubject(key);
+}
+
+function applySubjectTheme(key) {
+  const themes = {
+    amath:  { accent: '#2D6A4F', light: '#D8EDDF', text: '#1B4332', badgeClass: 'amath', badgeLabel: 'A-Math' },
+    emath:  { accent: '#1D4ED8', light: '#DBEAFE', text: '#1E3A8A', badgeClass: 'emath', badgeLabel: 'E-Math (O Level)' },
+    nemath: { accent: '#7C3AED', light: '#EDE9FE', text: '#4C1D95', badgeClass: 'nemath', badgeLabel: 'E-Math (N Level)' },
+  };
+  const t = themes[key];
+  document.documentElement.style.setProperty('--accent', t.accent);
+  document.documentElement.style.setProperty('--accent-light', t.light);
+  document.documentElement.style.setProperty('--accent-text', t.text);
   ['filter-badge','browse-badge'].forEach(id => {
     const el = document.getElementById(id);
-    el.className = `subject-badge ${badgeClass}`; el.textContent = badgeLabel;
+    el.className = `subject-badge ${t.badgeClass}`;
+    el.textContent = t.badgeLabel;
   });
-  document.getElementById('stats-label').textContent = badgeLabel;
+  document.getElementById('stats-label').textContent = t.badgeLabel;
+}
+
+async function loadSubject(key) {
   selectedTopic = null; selectedSubtopic = null;
   document.getElementById('filter-area').innerHTML = '<div class="loading"><div class="spinner"></div>Loading questions...</div>';
   document.getElementById('browse-area').innerHTML  = '<div class="loading"><div class="spinner"></div>Loading questions...</div>';
   try {
-    allQuestions = await loadSheet(subject);
+    allQuestions = await loadSheet(key);
     updateStats(); buildFilterUI(); buildBrowseUI();
   } catch(e) {
-    showError(`Could not load ${badgeLabel} questions. Check the sheet tab is named "${TABS[subject]}" and is publicly shared.`);
+    showError(`Could not load questions. Check the sheet tab is named "${TABS[key]}" and is publicly shared.`);
   }
 }
 
 async function init() {
+  applySubjectTheme('amath');
   try {
     allQuestions = await loadSheet('amath');
     updateStats(); buildFilterUI(); buildBrowseUI();
