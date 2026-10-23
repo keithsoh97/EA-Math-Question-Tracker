@@ -478,7 +478,7 @@ async function exportWorksheet() {
         await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
 
         // Add header text on first page of each question
-        const HEADER_H = p === startPage ? 48 : 0;
+        const HEADER_H = p === startPage ? 140 : 0;
         const totalH   = viewport.height + HEADER_H;
 
         if (!pdf) {
@@ -489,13 +489,25 @@ async function exportWorksheet() {
 
         // Draw header on first page
         if (p === startPage) {
+          const cx = viewport.width / 2;
           pdf.setFillColor(245, 245, 242);
           pdf.rect(0, 0, viewport.width, HEADER_H, 'F');
-          pdf.setFontSize(14);
           pdf.setFont('helvetica', 'bold');
           pdf.setTextColor(28, 26, 23);
-          pdf.text(header, 20, 30);
-          pdf.setDrawColor(226, 221, 213);
+          // Shrink the title if a long school name would overflow the page
+          let size = 44;
+          pdf.setFontSize(size);
+          while (size > 24 && pdf.getTextWidth(header) > viewport.width - 60) pdf.setFontSize(--size);
+          pdf.text(header, cx, 66, { align: 'center' });
+          const sub = `${q.topic}${q.subtopic ? ' · ' + q.subtopic : ''}`;
+          if (sub) {
+            pdf.setFont('helvetica', 'normal');
+            pdf.setFontSize(26);
+            pdf.setTextColor(110, 104, 96);
+            pdf.text(sub, cx, 110, { align: 'center' });
+          }
+          pdf.setDrawColor(200, 194, 185);
+          pdf.setLineWidth(2);
           pdf.line(0, HEADER_H, viewport.width, HEADER_H);
         }
 
