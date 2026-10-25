@@ -117,7 +117,9 @@
   .preview-page-label { font-size: 12px; color: var(--text2); min-width: 70px; text-align: center; }
   .preview-footer { padding: 14px 20px; border-top: 1px solid var(--border); flex-shrink: 0; }
   .preview-footer-label { font-size: 12px; color: var(--text2); margin-bottom: 10px; }
-  .preview-page-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+  .preview-page-btns { display: flex; flex-direction: column; gap: 10px; }
+  .preview-page-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .preview-page-row-label { font-size: 12px; color: var(--text2); min-width: 90px; }
   .preview-page-btn { padding: 8px 14px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); font-size: 13px; color: var(--text); cursor: pointer; font-family: var(--font-body); transition: all 0.12s; }
   .preview-page-btn:hover { border-color: var(--accent); color: var(--accent); }
   .preview-page-btn.selected { background: var(--accent); border-color: var(--accent); color: #fff; }
@@ -297,7 +299,7 @@ let allQuestions = [], selectedTopic = null, selectedSubtopic = null;
 let worksheet = [];
 
 // Preview state
-let previewQ = null, previewPdfDoc = null, previewCurrentPage = 1, previewSelectedPages = 1;
+let previewQ = null, previewPdfDoc = null, previewCurrentPage = 1, previewSelectedPages = 1, previewPagesBefore = 0;
 
 // ─── PDF PREVIEW ──────────────────────────────────────────────
 async function openPreview(encodedQ) {
@@ -305,6 +307,7 @@ async function openPreview(encodedQ) {
   previewPdfDoc = null;
   previewCurrentPage = parseInt(previewQ.page) || 1;
   previewSelectedPages = 1;
+  previewPagesBefore = 0;
 
   document.getElementById('preview-title').textContent = `${previewQ.year} ${previewQ.school} — Paper ${previewQ.paper} Q${previewQ.question}`;
   document.getElementById('preview-canvas-wrap').innerHTML = '<div class="loading"><div class="spinner"></div>Loading PDF…</div>';
@@ -350,21 +353,31 @@ function previewChangePage(delta) {
 function buildPageBtns() {
   const startPage = parseInt(previewQ.page) || 1;
   const total = previewPdfDoc.numPages;
+  const maxBefore = Math.min(2, startPage - 1);
+  const beforeLabels = ['None', '1 page before', '2 pages before'];
+  let before = '';
+  for (let i = 0; i <= maxBefore; i++) {
+    const tip = i === 0 ? `Start at page ${startPage}` : `Start at page ${startPage - i}`;
+    before += `<button class="preview-page-btn ${i===0?'selected':''}" data-group="before" onclick="selectPagesBefore(this,${i})" title="${tip}">${beforeLabels[i]}</button>`;
+  }
   const max = Math.min(4, total - startPage + 1);
   const labels = ['This page only', '+1 page (2 total)', '+2 pages (3 total)', '+3 pages (4 total)'];
-  let html = '';
+  let after = '';
   for (let i = 1; i <= max; i++) {
     const endPage = startPage + i - 1;
     const tip = i === 1 ? `Page ${startPage}` : `Pages ${startPage}–${endPage}`;
-    html += `<button class="preview-page-btn ${i===1?'selected':''}" onclick="selectPageCount(this,${i})" title="${tip}">${labels[i-1]}</button>`;
+    after += `<button class="preview-page-btn ${i===1?'selected':''}" data-group="after" onclick="selectPageCount(this,${i})" title="${tip}">${labels[i-1]}</button>`;
   }
-  document.getElementById('preview-page-btns').innerHTML = html +
-    `<button class="preview-page-btn" style="background:var(--accent);color:#fff;border-color:var(--accent);margin-left:auto;" onclick="confirmAdd()">Add to Worksheet</button>`;
+  document.getElementById('preview-page-btns').innerHTML =
+    (maxBefore > 0 ? `<div class="preview-page-row"><span class="preview-page-row-label">Pages before</span>${before}</div>` : '') +
+    `<div class="preview-page-row"><span class="preview-page-row-label">Pages from p.${startPage}</span>${after}` +
+    `<button class="preview-page-btn" style="background:var(--accent);color:#fff;border-color:var(--accent);margin-left:auto;" onclick="confirmAdd()">Add to Worksheet</button></div>`;
   previewSelectedPages = 1;
+  previewPagesBefore = 0;
 }
 
 function selectPageCount(btn, count) {
-  document.querySelectorAll('.preview-page-btn').forEach(b => b.classList.remove('selected'));
+  document.querySelectorAll('.preview-page-btn[data-group="after"]').forEach(b => b.classList.remove('selected'));
   btn.classList.add('selected');
   previewSelectedPages = count;
   // Navigate to show the last page of the range so they can verify
@@ -372,17 +385,26 @@ function selectPageCount(btn, count) {
   renderPreviewPage(endPage);
 }
 
+function selectPagesBefore(btn, count) {
+  document.querySelectorAll('.preview-page-btn[data-group="before"]').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  previewPagesBefore = count;
+  // Navigate to show the first page of the range so they can verify
+  renderPreviewPage((parseInt(previewQ.page) || 1) - count);
+}
+
 function confirmAdd() {
   if (!previewQ) return;
-  const startPage = parseInt(previewQ.page) || 1;
-  const endPage   = startPage + previewSelectedPages - 1;
-  const q = { ...previewQ, end_page: endPage };
+  const qPage     = parseInt(previewQ.page) || 1;
+  const startPage = qPage - previewPagesBefore;
+  const endPage   = qPage + previewSelectedPages - 1;
+  const q = { ...previewQ, start_page: startPage, end_page: endPage };
   const id = wsId(q);
   if (!worksheet.some(w => wsId(w) === id)) {
     worksheet.push(q);
     updateTray();
     refreshWsPanel();
-    showToast(`Added Q${q.question} (${previewSelectedPages === 1 ? 'p.' + startPage : 'pp.' + startPage + '–' + endPage})`);
+    showToast(`Added Q${q.question} (${startPage === endPage ? 'p.' + startPage : 'pp.' + startPage + '–' + endPage})`);
     // Mark button as added
     document.querySelectorAll('.btn-add').forEach(btn => {
       if (btn.dataset.qid === id) { btn.textContent = '✓ Added'; btn.classList.add('added'); }
@@ -426,7 +448,7 @@ function refreshWsPanel() {
     return;
   }
   body.innerHTML = worksheet.map((q, i) => {
-    const startPage = parseInt(q.page) || 1;
+    const startPage = q.start_page || parseInt(q.page) || 1;
     const endPage   = q.end_page || startPage;
     const pageStr   = startPage === endPage ? `Page ${startPage}` : `Pages ${startPage}–${endPage}`;
     return `<div class="ws-item">
@@ -458,7 +480,7 @@ async function exportWorksheet() {
 
   for (const q of worksheet) {
     if (!q.pdf_link || !q.page) continue;
-    const startPage = parseInt(q.page);
+    const startPage = q.start_page ? parseInt(q.start_page) : parseInt(q.page);
     const endPage   = q.end_page ? parseInt(q.end_page) : startPage;
     const header    = `${q.year} ${q.school} — Paper ${q.paper} Q${q.question}`;
     try {
