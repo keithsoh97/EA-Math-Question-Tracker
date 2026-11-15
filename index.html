@@ -163,6 +163,52 @@
   .toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: rgba(28,26,23,0.88); color: #fff; font-size: 13px; padding: 8px 18px; border-radius: 100px; opacity: 0; transition: opacity 0.2s; pointer-events: none; white-space: nowrap; z-index: 500; }
   .toast.show { opacity: 1; }
 
+  /* Edit mode */
+  .edit-toggle { margin: 0 16px 16px; padding: 8px 12px; border: 1px dashed var(--border2); border-radius: var(--radius); background: none; font: 500 12px var(--font-body); color: var(--text3); cursor: pointer; text-align: left; }
+  .edit-toggle:hover { color: var(--text); }
+  .edit-toggle.on { background: var(--amber-light); color: var(--amber); border: 1px solid #FDE68A; }
+  .edit-tools { display: none; margin: -8px 16px 16px; gap: 6px; }
+  body.editing .edit-tools { display: flex; }
+  .edit-tools button { flex: 1; padding: 6px 8px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); font: 12px var(--font-body); color: var(--text2); cursor: pointer; }
+  .edit-tools button:hover { color: var(--text); border-color: var(--border2); }
+  body.editing .main { max-width: 1200px; }
+  body.editing td { padding: 8px 10px; }
+  body.editing .table-wrap, body.editing .paper-card-body.open { overflow-x: auto; }
+  .ed { font: 13px var(--font-body); padding: 5px 7px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); color: var(--text); width: 100%; min-width: 90px; transition: border-color 0.2s, background 0.2s; }
+  .ed:focus { outline: none; border-color: var(--accent); }
+  .ed.num { width: 60px; min-width: 60px; }
+  select.ed { min-width: 130px; cursor: pointer; }
+  .ed.saving { border-color: var(--amber); }
+  .ed.saved { border-color: #16A34A; background: #F0FDF4; }
+  .ed.err { border-color: var(--red); background: var(--red-light); }
+  .rank-pill { display: inline-block; font-size: 10px; color: var(--text3); margin-left: 4px; }
+
+  /* Preview: side-by-side tagging panel in edit mode */
+  .preview-body { flex: 1; display: flex; min-height: 0; }
+  .edit-panel { display: none; width: 290px; flex-shrink: 0; border-left: 1px solid var(--border); padding: 16px 18px; overflow-y: auto; }
+  body.editing .preview-modal { width: 1120px; }
+  body.editing .edit-panel { display: block; }
+  .ep-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 16px; }
+  .ep-count { font-size: 12px; color: var(--text2); }
+  .ep-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text3); margin: 14px 0 6px; display: block; }
+  .diff-btns { display: flex; flex-direction: column; gap: 6px; }
+  .diff-btns button { padding: 8px 12px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); font: 13px var(--font-body); color: var(--text); cursor: pointer; text-align: left; display: flex; justify-content: space-between; }
+  .diff-btns button kbd { font: 11px var(--font-body); color: var(--text3); }
+  .diff-btns button:hover { border-color: var(--border2); }
+  .diff-btns button.on[data-d=""] { background: var(--accent-light); border-color: var(--accent); color: var(--accent-text); }
+  .diff-btns button.on[data-d="Challenging"] { background: var(--amber-light); border-color: var(--amber); color: var(--amber); }
+  .diff-btns button.on[data-d="Very Challenging"] { background: var(--red-light); border-color: var(--red); color: var(--red); }
+  .ep-row { display: flex; gap: 10px; }
+  .ep-row > div { flex: 1; }
+  .ep-row .ed.num { width: 100%; }
+  .ep-hint { font-size: 11px; color: var(--text3); margin-top: 18px; line-height: 1.6; }
+  .ep-status { font-size: 12px; margin-top: 10px; min-height: 18px; color: var(--text2); }
+
+  @media (max-width: 700px) {
+    .preview-body { flex-direction: column; overflow-y: auto; }
+    .edit-panel { width: auto; border-left: none; border-top: 1px solid var(--border); }
+  }
+
   @media (max-width: 700px) {
     .layout { grid-template-columns: 1fr; }
     .sidebar { position: static; height: auto; }
@@ -204,6 +250,11 @@
       <div class="stat-row"><span class="lbl">Topics</span><span class="val" id="s-topics">—</span></div>
       <div class="stat-row"><span class="lbl">Papers</span><span class="val" id="s-papers">—</span></div>
     </div>
+    <button class="edit-toggle" id="edit-toggle" onclick="toggleEditMode()">✎ Edit mode</button>
+    <div class="edit-tools">
+      <button onclick="reloadFromSheet()" title="Re-read the Google Sheet">↻ Reload sheet</button>
+      <button onclick="forgetPasscode()" title="Remove the saved passcode from this browser">Lock</button>
+    </div>
   </aside>
 
   <main class="main">
@@ -233,8 +284,11 @@
       </div>
       <button class="preview-modal-close" onclick="closePreview()">×</button>
     </div>
-    <div class="preview-canvas-wrap" id="preview-canvas-wrap">
-      <div class="loading"><div class="spinner"></div>Loading PDF…</div>
+    <div class="preview-body">
+      <div class="preview-canvas-wrap" id="preview-canvas-wrap">
+        <div class="loading"><div class="spinner"></div>Loading PDF…</div>
+      </div>
+      <div class="edit-panel" id="edit-panel"></div>
     </div>
     <div class="preview-footer">
       <div class="preview-footer-label">How many pages does this question cover?</div>
@@ -274,6 +328,7 @@
 </div>
 
 <div class="toast" id="toast"></div>
+<div id="datalists" hidden></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -284,6 +339,8 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs
 const SHEET_ID = '1_ZWfd-DKyHf1YPhe7vTLRsGc5-GthYAfzZ3hE-D3EWU';
 const API_KEY  = 'AIzaSyCB6O5EIdEl4JCHkCcilrrufOHqR12LxmE';
 const TABS = { amath: 'ALL', emath: 'EMATH', nemath: 'NEMATH' };
+// Edit mode: paste the Apps Script "Web app URL" here (see apps-script/README.md)
+const EDIT_API_URL = 'https://script.google.com/macros/s/AKfycbynx6h1nDSKUD-fQFVzJGJKTITf7UsvfAg23hhbC8U-4N_uHb6oZCHs48KFNOd2HqFL/exec';
 // ============================================================
 
 const DIFF_LABEL = { 'Normal':'Normal','Challenging':'Challenging','Very Challenging':'Very Challenging' };
@@ -292,6 +349,7 @@ const DIFF_ORDER = { 'Very Challenging':0,'Challenging':1,'Normal':2 };
 
 const cache = { amath: null, emath: null };
 let currentSubject = 'amath';
+let currentKey = 'amath';     // amath | emath | nemath
 let currentLevel   = 'olevel'; // only relevant when subject is emath
 let allQuestions = [], selectedTopic = null, selectedSubtopic = null;
 
@@ -299,31 +357,53 @@ let allQuestions = [], selectedTopic = null, selectedSubtopic = null;
 let worksheet = [];
 
 // Preview state
-let previewQ = null, previewPdfDoc = null, previewCurrentPage = 1, previewSelectedPages = 1, previewPagesBefore = 0;
+let previewQ = null, previewPdfDoc = null, previewPdfUrl = null, previewCurrentPage = 1, previewSelectedPages = 1, previewPagesBefore = 0;
+let previewList = [], previewLid = null;
+
+// Edit state
+let editMode = false, editsSinceRender = false;
+const listRegistry = {};   // table id -> array of questions shown in it (for Prev/Next Q)
+
+function esc(s) {
+  return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function findQ(row) { return allQuestions.find(q => q._row === row); }
 
 // ─── PDF PREVIEW ──────────────────────────────────────────────
-async function openPreview(encodedQ) {
-  previewQ = JSON.parse(decodeURIComponent(encodedQ));
-  previewPdfDoc = null;
+async function openPreview(row, lid) {
+  const q = findQ(row);
+  if (!q) return;
+  previewQ = q;
+  previewLid = lid;
+  previewList = listRegistry[lid] || [q];
   previewCurrentPage = parseInt(previewQ.page) || 1;
   previewSelectedPages = 1;
   previewPagesBefore = 0;
 
   document.getElementById('preview-title').textContent = `${previewQ.year} ${previewQ.school} — Paper ${previewQ.paper} Q${previewQ.question}`;
-  document.getElementById('preview-canvas-wrap').innerHTML = '<div class="loading"><div class="spinner"></div>Loading PDF…</div>';
   document.getElementById('preview-page-btns').innerHTML = '';
   document.getElementById('preview-overlay').classList.add('open');
+  renderEditPanel();
 
   try {
-    previewPdfDoc = await pdfjsLib.getDocument({
-      url: decodeURIComponent(previewQ.pdf_link),
-      withCredentials: false,
-      cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/',
-      cMapPacked: true,
-    }).promise;
+    if (!previewPdfDoc || previewPdfUrl !== previewQ.pdf_link) {
+      document.getElementById('preview-canvas-wrap').innerHTML = '<div class="loading"><div class="spinner"></div>Loading PDF…</div>';
+      previewPdfDoc = null;
+      previewPdfUrl = previewQ.pdf_link;
+      const doc = await pdfjsLib.getDocument({
+        url: decodeURIComponent(previewQ.pdf_link),
+        withCredentials: false,
+        cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/',
+        cMapPacked: true,
+      }).promise;
+      if (previewQ !== q) return; // user already moved on
+      previewPdfDoc = doc;
+    }
+    previewCurrentPage = Math.min(Math.max(previewCurrentPage, 1), previewPdfDoc.numPages);
     await renderPreviewPage(previewCurrentPage);
     buildPageBtns();
   } catch(e) {
+    previewPdfDoc = null; previewPdfUrl = null;
     document.getElementById('preview-canvas-wrap').innerHTML = '<div class="empty-state"><p>Could not load PDF.<br>Check the file is uploaded to GitHub Pages.</p></div>';
   }
 }
@@ -417,7 +497,207 @@ function confirmAdd() {
 
 function closePreview() {
   document.getElementById('preview-overlay').classList.remove('open');
-  previewPdfDoc = null; previewQ = null;
+  previewPdfDoc = null; previewPdfUrl = null; previewQ = null;
+  if (editsSinceRender) refreshViews();
+}
+
+// ─── EDIT MODE ────────────────────────────────────────────────
+function getPasscode() { try { return localStorage.getItem('tracker_passcode') || ''; } catch(e) { return ''; } }
+function setPasscode(p) { try { p ? localStorage.setItem('tracker_passcode', p) : localStorage.removeItem('tracker_passcode'); } catch(e) {} }
+
+async function callEditApi(payload) {
+  const res = await fetch(EDIT_API_URL, { method: 'POST', body: JSON.stringify({ passcode: getPasscode(), ...payload }) });
+  const data = await res.json();
+  if (!data.ok) throw new Error(data.error || 'Save failed');
+  return data;
+}
+
+async function toggleEditMode() {
+  if (editMode) { setEditMode(false); return; }
+  if (!EDIT_API_URL) {
+    alert('Edit mode is not connected yet.\n\nFollow apps-script/README.md, then paste the Web app URL into EDIT_API_URL in index.html.');
+    return;
+  }
+  if (!getPasscode()) {
+    const p = prompt('Edit passcode:');
+    if (!p) return;
+    setPasscode(p.trim());
+  }
+  const btn = document.getElementById('edit-toggle');
+  btn.textContent = 'Checking…';
+  try {
+    await callEditApi({ action: 'ping', tab: TABS.amath });
+    setEditMode(true);
+  } catch(e) {
+    if (/passcode/i.test(e.message)) setPasscode('');
+    btn.textContent = '✎ Edit mode';
+    alert('Could not turn on edit mode: ' + e.message);
+  }
+}
+
+function setEditMode(on) {
+  editMode = on;
+  document.body.classList.toggle('editing', on);
+  const btn = document.getElementById('edit-toggle');
+  btn.classList.toggle('on', on);
+  btn.textContent = on ? '✎ Editing — click to finish' : '✎ Edit mode';
+  refreshViews();
+  if (previewQ) renderEditPanel();
+}
+
+function forgetPasscode() { setPasscode(''); setEditMode(false); showToast('Locked — passcode removed from this browser'); }
+
+async function reloadFromSheet() {
+  Object.keys(cache).forEach(k => cache[k] = null);
+  await loadSubject(currentKey, true);
+  showToast('Reloaded from Google Sheet');
+}
+
+function refreshDatalists() {
+  const map = getTopicMap();
+  const topics = Object.keys(map).sort();
+  const allSubs = [...new Set(allQuestions.map(q => q.subtopic).filter(Boolean))].sort();
+  const opts = arr => arr.map(v => `<option value="${esc(v)}">`).join('');
+  document.getElementById('datalists').innerHTML =
+    `<datalist id="dl-topics">${opts(topics)}</datalist>` +
+    `<datalist id="dl-subs-all">${opts(allSubs)}</datalist>` +
+    topics.map((t, i) => `<datalist id="dl-sub-${i}">${opts([...map[t]].sort())}</datalist>`).join('');
+  topicDl = {};
+  topics.forEach((t, i) => topicDl[t] = `dl-sub-${i}`);
+}
+let topicDl = {};
+function subDl(q) { return topicDl[q.topic] || 'dl-subs-all'; }
+
+// Save one field of one question to the Google Sheet. Updates the page immediately.
+async function saveField(q, field, value, el) {
+  value = String(value == null ? '' : value).trim();
+  if (field === 'difficulty' && value === 'Normal') value = '';
+  const old = q[field] || '';
+  if (old === value) return true;
+  q[field] = value;
+  editsSinceRender = true;
+  if (el) { el.classList.remove('saved', 'err'); el.classList.add('saving'); }
+  setPanelStatus('Saving…');
+  try {
+    const data = await callEditApi({
+      action: 'update', tab: q._tab, row: q._row,
+      key: { school: q.school, year: q.year, paper: q.paper, question: q.question },
+      changes: { [field]: value }
+    });
+    if (data.row) q._row = data.row;
+    if (field === 'topic' || field === 'subtopic') refreshDatalists();
+    if (el) { el.classList.remove('saving'); el.classList.add('saved'); setTimeout(() => el.classList.remove('saved'), 1500); }
+    setPanelStatus('✓ Saved to sheet');
+    return true;
+  } catch(e) {
+    q[field] = old;
+    if (el) { el.classList.remove('saving'); el.classList.add('err'); if ('value' in el) el.value = old; }
+    setPanelStatus('✗ Not saved: ' + e.message, true);
+    showToast('Not saved: ' + e.message);
+    if (previewQ === q) renderEditPanel();
+    return false;
+  }
+}
+
+function inlineSave(el) {
+  const q = findQ(+el.dataset.row);
+  if (q) saveField(q, el.dataset.field, el.value, el);
+}
+
+// Right-hand panel in the preview: tag the question while looking at it
+function renderEditPanel() {
+  const panel = document.getElementById('edit-panel');
+  if (!editMode || !previewQ) { panel.innerHTML = ''; return; }
+  const q = previewQ;
+  const i = previewList.findIndex(x => x === q);
+  const d = q.difficulty === 'Normal' ? '' : (q.difficulty || '');
+  const diffBtn = (val, label, key) =>
+    `<button data-d="${val}" class="${d === val ? 'on' : ''}" onclick="panelDiff('${val}')">${label}<kbd>${key}</kbd></button>`;
+  panel.innerHTML = `
+    <div class="ep-head">
+      <button class="preview-nav-btn" onclick="gotoQ(-1)" ${i <= 0 ? 'disabled' : ''}>← Prev Q</button>
+      <span class="ep-count">${i + 1} of ${previewList.length}</span>
+      <button class="preview-nav-btn" onclick="gotoQ(1)" ${i >= previewList.length - 1 ? 'disabled' : ''}>Next Q →</button>
+    </div>
+    <span class="ep-label" style="margin-top:0">Difficulty</span>
+    <div class="diff-btns">
+      ${diffBtn('', 'Normal', '1')}${diffBtn('Challenging', 'Challenging', '2')}${diffBtn('Very Challenging', 'Very Challenging', '3')}
+    </div>
+    <span class="ep-label">Topic</span>
+    <input class="ed" list="dl-topics" value="${esc(q.topic)}" onchange="panelSave('topic', this)">
+    <span class="ep-label">Subtopic</span>
+    <input class="ed" list="${subDl(q)}" value="${esc(q.subtopic)}" onchange="panelSave('subtopic', this)" placeholder="Type or pick…">
+    <div class="ep-row">
+      <div><span class="ep-label">Page</span><input class="ed num" type="number" min="1" value="${esc(q.page)}" onchange="panelSave('page', this)"></div>
+      <div><span class="ep-label" title="Order within the same difficulty — 1 shows first">Rank</span><input class="ed num" type="number" min="1" value="${esc(q.rank)}" onchange="panelSave('rank', this)" placeholder="—"></div>
+    </div>
+    <div class="ep-status" id="ep-status"></div>
+    <div class="ep-hint">Every change saves straight to the Google Sheet.<br>
+      Keys: <b>1 / 2 / 3</b> difficulty · <b>J / K</b> next / prev question<br>
+      Rank: order within the same difficulty (1 shows first). Leave blank if you don't care.</div>`;
+}
+
+function setPanelStatus(msg, isErr) {
+  const el = document.getElementById('ep-status');
+  if (el) { el.textContent = msg; el.style.color = isErr ? 'var(--red)' : 'var(--text2)'; }
+}
+
+async function panelDiff(val) {
+  if (!previewQ) return;
+  const q = previewQ;
+  const p = saveField(q, 'difficulty', val, null);
+  renderEditPanel();   // show the new choice immediately
+  await p;
+}
+
+async function panelSave(field, el) {
+  const q = previewQ;
+  if (!q) return;
+  const ok = await saveField(q, field, el.value, el);
+  if (ok && field === 'page' && previewQ === q && previewPdfDoc) {
+    const pg = Math.min(Math.max(parseInt(q.page) || 1, 1), previewPdfDoc.numPages);
+    await renderPreviewPage(pg);
+    buildPageBtns();
+  }
+  if (ok && field === 'topic' && previewQ === q) {
+    const sub = document.querySelector('#edit-panel input[list^="dl-sub"]');
+    if (sub) sub.setAttribute('list', subDl(q));
+  }
+}
+
+function gotoQ(delta) {
+  const i = previewList.findIndex(x => x === previewQ);
+  const next = previewList[i + delta];
+  if (next) openPreview(next._row, previewLid);
+}
+
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('preview-overlay').classList.contains('open')) return;
+  if (e.key === 'Escape') { closePreview(); return; }
+  if (!editMode || e.ctrlKey || e.metaKey || e.altKey) return;
+  if (['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+  const k = e.key.toLowerCase();
+  if (k === '1') panelDiff('');
+  else if (k === '2') panelDiff('Challenging');
+  else if (k === '3') panelDiff('Very Challenging');
+  else if (k === 'j') gotoQ(1);
+  else if (k === 'k') gotoQ(-1);
+  else return;
+  e.preventDefault();
+});
+
+// Re-draw the visible tables (keeps open paper cards open)
+function refreshViews() {
+  editsSinceRender = false;
+  if (!allQuestions.length) return;
+  refreshDatalists();
+  if (selectedTopic && document.getElementById('results')) findQuestions();
+  const open = [...document.querySelectorAll('.paper-card-body.open')].map(b => b.id);
+  if (document.getElementById('papers-list')) renderPapers();
+  open.forEach(id => {
+    const body = document.getElementById(id), t = document.getElementById('toggle-' + id);
+    if (body) { body.classList.add('open'); if (t) t.textContent = 'Hide ▴'; }
+  });
 }
 
 // ─── WORKSHEET ────────────────────────────────────────────────
@@ -554,37 +834,60 @@ function makePdfLink(pdfUrl, page, label) {
   return `${base}viewer.html?id=${encodeURIComponent(pdfUrl)}&page=${page}&label=${encodeURIComponent(label||'')}`;
 }
 
-function makeAddBtn(q) {
+function makeAddBtn(q, lid) {
   const id = wsId(q);
   const isAdded = worksheet.some(w => wsId(w) === id);
-  const enc = encodeURIComponent(JSON.stringify(q));
-  return `<button class="btn-add ${isAdded?'added':''}" data-qid="${id}" onclick="openPreview('${enc}')">${isAdded?'✓ Added':'+ Add'}</button>`;
+  const label = editMode ? '✎ Tag' : (isAdded ? '✓ Added' : '+ Add');
+  return `<button class="btn-add ${isAdded&&!editMode?'added':''}" data-qid="${esc(id)}" onclick="openPreview(${q._row}, '${lid}')">${label}</button>`;
 }
 
-function qRow(q) {
+function diffCell(q) {
+  if (editMode) {
+    const d = q.difficulty === 'Normal' ? '' : (q.difficulty || '');
+    const opt = (v, l) => `<option value="${v}" ${d===v?'selected':''}>${l}</option>`;
+    return `<select class="ed" data-row="${q._row}" data-field="difficulty" onchange="inlineSave(this)">${opt('','Normal')}${opt('Challenging','Challenging')}${opt('Very Challenging','Very Challenging')}</select>`;
+  }
+  return q.difficulty && q.difficulty !== 'Normal'
+    ? `<span class="badge ${DIFF_CLASS[q.difficulty]||'n1'}">${DIFF_LABEL[q.difficulty]||q.difficulty}</span>`
+    : '<span style="color:var(--text3);font-size:12px;">—</span>';
+}
+function edInput(q, field, cls = '', list = '') {
+  return `<input class="ed ${cls}" ${cls==='num'?'type="number" min="1"':''} ${list?`list="${list}"`:''} data-row="${q._row}" data-field="${field}" value="${esc(q[field])}" onchange="inlineSave(this)">`;
+}
+function topicCells(q) {
+  if (editMode) return `<td>${edInput(q,'topic','', 'dl-topics')}</td><td>${edInput(q,'subtopic','', subDl(q))}</td>`;
+  return `<td>${q.topic||'—'}</td><td style="color:var(--text2)">${q.subtopic||'—'}</td>`;
+}
+function editExtraCells(q) {
+  return editMode ? `<td>${edInput(q,'page','num')}</td><td>${edInput(q,'rank','num')}</td>` : '';
+}
+function editExtraHeads() { return editMode ? '<th>Page</th><th title="Order within same difficulty (1 first)">Rank</th>' : ''; }
+
+function viewLink(q) {
   const label = `${q.year} ${q.school} Paper ${q.paper} Question ${q.question}`;
-  const view  = q.pdf_link && q.page ? `<a href="${makePdfLink(q.pdf_link,q.page,label)}" target="_blank" style="font-size:12px;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap;">View ↗</a>` : '—';
+  return q.pdf_link && q.page ? `<a href="${makePdfLink(q.pdf_link,q.page,label)}" target="_blank" style="font-size:12px;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap;">View ↗</a>` : '—';
+}
+
+function qRow(q, lid) {
   return `<tr>
     <td>${q.school||'—'}</td><td>${q.year||'—'}</td><td>${q.paper||'—'}</td>
     <td style="font-weight:500">${q.question||'—'}</td>
-    <td>${q.topic||'—'}</td>
-    <td style="color:var(--text2)">${q.subtopic||'—'}</td>
-    <td>${q.difficulty?`<span class="badge ${DIFF_CLASS[q.difficulty]||'n1'}">${DIFF_LABEL[q.difficulty]||q.difficulty}</span>`:'<span style="color:var(--text3);font-size:12px;">—</span>'}</td>
-    <td style="white-space:nowrap">${view}</td>
-    <td>${makeAddBtn(q)}</td>
+    ${topicCells(q)}
+    <td>${diffCell(q)}</td>
+    ${editExtraCells(q)}
+    <td style="white-space:nowrap">${viewLink(q)}</td>
+    <td>${makeAddBtn(q, lid)}</td>
   </tr>`;
 }
 
-function qRowBrowse(q) {
-  const label = `${q.year} ${q.school} Paper ${q.paper} Question ${q.question}`;
-  const view  = q.pdf_link && q.page ? `<a href="${makePdfLink(q.pdf_link,q.page,label)}" target="_blank" style="font-size:12px;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap;">View ↗</a>` : '—';
+function qRowBrowse(q, lid) {
   return `<tr>
     <td style="font-weight:500">${q.question||'—'}</td>
-    <td>${q.topic||'—'}</td>
-    <td style="color:var(--text2)">${q.subtopic||'—'}</td>
-    <td>${q.difficulty?`<span class="badge ${DIFF_CLASS[q.difficulty]||'n1'}">${DIFF_LABEL[q.difficulty]||q.difficulty}</span>`:'<span style="color:var(--text3);font-size:12px;">—</span>'}</td>
-    <td style="white-space:nowrap">${view}</td>
-    <td>${makeAddBtn(q)}</td>
+    ${topicCells(q)}
+    <td>${diffCell(q)}</td>
+    ${editExtraCells(q)}
+    <td style="white-space:nowrap">${viewLink(q)}</td>
+    <td>${makeAddBtn(q, lid)}</td>
   </tr>`;
 }
 
@@ -595,8 +898,8 @@ function showToast(msg) {
 }
 
 // ─── DATA ─────────────────────────────────────────────────────
-async function loadSheet(subject) {
-  if (cache[subject]) return cache[subject];
+async function loadSheet(subject, fresh) {
+  if (cache[subject] && !fresh) return cache[subject];
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${TABS[subject]}?key=${API_KEY}`;
   const res = await fetch(url);
   if (!res.ok) throw new Error();
@@ -605,7 +908,10 @@ async function loadSheet(subject) {
   if (rows.length < 2) return [];
   const headers = rows[0].map(h => h.trim().toLowerCase());
   const idx = h => headers.indexOf(h);
-  const questions = rows.slice(1).map(r => ({
+  const questions = rows.slice(1).map((r, i) => ({
+    _row:       i + 2,               // sheet row number, used when saving edits
+    _tab:       TABS[subject],
+    rank:       r[idx('rank')]       || '',
     school:     r[idx('school')]     || '',
     year:       r[idx('year')]       || '',
     paper:      r[idx('paper')]      || '',
@@ -667,13 +973,14 @@ function applySubjectTheme(key) {
   document.getElementById('stats-label').textContent = t.badgeLabel;
 }
 
-async function loadSubject(key) {
+async function loadSubject(key, fresh) {
+  currentKey = key;
   selectedTopic = null; selectedSubtopic = null;
   document.getElementById('filter-area').innerHTML = '<div class="loading"><div class="spinner"></div>Loading questions...</div>';
   document.getElementById('browse-area').innerHTML  = '<div class="loading"><div class="spinner"></div>Loading questions...</div>';
   try {
-    allQuestions = await loadSheet(key);
-    updateStats(); buildFilterUI(); buildBrowseUI();
+    allQuestions = await loadSheet(key, fresh);
+    updateStats(); refreshDatalists(); buildFilterUI(); buildBrowseUI();
   } catch(e) {
     showError(`Could not load questions. Check the sheet tab is named "${TABS[key]}" and is publicly shared.`);
   }
@@ -683,7 +990,7 @@ async function init() {
   applySubjectTheme('amath');
   try {
     allQuestions = await loadSheet('amath');
-    updateStats(); buildFilterUI(); buildBrowseUI();
+    updateStats(); refreshDatalists(); buildFilterUI(); buildBrowseUI();
   } catch(e) {
     showError('Could not load questions. Check your Sheet ID, API key, and that the sheet is publicly shared.');
   }
@@ -780,9 +1087,12 @@ function clearFilters() {
 
 function sortByDifficulty(qs) {
   return [...qs].sort((a,b) => {
-    const da = DIFF_ORDER[a.difficulty]!==undefined?DIFF_ORDER[a.difficulty]:3;
-    const db = DIFF_ORDER[b.difficulty]!==undefined?DIFF_ORDER[b.difficulty]:3;
-    return da - db;
+    const da = DIFF_ORDER[a.difficulty||'Normal']!==undefined?DIFF_ORDER[a.difficulty||'Normal']:3;
+    const db = DIFF_ORDER[b.difficulty||'Normal']!==undefined?DIFF_ORDER[b.difficulty||'Normal']:3;
+    if (da !== db) return da - db;
+    // Rank: lower number first within the same difficulty; unranked go last
+    const ra = parseFloat(a.rank), rb = parseFloat(b.rank);
+    return (isNaN(ra)?Infinity:ra) - (isNaN(rb)?Infinity:rb);
   });
 }
 
@@ -791,12 +1101,13 @@ function findQuestions() {
   if (selectedTopic)    res = res.filter(q=>q.topic===selectedTopic);
   if (selectedSubtopic) res = res.filter(q=>q.subtopic===selectedSubtopic);
   res = sortByDifficulty(res);
+  listRegistry.filter = res;
   const el = document.getElementById('results');
   if (res.length === 0) { el.innerHTML = `<div class="empty-state"><p>No questions found for this topic.</p></div>`; return; }
   el.innerHTML = `<div class="table-wrap">
     <div class="table-meta">${res.length} question${res.length!==1?'s':''} found</div>
-    <table><thead><tr><th>School</th><th>Year</th><th>Paper</th><th>Question</th><th>Topic</th><th>Subtopic</th><th>Difficulty</th><th></th><th></th></tr></thead>
-    <tbody>${res.map(q=>qRow(q)).join('')}</tbody></table></div>`;
+    <table><thead><tr><th>School</th><th>Year</th><th>Paper</th><th>Question</th><th>Topic</th><th>Subtopic</th><th>Difficulty</th>${editExtraHeads()}<th></th><th></th></tr></thead>
+    <tbody>${res.map(q=>qRow(q,'filter')).join('')}</tbody></table></div>`;
 }
 
 function buildBrowseUI() {
@@ -849,10 +1160,12 @@ function renderPapers() {
         const n1=parseFloat(a.question)||0, n2=parseFloat(b.question)||0;
         return n1!==n2?n1-n2:a.question.localeCompare(b.question);
       });
+      const lid = `g${i}p${pNum}`;
+      listRegistry[lid] = qs;
       return `<div>
         <div style="padding:12px 20px 10px;font-size:15px;font-weight:600;color:var(--text);background:var(--bg);border-top:1px solid var(--border);">Paper ${pNum}</div>
-        <table><thead><tr><th>Question</th><th>Topic</th><th>Subtopic</th><th>Difficulty</th><th></th><th></th></tr></thead>
-        <tbody>${qs.map(q=>qRowBrowse(q)).join('')}</tbody></table>
+        <table><thead><tr><th>Question</th><th>Topic</th><th>Subtopic</th><th>Difficulty</th>${editExtraHeads()}<th></th><th></th></tr></thead>
+        <tbody>${qs.map(q=>qRowBrowse(q,lid)).join('')}</tbody></table>
       </div>`;
     }).join('');
 
