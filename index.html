@@ -164,9 +164,10 @@
   .toast.show { opacity: 1; }
 
   /* Edit mode */
-  .edit-toggle { margin: 0 16px 16px; padding: 8px 12px; border: 1px dashed var(--border2); border-radius: var(--radius); background: none; font: 500 12px var(--font-body); color: var(--text3); cursor: pointer; text-align: left; }
-  .edit-toggle:hover { color: var(--text); }
-  .edit-toggle.on { background: var(--amber-light); color: var(--amber); border: 1px solid #FDE68A; }
+  .edit-toggle { margin: 0 16px 16px; padding: 10px 14px; border: 1px solid var(--accent); border-radius: var(--radius); background: var(--accent-light); font: 600 13px var(--font-body); color: var(--accent-text); cursor: pointer; text-align: left; transition: all 0.12s; }
+  .edit-toggle:hover { background: var(--accent); color: #fff; }
+  .edit-toggle.on { background: var(--amber); color: #fff; border-color: var(--amber); }
+  .edit-toggle.on:hover { opacity: 0.9; }
   .edit-tools { display: none; margin: -8px 16px 16px; gap: 6px; }
   body.editing .edit-tools { display: flex; }
   .edit-tools button { flex: 1; padding: 6px 8px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); font: 12px var(--font-body); color: var(--text2); cursor: pointer; }
