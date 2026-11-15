@@ -101,28 +101,9 @@
   .btn-add:hover { background: var(--accent); color: #fff; }
   .btn-add.added { background: var(--accent); color: #fff; border-color: var(--accent); }
 
-  /* Preview modal */
-  .preview-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 300; align-items: center; justify-content: center; }
-  .preview-overlay.open { display: flex; }
-  .preview-modal { background: var(--surface); border-radius: var(--radius-lg); width: 760px; max-width: 95vw; max-height: 92vh; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,0.2); }
-  .preview-modal-header { padding: 14px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; gap: 12px; flex-wrap: wrap; }
-  .preview-modal-title { font-size: 14px; font-weight: 500; color: var(--text); }
-  .preview-modal-close { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--text2); }
-  .preview-canvas-wrap { flex: 1; overflow-y: auto; padding: 16px; background: var(--bg); display: flex; justify-content: center; }
-  .preview-canvas-wrap canvas { max-width: 100%; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-  .preview-nav { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
   .preview-nav-btn { padding: 5px 10px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); font-size: 12px; color: var(--text2); cursor: pointer; font-family: var(--font-body); }
   .preview-nav-btn:hover:not(:disabled) { border-color: var(--border2); color: var(--text); }
   .preview-nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-  .preview-page-label { font-size: 12px; color: var(--text2); min-width: 70px; text-align: center; }
-  .preview-footer { padding: 14px 20px; border-top: 1px solid var(--border); flex-shrink: 0; }
-  .preview-footer-label { font-size: 12px; color: var(--text2); margin-bottom: 10px; }
-  .preview-page-btns { display: flex; flex-direction: column; gap: 10px; }
-  .preview-page-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
-  .preview-page-row-label { font-size: 12px; color: var(--text2); min-width: 90px; }
-  .preview-page-btn { padding: 8px 14px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); font-size: 13px; color: var(--text); cursor: pointer; font-family: var(--font-body); transition: all 0.12s; }
-  .preview-page-btn:hover { border-color: var(--accent); color: var(--accent); }
-  .preview-page-btn.selected { background: var(--accent); border-color: var(--accent); color: #fff; }
 
   /* Worksheet tray */
   .tray { position: fixed; bottom: 0; left: 240px; right: 0; background: var(--text); color: #fff; padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; z-index: 200; transform: translateY(100%); transition: transform 0.25s ease; box-shadow: 0 -4px 20px rgba(0,0,0,0.15); }
@@ -184,13 +165,7 @@
   .ed.err { border-color: var(--red); background: var(--red-light); }
   .rank-pill { display: inline-block; font-size: 10px; color: var(--text3); margin-left: 4px; }
 
-  /* Preview: side-by-side tagging panel in edit mode */
-  .preview-body { flex: 1; display: flex; min-height: 0; }
-  .edit-panel { display: none; width: 290px; flex-shrink: 0; border-left: 1px solid var(--border); padding: 16px 18px; overflow-y: auto; }
-  body.editing .preview-modal { width: 1120px; }
-  body.editing .edit-panel { display: block; }
-  .ep-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 16px; }
-  .ep-count { font-size: 12px; color: var(--text2); }
+  /* Shared field styles (scroll & tag view) */
   .ep-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text3); margin: 14px 0 6px; display: block; }
   .diff-btns { display: flex; flex-direction: column; gap: 6px; }
   .diff-btns button { padding: 8px 12px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); font: 13px var(--font-body); color: var(--text); cursor: pointer; text-align: left; display: flex; justify-content: space-between; }
@@ -202,12 +177,55 @@
   .ep-row { display: flex; gap: 10px; }
   .ep-row > div { flex: 1; }
   .ep-row .ed.num { width: 100%; }
-  .ep-hint { font-size: 11px; color: var(--text3); margin-top: 18px; line-height: 1.6; }
-  .ep-status { font-size: 12px; margin-top: 10px; min-height: 18px; color: var(--text2); }
 
-  @media (max-width: 700px) {
-    .preview-body { flex-direction: column; overflow-y: auto; }
-    .edit-panel { width: auto; border-left: none; border-top: 1px solid var(--border); }
+  /* Type-to-filter dropdown for topic / subtopic */
+  .combo-dd { display: none; position: fixed; z-index: 600; background: var(--surface); border: 1px solid var(--border2); border-radius: var(--radius); box-shadow: 0 6px 24px rgba(0,0,0,0.14); max-height: 260px; overflow-y: auto; padding: 4px; }
+  .combo-opt { padding: 7px 10px; font-size: 13px; border-radius: 6px; cursor: pointer; color: var(--text); }
+  .combo-opt.hi { background: var(--accent-light); color: var(--accent-text); }
+  .combo-opt.add { color: var(--accent); font-weight: 500; border-top: 1px solid var(--border); margin-top: 2px; }
+  .combo-opt mark { background: none; color: inherit; font-weight: 700; }
+
+  /* Scroll & tag view (edit mode only) */
+  .tv-open-btn { padding: 5px 12px; border: 1px solid var(--accent); border-radius: 100px; background: var(--accent); color: #fff; font: 500 12px var(--font-body); cursor: pointer; white-space: nowrap; }
+  .tv-open-btn:hover { opacity: 0.88; }
+  .table-meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .tv-overlay { display: none; position: fixed; inset: 0; background: var(--bg); z-index: 350; flex-direction: column; }
+  .tv-overlay.open { display: flex; }
+  .tv-top { display: flex; align-items: center; gap: 16px; padding: 12px 24px; background: var(--surface); border-bottom: 1px solid var(--border); flex-wrap: wrap; flex-shrink: 0; }
+  .tv-title { font-family: var(--font-display); font-size: 20px; }
+  .tv-hint { font-size: 12px; color: var(--text3); flex: 1; min-width: 200px; }
+  .tv-hint b { color: var(--text2); font-weight: 600; }
+  .tv-done { padding: 9px 20px; background: var(--accent); color: #fff; border: none; border-radius: var(--radius); font: 500 13px var(--font-body); cursor: pointer; }
+  .tv-scroll { flex: 1; overflow-y: auto; padding: 24px; }
+  .tv-card { max-width: 1080px; margin: 0 auto 20px; display: flex; gap: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 16px; transition: border-color 0.15s, box-shadow 0.15s; }
+  .tv-card.active { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-light); }
+  .tv-page { flex: 1; min-width: 0; max-width: 720px; }
+  .tv-canvas-wrap { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .tv-canvas-wrap:not(.has) { aspect-ratio: 210 / 297; display: flex; align-items: center; justify-content: center; }
+  .tv-canvas-wrap canvas { width: 100%; height: auto; display: block; }
+  .tv-pagenav { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 8px; font-size: 12px; color: var(--text2); }
+  .tv-fields { width: 280px; flex-shrink: 0; position: sticky; top: 0; align-self: flex-start; }
+  .tv-qtitle { font-size: 16px; font-weight: 600; }
+  .tv-qsub { font-size: 12px; color: var(--text3); margin-top: 2px; }
+  .tv-status { font-size: 12px; margin-top: 12px; min-height: 18px; color: var(--text2); }
+  .tv-ws { padding: 8px 14px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); font: 500 13px var(--font-body); color: var(--text); cursor: pointer; }
+  .tv-ws:hover { border-color: var(--border2); }
+  .tv-add { margin-top: 4px; }
+  body.editing .tv-add { border-top: 1px solid var(--border); margin-top: 16px; padding-top: 2px; }
+  .tv-range-lbl { font-size: 12px; color: var(--text2); margin: 8px 0 5px; }
+  .tv-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tv-chip { padding: 5px 11px; border: 1px solid var(--border); border-radius: 100px; background: var(--surface); font: 12px var(--font-body); color: var(--text); cursor: pointer; }
+  .tv-chip:hover { border-color: var(--accent); color: var(--accent); }
+  .tv-chip.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .tv-add-btn { width: 100%; margin-top: 12px; padding: 10px 12px; border: 1px solid var(--accent); border-radius: var(--radius); background: var(--accent); color: #fff; font: 500 13px var(--font-body); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 8px; text-align: left; }
+  .tv-add-btn:hover { opacity: 0.9; }
+  .tv-add-btn kbd { font: 11px var(--font-body); opacity: 0.75; }
+  .tv-add-btn.added { background: var(--accent-light); color: var(--accent-text); }
+  @media (max-width: 800px) {
+    .tv-card { flex-direction: column; }
+    .tv-fields { width: auto; position: static; }
+    .tv-scroll { padding: 12px; }
+    .tv-top { padding: 10px 12px; }
   }
 
   @media (max-width: 700px) {
@@ -273,31 +291,6 @@
   </main>
 </div>
 
-<!-- Preview modal -->
-<div class="preview-overlay" id="preview-overlay">
-  <div class="preview-modal">
-    <div class="preview-modal-header">
-      <div class="preview-modal-title" id="preview-title">Loading…</div>
-      <div class="preview-nav">
-        <button class="preview-nav-btn" id="prev-nav-btn" onclick="previewChangePage(-1)" disabled>← Prev</button>
-        <span class="preview-page-label" id="preview-page-label">—</span>
-        <button class="preview-nav-btn" id="next-nav-btn" onclick="previewChangePage(1)" disabled>Next →</button>
-      </div>
-      <button class="preview-modal-close" onclick="closePreview()">×</button>
-    </div>
-    <div class="preview-body">
-      <div class="preview-canvas-wrap" id="preview-canvas-wrap">
-        <div class="loading"><div class="spinner"></div>Loading PDF…</div>
-      </div>
-      <div class="edit-panel" id="edit-panel"></div>
-    </div>
-    <div class="preview-footer">
-      <div class="preview-footer-label">How many pages does this question cover?</div>
-      <div class="preview-page-btns" id="preview-page-btns"></div>
-    </div>
-  </div>
-</div>
-
 <!-- Worksheet tray -->
 <div class="tray" id="tray">
   <div>
@@ -329,7 +322,18 @@
 </div>
 
 <div class="toast" id="toast"></div>
-<div id="datalists" hidden></div>
+<div class="combo-dd" id="combo-dd"></div>
+
+<!-- Scroll & tag view (edit mode only) -->
+<div class="tv-overlay" id="tv-overlay">
+  <div class="tv-top">
+    <div class="tv-title" id="tv-title"></div>
+    <div class="tv-hint" id="tv-hint"></div>
+    <button class="tv-ws" id="tv-ws" onclick="openWorksheet()">Worksheet: 0</button>
+    <button class="tv-done" onclick="closeTagView()">Done</button>
+  </div>
+  <div class="tv-scroll" id="tv-scroll"></div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -357,10 +361,6 @@ let allQuestions = [], selectedTopic = null, selectedSubtopic = null;
 // Worksheet
 let worksheet = [];
 
-// Preview state
-let previewQ = null, previewPdfDoc = null, previewPdfUrl = null, previewCurrentPage = 1, previewSelectedPages = 1, previewPagesBefore = 0;
-let previewList = [], previewLid = null;
-
 // Edit state
 let editMode = false, editsSinceRender = false;
 const listRegistry = {};   // table id -> array of questions shown in it (for Prev/Next Q)
@@ -368,139 +368,9 @@ const listRegistry = {};   // table id -> array of questions shown in it (for Pr
 function esc(s) {
   return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
-function findQ(row) { return allQuestions.find(q => q._row === row); }
-
-// ─── PDF PREVIEW ──────────────────────────────────────────────
-async function openPreview(row, lid) {
-  const q = findQ(row);
-  if (!q) return;
-  previewQ = q;
-  previewLid = lid;
-  previewList = listRegistry[lid] || [q];
-  previewCurrentPage = parseInt(previewQ.page) || 1;
-  previewSelectedPages = 1;
-  previewPagesBefore = 0;
-
-  document.getElementById('preview-title').textContent = `${previewQ.year} ${previewQ.school} — Paper ${previewQ.paper} Q${previewQ.question}`;
-  document.getElementById('preview-page-btns').innerHTML = '';
-  document.getElementById('preview-overlay').classList.add('open');
-  renderEditPanel();
-
-  try {
-    if (!previewPdfDoc || previewPdfUrl !== previewQ.pdf_link) {
-      document.getElementById('preview-canvas-wrap').innerHTML = '<div class="loading"><div class="spinner"></div>Loading PDF…</div>';
-      previewPdfDoc = null;
-      previewPdfUrl = previewQ.pdf_link;
-      const doc = await pdfjsLib.getDocument({
-        url: decodeURIComponent(previewQ.pdf_link),
-        withCredentials: false,
-        cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/',
-        cMapPacked: true,
-      }).promise;
-      if (previewQ !== q) return; // user already moved on
-      previewPdfDoc = doc;
-    }
-    previewCurrentPage = Math.min(Math.max(previewCurrentPage, 1), previewPdfDoc.numPages);
-    await renderPreviewPage(previewCurrentPage);
-    buildPageBtns();
-  } catch(e) {
-    previewPdfDoc = null; previewPdfUrl = null;
-    document.getElementById('preview-canvas-wrap').innerHTML = '<div class="empty-state"><p>Could not load PDF.<br>Check the file is uploaded to GitHub Pages.</p></div>';
-  }
-}
-
-async function renderPreviewPage(num) {
-  const wrap = document.getElementById('preview-canvas-wrap');
-  const page = await previewPdfDoc.getPage(num);
-  const viewport = page.getViewport({ scale: 1.3 });
-  let canvas = wrap.querySelector('canvas');
-  if (!canvas) { wrap.innerHTML = ''; canvas = document.createElement('canvas'); wrap.appendChild(canvas); }
-  canvas.width = viewport.width; canvas.height = viewport.height;
-  await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
-  previewCurrentPage = num;
-  const total = previewPdfDoc.numPages;
-  document.getElementById('preview-page-label').textContent = `Page ${num} of ${total}`;
-  document.getElementById('prev-nav-btn').disabled = num <= 1;
-  document.getElementById('next-nav-btn').disabled = num >= total;
-}
-
-function previewChangePage(delta) {
-  if (!previewPdfDoc) return;
-  const next = previewCurrentPage + delta;
-  if (next < 1 || next > previewPdfDoc.numPages) return;
-  renderPreviewPage(next);
-}
-
-function buildPageBtns() {
-  const startPage = parseInt(previewQ.page) || 1;
-  const total = previewPdfDoc.numPages;
-  const maxBefore = Math.min(2, startPage - 1);
-  const beforeLabels = ['None', '1 page before', '2 pages before'];
-  let before = '';
-  for (let i = 0; i <= maxBefore; i++) {
-    const tip = i === 0 ? `Start at page ${startPage}` : `Start at page ${startPage - i}`;
-    before += `<button class="preview-page-btn ${i===0?'selected':''}" data-group="before" onclick="selectPagesBefore(this,${i})" title="${tip}">${beforeLabels[i]}</button>`;
-  }
-  const max = Math.min(4, total - startPage + 1);
-  const labels = ['This page only', '+1 page (2 total)', '+2 pages (3 total)', '+3 pages (4 total)'];
-  let after = '';
-  for (let i = 1; i <= max; i++) {
-    const endPage = startPage + i - 1;
-    const tip = i === 1 ? `Page ${startPage}` : `Pages ${startPage}–${endPage}`;
-    after += `<button class="preview-page-btn ${i===1?'selected':''}" data-group="after" onclick="selectPageCount(this,${i})" title="${tip}">${labels[i-1]}</button>`;
-  }
-  document.getElementById('preview-page-btns').innerHTML =
-    (maxBefore > 0 ? `<div class="preview-page-row"><span class="preview-page-row-label">Pages before</span>${before}</div>` : '') +
-    `<div class="preview-page-row"><span class="preview-page-row-label">Pages from p.${startPage}</span>${after}` +
-    `<button class="preview-page-btn" style="background:var(--accent);color:#fff;border-color:var(--accent);margin-left:auto;" onclick="confirmAdd()">Add to Worksheet</button></div>`;
-  previewSelectedPages = 1;
-  previewPagesBefore = 0;
-}
-
-function selectPageCount(btn, count) {
-  document.querySelectorAll('.preview-page-btn[data-group="after"]').forEach(b => b.classList.remove('selected'));
-  btn.classList.add('selected');
-  previewSelectedPages = count;
-  // Navigate to show the last page of the range so they can verify
-  const endPage = Math.min((parseInt(previewQ.page) || 1) + count - 1, previewPdfDoc.numPages);
-  renderPreviewPage(endPage);
-}
-
-function selectPagesBefore(btn, count) {
-  document.querySelectorAll('.preview-page-btn[data-group="before"]').forEach(b => b.classList.remove('selected'));
-  btn.classList.add('selected');
-  previewPagesBefore = count;
-  // Navigate to show the first page of the range so they can verify
-  renderPreviewPage((parseInt(previewQ.page) || 1) - count);
-}
-
-function confirmAdd() {
-  if (!previewQ) return;
-  const qPage     = parseInt(previewQ.page) || 1;
-  const startPage = qPage - previewPagesBefore;
-  const endPage   = qPage + previewSelectedPages - 1;
-  const q = { ...previewQ, start_page: startPage, end_page: endPage };
-  const id = wsId(q);
-  if (!worksheet.some(w => wsId(w) === id)) {
-    worksheet.push(q);
-    updateTray();
-    refreshWsPanel();
-    showToast(`Added Q${q.question} (${startPage === endPage ? 'p.' + startPage : 'pp.' + startPage + '–' + endPage})`);
-    // Mark button as added
-    document.querySelectorAll('.btn-add').forEach(btn => {
-      if (btn.dataset.qid === id) { btn.textContent = '✓ Added'; btn.classList.add('added'); }
-    });
-  } else {
-    showToast('Already in worksheet');
-  }
-  closePreview();
-}
-
-function closePreview() {
-  document.getElementById('preview-overlay').classList.remove('open');
-  previewPdfDoc = null; previewPdfUrl = null; previewQ = null;
-  if (editsSinceRender) refreshViews();
-}
+let qidSeq = 0;           // stable id per question (sheet row can shift after a save)
+function findQ(id) { return allQuestions.find(q => q._id === id); }
+function normDiff(q) { return q.difficulty === 'Normal' ? '' : (q.difficulty || ''); }
 
 // ─── EDIT MODE ────────────────────────────────────────────────
 function getPasscode() { try { return localStorage.getItem('tracker_passcode') || ''; } catch(e) { return ''; } }
@@ -542,8 +412,8 @@ function setEditMode(on) {
   const btn = document.getElementById('edit-toggle');
   btn.classList.toggle('on', on);
   btn.textContent = on ? '✎ Editing — click to finish' : '✎ Edit mode';
+  if (!on) closeTagView();
   refreshViews();
-  if (previewQ) renderEditPanel();
 }
 
 function forgetPasscode() { setPasscode(''); setEditMode(false); showToast('Locked — passcode removed from this browser'); }
@@ -554,21 +424,6 @@ async function reloadFromSheet() {
   showToast('Reloaded from Google Sheet');
 }
 
-function refreshDatalists() {
-  const map = getTopicMap();
-  const topics = Object.keys(map).sort();
-  const allSubs = [...new Set(allQuestions.map(q => q.subtopic).filter(Boolean))].sort();
-  const opts = arr => arr.map(v => `<option value="${esc(v)}">`).join('');
-  document.getElementById('datalists').innerHTML =
-    `<datalist id="dl-topics">${opts(topics)}</datalist>` +
-    `<datalist id="dl-subs-all">${opts(allSubs)}</datalist>` +
-    topics.map((t, i) => `<datalist id="dl-sub-${i}">${opts([...map[t]].sort())}</datalist>`).join('');
-  topicDl = {};
-  topics.forEach((t, i) => topicDl[t] = `dl-sub-${i}`);
-}
-let topicDl = {};
-function subDl(q) { return topicDl[q.topic] || 'dl-subs-all'; }
-
 // Save one field of one question to the Google Sheet. Updates the page immediately.
 async function saveField(q, field, value, el) {
   value = String(value == null ? '' : value).trim();
@@ -578,7 +433,7 @@ async function saveField(q, field, value, el) {
   q[field] = value;
   editsSinceRender = true;
   if (el) { el.classList.remove('saved', 'err'); el.classList.add('saving'); }
-  setPanelStatus('Saving…');
+  setCardStatus(q, 'Saving…');
   try {
     const data = await callEditApi({
       action: 'update', tab: q._tab, row: q._row,
@@ -586,112 +441,426 @@ async function saveField(q, field, value, el) {
       changes: { [field]: value }
     });
     if (data.row) q._row = data.row;
-    if (field === 'topic' || field === 'subtopic') refreshDatalists();
     if (el) { el.classList.remove('saving'); el.classList.add('saved'); setTimeout(() => el.classList.remove('saved'), 1500); }
-    setPanelStatus('✓ Saved to sheet');
+    setCardStatus(q, '✓ Saved to sheet');
     return true;
   } catch(e) {
     q[field] = old;
     if (el) { el.classList.remove('saving'); el.classList.add('err'); if ('value' in el) el.value = old; }
-    setPanelStatus('✗ Not saved: ' + e.message, true);
+    setCardStatus(q, '✗ Not saved: ' + e.message, true);
     showToast('Not saved: ' + e.message);
-    if (previewQ === q) renderEditPanel();
+    if (field === 'difficulty') tvShowDiff(q);
     return false;
   }
 }
 
 function inlineSave(el) {
-  const q = findQ(+el.dataset.row);
+  const q = findQ(+el.dataset.id);
   if (q) saveField(q, el.dataset.field, el.value, el);
 }
 
-// Right-hand panel in the preview: tag the question while looking at it
-function renderEditPanel() {
-  const panel = document.getElementById('edit-panel');
-  if (!editMode || !previewQ) { panel.innerHTML = ''; return; }
-  const q = previewQ;
-  const i = previewList.findIndex(x => x === q);
-  const d = q.difficulty === 'Normal' ? '' : (q.difficulty || '');
-  const diffBtn = (val, label, key) =>
-    `<button data-d="${val}" class="${d === val ? 'on' : ''}" onclick="panelDiff('${val}')">${label}<kbd>${key}</kbd></button>`;
-  panel.innerHTML = `
-    <div class="ep-head">
-      <button class="preview-nav-btn" onclick="gotoQ(-1)" ${i <= 0 ? 'disabled' : ''}>← Prev Q</button>
-      <span class="ep-count">${i + 1} of ${previewList.length}</span>
-      <button class="preview-nav-btn" onclick="gotoQ(1)" ${i >= previewList.length - 1 ? 'disabled' : ''}>Next Q →</button>
-    </div>
-    <span class="ep-label" style="margin-top:0">Difficulty</span>
-    <div class="diff-btns">
-      ${diffBtn('', 'Normal', '1')}${diffBtn('Challenging', 'Challenging', '2')}${diffBtn('Very Challenging', 'Very Challenging', '3')}
-    </div>
-    <span class="ep-label">Topic</span>
-    <input class="ed" list="dl-topics" value="${esc(q.topic)}" onchange="panelSave('topic', this)">
-    <span class="ep-label">Subtopic</span>
-    <input class="ed" list="${subDl(q)}" value="${esc(q.subtopic)}" onchange="panelSave('subtopic', this)" placeholder="Type or pick…">
-    <div class="ep-row">
-      <div><span class="ep-label">Page</span><input class="ed num" type="number" min="1" value="${esc(q.page)}" onchange="panelSave('page', this)"></div>
-      <div><span class="ep-label" title="Order within the same difficulty — 1 shows first">Rank</span><input class="ed num" type="number" min="1" value="${esc(q.rank)}" onchange="panelSave('rank', this)" placeholder="—"></div>
-    </div>
-    <div class="ep-status" id="ep-status"></div>
-    <div class="ep-hint">Every change saves straight to the Google Sheet.<br>
-      Keys: <b>1 / 2 / 3</b> difficulty · <b>J / K</b> next / prev question<br>
-      Rank: order within the same difficulty (1 shows first). Leave blank if you don't care.</div>`;
+// ─── TOPIC / SUBTOPIC DROPDOWN (type to filter) ───────────────
+// Click a box to see every option; type a few letters ("bin") to narrow it
+// down; Enter / click picks. "+ Add new" appears when nothing matches.
+const combo = { input: null, items: [], hi: -1, typed: false, orig: '' };
+
+function uniqSorted(arr) { return [...new Set(arr.filter(Boolean))].sort((a, b) => a.localeCompare(b)); }
+function comboOptions(input) {
+  if (input.dataset.field === 'topic') return uniqSorted(allQuestions.map(q => q.topic));
+  const q = findQ(+input.dataset.id);
+  const own = q ? uniqSorted(allQuestions.filter(x => x.topic === q.topic).map(x => x.subtopic)) : [];
+  return own.length ? own : uniqSorted(allQuestions.map(x => x.subtopic));
 }
 
-function setPanelStatus(msg, isErr) {
-  const el = document.getElementById('ep-status');
+function comboOpen(input) {
+  combo.input = input; combo.orig = input.value; combo.typed = false;
+  comboRender();
+}
+
+function comboRender() {
+  const input = combo.input, dd = document.getElementById('combo-dd');
+  if (!input || !document.body.contains(input)) { comboClose(); return; }
+  const all = comboOptions(input);
+  const raw = input.value.trim(), text = raw.toLowerCase();
+  let list = all;
+  if (combo.typed && text) {
+    const starts   = all.filter(o => o.toLowerCase().startsWith(text));
+    const wordHits = all.filter(o => !starts.includes(o) && o.toLowerCase().split(/[\s\-–(\/]+/).some(w => w.startsWith(text)));
+    const contains = all.filter(o => !starts.includes(o) && !wordHits.includes(o) && o.toLowerCase().includes(text));
+    list = [...starts, ...wordHits, ...contains];
+  }
+  combo.items = list.map(v => ({ v }));
+  if (raw && !all.some(o => o.toLowerCase() === text)) combo.items.push({ v: raw, add: true });
+  combo.hi = combo.typed ? (combo.items.length ? 0 : -1) : list.findIndex(v => v === raw);
+  if (!combo.items.length) { dd.style.display = 'none'; dd.innerHTML = ''; return; }
+  const mark = v => {
+    const i = combo.typed && text ? v.toLowerCase().indexOf(text) : -1;
+    return i < 0 ? esc(v) : esc(v.slice(0, i)) + '<mark>' + esc(v.slice(i, i + text.length)) + '</mark>' + esc(v.slice(i + text.length));
+  };
+  dd.innerHTML = combo.items.map((it, i) =>
+    `<div class="combo-opt ${i === combo.hi ? 'hi' : ''} ${it.add ? 'add' : ''}" data-i="${i}">${it.add ? `+ Add new: “${esc(it.v)}”` : mark(it.v)}</div>`).join('');
+  comboPlace();
+  const hiEl = dd.querySelector('.hi'); if (hiEl) hiEl.scrollIntoView({ block: 'nearest' });
+}
+
+function comboPlace() {
+  const input = combo.input, dd = document.getElementById('combo-dd');
+  if (!input || !dd.innerHTML) return;
+  const r = input.getBoundingClientRect();
+  const w = Math.max(r.width, 240);
+  dd.style.display = 'block';
+  dd.style.left = Math.max(8, Math.min(r.left, window.innerWidth - w - 8)) + 'px';
+  dd.style.width = w + 'px';
+  const below = window.innerHeight - r.bottom;
+  if (below < 200 && r.top > below) { dd.style.top = ''; dd.style.bottom = (window.innerHeight - r.top + 4) + 'px'; }
+  else { dd.style.bottom = ''; dd.style.top = (r.bottom + 4) + 'px'; }
+}
+
+function comboClose() {
+  const dd = document.getElementById('combo-dd');
+  dd.style.display = 'none'; dd.innerHTML = '';
+  combo.input = null; combo.items = []; combo.hi = -1;
+}
+
+function comboCommit(input, value) {
+  input.value = value;
+  comboClose();
+  const q = findQ(+input.dataset.id);
+  if (q) saveField(q, input.dataset.field, value, input);
+}
+
+function comboPick(i) {
+  const it = combo.items[i], input = combo.input;
+  if (it && input) comboCommit(input, it.v);
+}
+
+// Leaving the box without picking: accept an exact match (or blank), otherwise undo
+function comboLeave(input) {
+  const raw = input.value.trim();
+  if (raw === combo.orig.trim()) { comboClose(); return; }
+  if (!raw) { comboCommit(input, ''); return; }
+  const match = comboOptions(input).find(o => o.toLowerCase() === raw.toLowerCase());
+  if (match) { comboCommit(input, match); return; }
+  input.value = combo.orig;
+  comboClose();
+  showToast('Not saved — pick from the list, or choose “+ Add new”');
+}
+
+document.addEventListener('focusin', e => {
+  if (e.target.classList && e.target.classList.contains('combo')) comboOpen(e.target);
+});
+document.addEventListener('click', e => {
+  if (e.target.classList && e.target.classList.contains('combo') && combo.input !== e.target) comboOpen(e.target);
+});
+document.addEventListener('input', e => {
+  if (!(e.target.classList && e.target.classList.contains('combo'))) return;
+  if (combo.input !== e.target) comboOpen(e.target);
+  combo.typed = true;
+  comboRender();
+});
+document.addEventListener('focusout', e => {
+  if (e.target.classList && e.target.classList.contains('combo') && combo.input === e.target) comboLeave(e.target);
+});
+document.addEventListener('keydown', e => {
+  const input = combo.input;
+  if (!input || e.target !== input) return;
+  const n = combo.items.length;
+  if (e.key === 'ArrowDown') { combo.hi = n ? (combo.hi + 1) % n : -1; e.preventDefault(); }
+  else if (e.key === 'ArrowUp') { combo.hi = n ? (combo.hi - 1 + n) % n : -1; e.preventDefault(); }
+  else if (e.key === 'Enter') { e.preventDefault(); if (combo.hi >= 0) comboPick(combo.hi); else comboLeave(input); return; }
+  else if (e.key === 'Tab') { if (combo.typed && combo.hi >= 0) comboPick(combo.hi); return; }
+  else if (e.key === 'Escape') { e.preventDefault(); input.value = combo.orig; comboClose(); return; }
+  else return;
+  const dd = document.getElementById('combo-dd');
+  dd.querySelectorAll('.combo-opt').forEach((el, i) => el.classList.toggle('hi', i === combo.hi));
+  const hiEl = dd.querySelector('.hi'); if (hiEl) hiEl.scrollIntoView({ block: 'nearest' });
+});
+document.getElementById('combo-dd').addEventListener('mousedown', e => {
+  e.preventDefault();                       // keep focus in the box
+  const opt = e.target.closest('.combo-opt');
+  if (opt) comboPick(+opt.dataset.i);
+});
+document.addEventListener('scroll', e => {
+  if (combo.input && e.target !== document.getElementById('combo-dd')) comboPlace();
+}, true);
+window.addEventListener('resize', () => { if (combo.input) comboPlace(); });
+
+// ─── SCROLL & TAG VIEW (edit mode only) ───────────────────────
+// Every question in the list as a card: the paper page on the left,
+// the fields on the right. Scroll down to move through them.
+let tvList = [], tvActive = null, tvLazyObs = null, tvActiveObs = null;
+const tvPage = {};     // question id -> page currently shown
+const tvTasks = {};    // question id -> pdf.js render task
+const pdfDocs = new Map();   // pdf url -> loading promise (keeps the last few)
+
+function getPdf(url) {
+  if (pdfDocs.has(url)) { const p = pdfDocs.get(url); pdfDocs.delete(url); pdfDocs.set(url, p); return p; }
+  const p = pdfjsLib.getDocument({
+    url: decodeURIComponent(url), withCredentials: false,
+    disableAutoFetch: true, disableStream: true,     // only download the pages we look at
+    cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/', cMapPacked: true,
+  }).promise;
+  pdfDocs.set(url, p);
+  p.catch(() => pdfDocs.delete(url));
+  while (pdfDocs.size > 8) {
+    const [oldUrl, oldP] = pdfDocs.entries().next().value;
+    pdfDocs.delete(oldUrl);
+    oldP.then(d => d.destroy()).catch(() => {});
+  }
+  return p;
+}
+
+function openTagView(lid, startId) {
+  tvList = (listRegistry[lid] || []).slice();
+  if (!tvList.length) return;
+  const f = tvList[0];
+  document.getElementById('tv-title').textContent = lid === 'filter'
+    ? `${selectedTopic || 'Questions'}${selectedSubtopic ? ' — ' + selectedSubtopic : ''} · ${tvList.length}`
+    : `${f.year} ${f.school} — Paper ${f.paper} · ${tvList.length}`;
+  document.getElementById('tv-hint').innerHTML = editMode
+    ? 'Scroll through the questions — every change saves to the Sheet straight away.<br><b>1 / 2 / 3</b> difficulty · <b>A</b> add / remove from worksheet · <b>J / K</b> next / previous question'
+    : 'Scroll through the questions. Pick the pages, then add — no need to close anything.<br><b>A</b> add / remove the highlighted question · <b>J / K</b> next / previous question';
+  Object.keys(tvPage).forEach(k => delete tvPage[k]);
+  Object.keys(tvRange).forEach(k => delete tvRange[k]);
+  updateTvWs();
+  const sc = document.getElementById('tv-scroll');
+  sc.innerHTML = tvList.map(tvCardHtml).join('');
+  document.getElementById('tv-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  tvLazyObs = new IntersectionObserver(entries => entries.forEach(en => {
+    if (!en.isIntersecting) return;
+    const id = +en.target.dataset.id, q = findQ(id);
+    if (q && !(id in tvPage)) tvRender(id, parseInt(q.page) || 1);
+  }), { root: sc, rootMargin: '1500px 0px' });
+  tvActiveObs = new IntersectionObserver(entries => entries.forEach(en => {
+    if (en.isIntersecting) tvSetActive(+en.target.dataset.id);
+  }), { root: sc, rootMargin: '-30% 0px -65% 0px' });
+  sc.querySelectorAll('.tv-card').forEach(c => { tvLazyObs.observe(c); tvActiveObs.observe(c); });
+
+  const start = startId != null ? startId : tvList[0]._id;
+  const card = document.getElementById('tvc-' + start);
+  if (card) card.scrollIntoView({ block: 'start' });
+  tvSetActive(start);
+}
+
+function closeTagView() {
+  const ov = document.getElementById('tv-overlay');
+  if (!ov.classList.contains('open')) return;
+  comboClose();
+  if (tvLazyObs) tvLazyObs.disconnect();
+  if (tvActiveObs) tvActiveObs.disconnect();
+  Object.values(tvTasks).forEach(t => { try { t.cancel(); } catch(e) {} });
+  ov.classList.remove('open');
+  document.getElementById('tv-scroll').innerHTML = '';
+  document.body.style.overflow = '';
+  tvList = []; tvActive = null;
+  refreshViews();          // updates + Add / ✓ Added and any edits
+}
+
+function tvCardHtml(q, i) {
+  const id = q._id;
+  return `<div class="tv-card" id="tvc-${id}" data-id="${id}" onclick="tvSetActive(${id})">
+    <div class="tv-page">
+      <div class="tv-canvas-wrap" id="tvw-${id}">${q.pdf_link ? '<div class="loading"><div class="spinner"></div>Loading page…</div>' : '<div class="empty-state"><p>No PDF link for this question.</p></div>'}</div>
+      <div class="tv-pagenav">
+        <button class="preview-nav-btn" onclick="tvStep(${id}, -1)">‹ Prev page</button>
+        <span id="tvp-${id}">Page ${esc(q.page) || '—'}</span>
+        <button class="preview-nav-btn" onclick="tvStep(${id}, 1)">Next page ›</button>
+      </div>
+    </div>
+    <div class="tv-fields">
+      <div class="tv-qtitle">Q${esc(q.question)}</div>
+      <div class="tv-qsub">${esc(q.year)} ${esc(q.school)} · Paper ${esc(q.paper)} · ${i + 1} of ${tvList.length}</div>
+      ${editMode ? tvEditHtml(q) : ''}
+      <div class="tv-add" id="tvadd-${id}">${tvAddHtml(q)}</div>
+    </div>
+  </div>`;
+}
+
+// Edit-mode fields on a card (difficulty, topic, subtopic, page, rank)
+function tvEditHtml(q) {
+  const id = q._id, d = normDiff(q);
+  const diffBtn = (val, label, key) =>
+    `<button data-d="${val}" class="${d === val ? 'on' : ''}" onclick="tvDiff(${id}, '${val}')">${label}<kbd>${key}</kbd></button>`;
+  return `<span class="ep-label">Difficulty</span>
+      <div class="diff-btns">${diffBtn('', 'Normal', '1')}${diffBtn('Challenging', 'Challenging', '2')}${diffBtn('Very Challenging', 'Very Challenging', '3')}</div>
+      <span class="ep-label">Topic</span>
+      ${comboInput(q, 'topic')}
+      <span class="ep-label">Subtopic</span>
+      ${comboInput(q, 'subtopic', 'Type to search…')}
+      <div class="ep-row">
+        <div><span class="ep-label">Page</span><input class="ed num" type="number" min="1" data-id="${id}" data-field="page" value="${esc(q.page)}" onchange="tvField(this)"></div>
+        <div><span class="ep-label" title="Order within the same difficulty — 1 shows first">Rank</span><input class="ed num" type="number" min="1" data-id="${id}" data-field="rank" value="${esc(q.rank)}" onchange="tvField(this)" placeholder="—"></div>
+      </div>
+      <div class="tv-status" id="tvs-${id}"></div>`;
+}
+
+// ─── Worksheet controls on each card (both modes) ───
+const tvRange = {};    // question id -> { before, count } pages chosen for the worksheet
+const tvNumPages = {}; // question id -> total pages in its PDF (once loaded)
+
+function wsIndex(q) { const id = wsId(q); return worksheet.findIndex(w => wsId(w) === id); }
+
+function tvRangeOf(q) {
+  if (!tvRange[q._id]) {
+    const qp = parseInt(q.page) || 1, w = worksheet[wsIndex(q)];
+    tvRange[q._id] = w
+      ? { before: Math.max(0, qp - (w.start_page || qp)), count: Math.max(1, (w.end_page || qp) - qp + 1) }
+      : { before: 0, count: 1 };
+  }
+  return tvRange[q._id];
+}
+
+function tvPagesFor(q) {
+  const qp = parseInt(q.page) || 1, r = tvRangeOf(q), max = tvNumPages[q._id] || Infinity;
+  return { start: Math.max(1, qp - r.before), end: Math.min(max, qp + r.count - 1) };
+}
+function pagesLabel(a, b) { return a === b ? `p.${a}` : `pp.${a}–${b}`; }
+
+function tvAddHtml(q) {
+  const id = q._id, r = tvRangeOf(q), qp = parseInt(q.page) || 1;
+  const beforeMax = Math.min(2, qp - 1);
+  const chip = (grp, n, label) => `<button class="tv-chip ${r[grp] === n ? 'on' : ''}" onclick="tvSetRange(${id}, '${grp}', ${n})">${label}</button>`;
+  const added = wsIndex(q) >= 0, pg = tvPagesFor(q);
+  return `<span class="ep-label">Add to worksheet</span>
+    ${beforeMax > 0 ? `<div class="tv-range-lbl">Pages before p.${qp}</div><div class="tv-chips">${chip('before', 0, 'None')}${chip('before', 1, '+1')}${beforeMax > 1 ? chip('before', 2, '+2') : ''}</div>` : ''}
+    <div class="tv-range-lbl">Pages from p.${qp}</div>
+    <div class="tv-chips">${chip('count', 1, 'This page')}${chip('count', 2, '2 pages')}${chip('count', 3, '3 pages')}${chip('count', 4, '4 pages')}</div>
+    <button class="tv-add-btn ${added ? 'added' : ''}" onclick="tvToggleAdd(${id})">
+      <span>${added ? `✓ Added (${pagesLabel(pg.start, pg.end)}) — click to remove` : `+ Add to worksheet (${pagesLabel(pg.start, pg.end)})`}</span><kbd>A</kbd>
+    </button>`;
+}
+
+function tvShowAdd(q) {
+  const el = document.getElementById('tvadd-' + q._id);
+  if (el) el.innerHTML = tvAddHtml(q);
+}
+
+function tvSetRange(id, grp, n) {
+  const q = findQ(id); if (!q) return;
+  tvSetActive(id);
+  tvRangeOf(q)[grp] = n;
+  const qp = parseInt(q.page) || 1, pg = tvPagesFor(q);
+  tvRender(id, grp === 'before' ? qp - n : pg.end);    // show the page you just included
+  const i = wsIndex(q);
+  if (i >= 0) {                                          // already added: just update its pages
+    worksheet[i].start_page = pg.start; worksheet[i].end_page = pg.end;
+    refreshWsPanel();
+    showToast(`Updated Q${q.question} to ${pagesLabel(pg.start, pg.end)}`);
+  }
+  tvShowAdd(q);
+}
+
+function tvToggleAdd(id) {
+  const q = findQ(id); if (!q) return;
+  tvSetActive(id);
+  const i = wsIndex(q);
+  if (i >= 0) { removeFromWs(i); showToast(`Removed Q${q.question}`); return; }
+  const pg = tvPagesFor(q);
+  worksheet.push({ ...q, start_page: pg.start, end_page: pg.end });
+  updateTray(); refreshWsPanel();
+  showToast(`Added Q${q.question} (${pagesLabel(pg.start, pg.end)})`);
+}
+
+function updateTvWs() {
+  const el = document.getElementById('tv-ws');
+  if (el) el.textContent = `Worksheet: ${worksheet.length} question${worksheet.length !== 1 ? 's' : ''}`;
+  tvList.forEach(tvShowAdd);
+}
+
+function tvSetActive(id) {
+  if (tvActive === id) return;
+  const prev = document.getElementById('tvc-' + tvActive); if (prev) prev.classList.remove('active');
+  tvActive = id;
+  const cur = document.getElementById('tvc-' + id); if (cur) cur.classList.add('active');
+}
+
+function setCardStatus(q, msg, isErr) {
+  const el = document.getElementById('tvs-' + q._id);
   if (el) { el.textContent = msg; el.style.color = isErr ? 'var(--red)' : 'var(--text2)'; }
 }
 
-async function panelDiff(val) {
-  if (!previewQ) return;
-  const q = previewQ;
+function tvShowDiff(q) {
+  const d = normDiff(q);
+  document.querySelectorAll(`#tvc-${q._id} .diff-btns button`).forEach(b => b.classList.toggle('on', b.dataset.d === d));
+}
+
+function tvDiff(id, val) {
+  const q = findQ(id); if (!q) return;
+  tvSetActive(id);
   const p = saveField(q, 'difficulty', val, null);
-  renderEditPanel();   // show the new choice immediately
-  await p;
+  tvShowDiff(q);           // show the choice straight away
+  return p;
 }
 
-async function panelSave(field, el) {
-  const q = previewQ;
-  if (!q) return;
-  const ok = await saveField(q, field, el.value, el);
-  if (ok && field === 'page' && previewQ === q && previewPdfDoc) {
-    const pg = Math.min(Math.max(parseInt(q.page) || 1, 1), previewPdfDoc.numPages);
-    await renderPreviewPage(pg);
-    buildPageBtns();
-  }
-  if (ok && field === 'topic' && previewQ === q) {
-    const sub = document.querySelector('#edit-panel input[list^="dl-sub"]');
-    if (sub) sub.setAttribute('list', subDl(q));
+async function tvField(el) {
+  const id = +el.dataset.id, q = findQ(id); if (!q) return;
+  const ok = await saveField(q, el.dataset.field, el.value, el);
+  if (ok && el.dataset.field === 'page') { tvRender(id, parseInt(q.page) || 1); tvShowAdd(q); }
+}
+
+function tvStep(id, delta) { tvRender(id, (tvPage[id] || 1) + delta); }
+
+async function tvRender(id, pageNum) {
+  const q = findQ(id), wrap = document.getElementById('tvw-' + id);
+  if (!q || !wrap || !q.pdf_link) return;
+  tvPage[id] = pageNum;
+  try {
+    const doc = await getPdf(q.pdf_link);
+    pageNum = Math.min(Math.max(pageNum, 1), doc.numPages);
+    tvPage[id] = pageNum;
+    if (tvNumPages[id] !== doc.numPages) { tvNumPages[id] = doc.numPages; tvShowAdd(q); }
+    const page = await doc.getPage(pageNum);
+    if (tvPage[id] !== pageNum || !document.body.contains(wrap)) return;
+    const cssW = wrap.clientWidth || 680;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const vp = page.getViewport({ scale: cssW / page.getViewport({ scale: 1 }).width * dpr });
+    if (tvTasks[id]) { try { tvTasks[id].cancel(); } catch(e) {} }
+    let canvas = wrap.querySelector('canvas');
+    if (!canvas) { wrap.innerHTML = ''; canvas = document.createElement('canvas'); wrap.appendChild(canvas); wrap.classList.add('has'); }
+    canvas.width = vp.width; canvas.height = vp.height;
+    const task = page.render({ canvasContext: canvas.getContext('2d'), viewport: vp });
+    tvTasks[id] = task;
+    await task.promise;
+    const qp = parseInt(q.page) || 1;
+    const lbl = document.getElementById('tvp-' + id);
+    if (lbl) lbl.textContent = `Page ${pageNum} of ${doc.numPages}` + (pageNum !== qp ? ` (question is on p.${qp})` : '');
+  } catch(e) {
+    if (e && e.name === 'RenderingCancelledException') return;
+    if (document.body.contains(wrap)) { wrap.classList.remove('has'); wrap.innerHTML = '<div class="empty-state"><p>Could not load this PDF.</p></div>'; }
   }
 }
 
-function gotoQ(delta) {
-  const i = previewList.findIndex(x => x === previewQ);
-  const next = previewList[i + delta];
-  if (next) openPreview(next._row, previewLid);
+function tvJump(delta) {
+  const i = tvList.findIndex(q => q._id === tvActive);
+  const next = tvList[i + delta];
+  if (!next) return;
+  document.getElementById('tvc-' + next._id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  tvSetActive(next._id);
 }
 
 document.addEventListener('keydown', e => {
-  if (!document.getElementById('preview-overlay').classList.contains('open')) return;
-  if (e.key === 'Escape') { closePreview(); return; }
-  if (!editMode || e.ctrlKey || e.metaKey || e.altKey) return;
-  if (['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
-  const k = e.key.toLowerCase();
-  if (k === '1') panelDiff('');
-  else if (k === '2') panelDiff('Challenging');
-  else if (k === '3') panelDiff('Very Challenging');
-  else if (k === 'j') gotoQ(1);
-  else if (k === 'k') gotoQ(-1);
-  else return;
-  e.preventDefault();
+  if (e.defaultPrevented) return;
+  if (document.getElementById('tv-overlay').classList.contains('open')) {
+    if (e.key === 'Escape') { closeTagView(); return; }
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    if (['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+    const k = e.key.toLowerCase();
+    if (editMode && (k === '1' || k === '2' || k === '3')) { if (tvActive != null) tvDiff(tvActive, ['', 'Challenging', 'Very Challenging'][+k - 1]); }
+    else if (k === 'a') { if (tvActive != null) tvToggleAdd(tvActive); }
+    else if (k === 'j') tvJump(1);
+    else if (k === 'k') tvJump(-1);
+    else return;
+    e.preventDefault();
+    return;
+  }
 });
 
 // Re-draw the visible tables (keeps open paper cards open)
 function refreshViews() {
   editsSinceRender = false;
   if (!allQuestions.length) return;
-  refreshDatalists();
   if (selectedTopic && document.getElementById('results')) findQuestions();
   const open = [...document.querySelectorAll('.paper-card-body.open')].map(b => b.id);
   if (document.getElementById('papers-list')) renderPapers();
@@ -706,6 +875,7 @@ function wsId(q) { return `${q.school}|${q.year}|${q.paper}|${q.question}`; }
 
 function updateTray() {
   const n = worksheet.length;
+  updateTvWs();
   document.getElementById('tray-count').textContent = `${n} question${n!==1?'s':''}`;
   document.getElementById('tray').classList.toggle('visible', n > 0);
   document.getElementById('ws-export-btn').disabled = n === 0;
@@ -836,27 +1006,31 @@ function makePdfLink(pdfUrl, page, label) {
 }
 
 function makeAddBtn(q, lid) {
+  if (editMode) return `<button class="btn-add" onclick="openTagView('${lid}', ${q._id})">✎ Tag</button>`;
   const id = wsId(q);
   const isAdded = worksheet.some(w => wsId(w) === id);
-  const label = editMode ? '✎ Tag' : (isAdded ? '✓ Added' : '+ Add');
-  return `<button class="btn-add ${isAdded&&!editMode?'added':''}" data-qid="${esc(id)}" onclick="openPreview(${q._row}, '${lid}')">${label}</button>`;
+  return `<button class="btn-add ${isAdded?'added':''}" data-qid="${esc(id)}" onclick="openTagView('${lid}', ${q._id})">${isAdded?'✓ Added':'+ Add'}</button>`;
 }
 
 function diffCell(q) {
   if (editMode) {
-    const d = q.difficulty === 'Normal' ? '' : (q.difficulty || '');
+    const d = normDiff(q);
     const opt = (v, l) => `<option value="${v}" ${d===v?'selected':''}>${l}</option>`;
-    return `<select class="ed" data-row="${q._row}" data-field="difficulty" onchange="inlineSave(this)">${opt('','Normal')}${opt('Challenging','Challenging')}${opt('Very Challenging','Very Challenging')}</select>`;
+    return `<select class="ed" data-id="${q._id}" data-field="difficulty" onchange="inlineSave(this)">${opt('','Normal')}${opt('Challenging','Challenging')}${opt('Very Challenging','Very Challenging')}</select>`;
   }
   return q.difficulty && q.difficulty !== 'Normal'
     ? `<span class="badge ${DIFF_CLASS[q.difficulty]||'n1'}">${DIFF_LABEL[q.difficulty]||q.difficulty}</span>`
     : '<span style="color:var(--text3);font-size:12px;">—</span>';
 }
-function edInput(q, field, cls = '', list = '') {
-  return `<input class="ed ${cls}" ${cls==='num'?'type="number" min="1"':''} ${list?`list="${list}"`:''} data-row="${q._row}" data-field="${field}" value="${esc(q[field])}" onchange="inlineSave(this)">`;
+function edInput(q, field, cls = '') {
+  return `<input class="ed ${cls}" type="number" min="1" data-id="${q._id}" data-field="${field}" value="${esc(q[field])}" onchange="inlineSave(this)">`;
+}
+// Topic / subtopic box with a type-to-filter dropdown (saves when you pick)
+function comboInput(q, field, placeholder = '') {
+  return `<input class="ed combo" autocomplete="off" spellcheck="false" data-id="${q._id}" data-field="${field}" value="${esc(q[field])}" placeholder="${placeholder}">`;
 }
 function topicCells(q) {
-  if (editMode) return `<td>${edInput(q,'topic','', 'dl-topics')}</td><td>${edInput(q,'subtopic','', subDl(q))}</td>`;
+  if (editMode) return `<td>${comboInput(q,'topic')}</td><td>${comboInput(q,'subtopic')}</td>`;
   return `<td>${q.topic||'—'}</td><td style="color:var(--text2)">${q.subtopic||'—'}</td>`;
 }
 function editExtraCells(q) {
@@ -910,6 +1084,7 @@ async function loadSheet(subject, fresh) {
   const headers = rows[0].map(h => h.trim().toLowerCase());
   const idx = h => headers.indexOf(h);
   const questions = rows.slice(1).map((r, i) => ({
+    _id:        ++qidSeq,
     _row:       i + 2,               // sheet row number, used when saving edits
     _tab:       TABS[subject],
     rank:       r[idx('rank')]       || '',
@@ -981,7 +1156,7 @@ async function loadSubject(key, fresh) {
   document.getElementById('browse-area').innerHTML  = '<div class="loading"><div class="spinner"></div>Loading questions...</div>';
   try {
     allQuestions = await loadSheet(key, fresh);
-    updateStats(); refreshDatalists(); buildFilterUI(); buildBrowseUI();
+    updateStats(); buildFilterUI(); buildBrowseUI();
   } catch(e) {
     showError(`Could not load questions. Check the sheet tab is named "${TABS[key]}" and is publicly shared.`);
   }
@@ -991,7 +1166,7 @@ async function init() {
   applySubjectTheme('amath');
   try {
     allQuestions = await loadSheet('amath');
-    updateStats(); refreshDatalists(); buildFilterUI(); buildBrowseUI();
+    updateStats(); buildFilterUI(); buildBrowseUI();
   } catch(e) {
     showError('Could not load questions. Check your Sheet ID, API key, and that the sheet is publicly shared.');
   }
@@ -1106,7 +1281,7 @@ function findQuestions() {
   const el = document.getElementById('results');
   if (res.length === 0) { el.innerHTML = `<div class="empty-state"><p>No questions found for this topic.</p></div>`; return; }
   el.innerHTML = `<div class="table-wrap">
-    <div class="table-meta">${res.length} question${res.length!==1?'s':''} found</div>
+    <div class="table-meta"><span>${res.length} question${res.length!==1?'s':''} found</span><button class="tv-open-btn" onclick="openTagView('filter')">${editMode?`▶ Scroll &amp; tag all ${res.length}`:`▶ Scroll through all ${res.length}`}</button></div>
     <table><thead><tr><th>School</th><th>Year</th><th>Paper</th><th>Question</th><th>Topic</th><th>Subtopic</th><th>Difficulty</th>${editExtraHeads()}<th></th><th></th></tr></thead>
     <tbody>${res.map(q=>qRow(q,'filter')).join('')}</tbody></table></div>`;
 }
@@ -1164,7 +1339,7 @@ function renderPapers() {
       const lid = `g${i}p${pNum}`;
       listRegistry[lid] = qs;
       return `<div>
-        <div style="padding:12px 20px 10px;font-size:15px;font-weight:600;color:var(--text);background:var(--bg);border-top:1px solid var(--border);">Paper ${pNum}</div>
+        <div style="padding:12px 20px 10px;font-size:15px;font-weight:600;color:var(--text);background:var(--bg);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:12px;">Paper ${pNum}<button class="tv-open-btn" onclick="openTagView('${lid}')">${editMode?'▶ Scroll &amp; tag this paper':'▶ Scroll through this paper'}</button></div>
         <table><thead><tr><th>Question</th><th>Topic</th><th>Subtopic</th><th>Difficulty</th>${editExtraHeads()}<th></th><th></th></tr></thead>
         <tbody>${qs.map(q=>qRowBrowse(q,lid)).join('')}</tbody></table>
       </div>`;
