@@ -688,7 +688,7 @@ function tvEditHtml(q) {
       <div class="diff-btns">${diffBtn('', 'Normal', '1')}${diffBtn('Challenging', 'Challenging', '2')}${diffBtn('Very Challenging', 'Very Challenging', '3')}</div>
       <span class="ep-label">Topic</span>
       ${comboInput(q, 'topic')}
-      <span class="ep-label">Subtopic</span>
+      <span class="ep-label" style="font-weight:700;color:var(--text)">Subtopic</span>
       ${comboInput(q, 'subtopic', 'Type to search…')}
       <div class="ep-row">
         <div><span class="ep-label">Page</span><input class="ed num" type="number" min="1" data-id="${id}" data-field="page" value="${esc(q.page)}" onchange="tvField(this)"></div>
