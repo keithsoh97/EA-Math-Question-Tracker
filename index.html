@@ -357,6 +357,7 @@ let currentSubject = 'amath';
 let currentKey = 'amath';     // amath | emath | nemath
 let currentLevel   = 'olevel'; // only relevant when subject is emath
 let allQuestions = [], selectedTopic = null, selectedSubtopic = null;
+const NO_SUB = '__none__';   // subtopic filter value meaning "questions with no subtopic"
 
 // Worksheet
 let worksheet = [];
@@ -615,7 +616,7 @@ function openTagView(lid, startId) {
   if (!tvList.length) return;
   const f = tvList[0];
   document.getElementById('tv-title').textContent = lid === 'filter'
-    ? `${selectedTopic || 'Questions'}${selectedSubtopic ? ' — ' + selectedSubtopic : ''} · ${tvList.length}`
+    ? `${selectedTopic || 'Questions'}${selectedSubtopic ? ' — ' + (selectedSubtopic === NO_SUB ? 'No subtopic' : selectedSubtopic) : ''} · ${tvList.length}`
     : `${f.year} ${f.school} — Paper ${f.paper} · ${tvList.length}`;
   document.getElementById('tv-hint').innerHTML = editMode
     ? 'Scroll through the questions — every change saves to the Sheet straight away.<br><b>1 / 2 / 3</b> difficulty · <b>A</b> add / remove from worksheet · <b>J / K</b> next / previous question'
@@ -1237,10 +1238,12 @@ function refreshSubtopics() {
   const subs = map[selectedTopic] ? Array.from(map[selectedTopic]).sort() : [];
   const wrap = document.getElementById('subtopic-wrap');
   if (subs.length === 0) { wrap.classList.remove('visible'); return; }
+  const untagged = allQuestions.filter(q => q.topic === selectedTopic && !q.subtopic).length;
   document.getElementById('subtopic-label').textContent = `Subtopic — ${selectedTopic}`;
   document.getElementById('subtopic-chips').innerHTML =
     `<button class="chip all-chip on" data-sub="" onclick="toggleSub(this,this.dataset.sub)">All</button>` +
-    subs.map(s=>`<button class="chip" data-sub="${s}" onclick="toggleSub(this,this.dataset.sub)">${s}</button>`).join('');
+    subs.map(s=>`<button class="chip" data-sub="${s}" onclick="toggleSub(this,this.dataset.sub)">${s}</button>`).join('') +
+    (untagged ? `<button class="chip all-chip" data-sub="${NO_SUB}" onclick="toggleSub(this,this.dataset.sub)">No subtopic (${untagged})</button>` : '');
   wrap.classList.add('visible');
 }
 
@@ -1275,7 +1278,8 @@ function sortByDifficulty(qs) {
 function findQuestions() {
   let res = allQuestions;
   if (selectedTopic)    res = res.filter(q=>q.topic===selectedTopic);
-  if (selectedSubtopic) res = res.filter(q=>q.subtopic===selectedSubtopic);
+  if (selectedSubtopic === NO_SUB) res = res.filter(q=>!q.subtopic);
+  else if (selectedSubtopic) res = res.filter(q=>q.subtopic===selectedSubtopic);
   res = sortByDifficulty(res);
   listRegistry.filter = res;
   const el = document.getElementById('results');
